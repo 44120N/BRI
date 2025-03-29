@@ -1,0 +1,16 @@
+[
+    {
+        "name": "limit",
+        "url": [
+            "/BRI/course/limit/intro",
+            "/BRI/course/limit/theorem"
+        ]
+    },
+    {
+        "name": "algebra",
+        "url": [
+            "/BRI/course/equations",
+            "/BRI/course/matrices"
+        ]
+    }
+]
