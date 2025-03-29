@@ -31,8 +31,8 @@ const router = createBrowserRouter([
         children: [
             { path: "", element: <Home /> },
             { path: "test", element: <Testing /> },
-            { path: "course", element: <CourseList /> },
-            { path: "course/limit", element: <LimitSyllabus /> },
+            { path: "course/", element: <CourseList /> },
+            { path: "course/limit/", element: <LimitSyllabus /> },
         ],
     },
     {
@@ -40,8 +40,8 @@ const router = createBrowserRouter([
         element: <CourseLayout />,
         children: [
             // { path: "", element: <Navigate to={getInitialRoute("limit")} replace /> },
-            { path: 'intro', element: <LimitIntro /> },
-            { path: 'theorem', element: <LimitApproach /> }
+            { path: 'intro/', element: <LimitIntro /> },
+            { path: 'theorem/', element: <LimitApproach /> }
         ],
     },
 ]);
