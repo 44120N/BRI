@@ -10,6 +10,7 @@ import Testing from "./pages/BoilerPlate.jsx";
 import CourseList from "./pages/CourseList.jsx";
 import { LimitSyllabus, LimitIntro, LimitApproach } from "./course/Limit.jsx";
 import pagesData from "./data/pages.json"
+import PageNotFound from "./404.jsx";
 
 const getInitialRoute = (course) => {
     const courseData = pagesData.find((c) => c.name === course);
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
             { path: 'theorem', element: <LimitApproach /> }
         ],
     },
+    {
+        path: "/BRI/*",
+        element: <PageNotFound />,
+    }
 ]);
 
 createRoot(document.getElementById("root")).render(
