@@ -58,20 +58,46 @@ export default function PageNotFound() {
 
     return (
         <>
+            <Typography display={"none"}>
+                WELCOME TO @KOMATSUBEN 'S HIDEOUT: THE INFINITE VOID OF
+                NOTHINGNESS(404)
+            </Typography>
             <Stack
                 sx={{
                     height: "100vh",
                     display: { xs: "flex", sm: "none" },
-                    backgroundColor: "#b60801",
+                    backgroundColor: "rgba(0, 0, 0, 0.5)",
+                    backdropFilter: "blur(2px)",
                     color: "#fef0da",
                     px: 5,
+                    position: "fixed",
+                    top: 0,
+                    left: 0,
+                    zIndex: 1,
                 }}
                 justifyContent="center"
                 alignItems="start"
             >
-                <Typography variant="h1">404.</Typography>
-                <Typography>Page Not Found</Typography>
-                <Typography>
+                <Typography
+                    variant="h1"
+                    sx={{
+                        fontFamily: "monospace",
+                    }}
+                >
+                    404.
+                </Typography>
+                <Typography
+                    sx={{
+                        fontFamily: "monospace",
+                    }}
+                >
+                    Page Not Found
+                </Typography>
+                <Typography
+                    sx={{
+                        fontFamily: "monospace",
+                    }}
+                >
                     Welcome, lost traveler. The page that you are looking for
                     does not exist.
                 </Typography>
@@ -79,6 +105,9 @@ export default function PageNotFound() {
                     sx={{
                         height: "1.5rem",
                         bgcolor: "#fef0da",
+                        my: 3,
+                        width: "100%",
+                        border: "2px solid gold",
                     }}
                 >
                     <Link
@@ -87,12 +116,29 @@ export default function PageNotFound() {
                             textDecoration: "none",
                             color: "#b60801",
                             fontWeight: "900",
+                            fontFamily: "monospace",
                         }}
                     >
                         Go Home &rArr;
                     </Link>
                 </Button>
             </Stack>
+            <Stack
+                sx={{
+                    width: "100vw",
+                    height: "100vh",
+                    position: "fixed",
+                    display: { xs: "flex", sm: "none" },
+                    top: 0,
+                    left: 0,
+                    background:
+                        "radial-gradient(50px at top,#b60801 99%,#0000), radial-gradient(50px at bottom,#b60801 99%,#0000) 50px 0",
+                    backgroundSize: "100px 100px",
+                    backgroundColor: "#c39f76",
+                    zIndex: 0,
+                }}
+            ></Stack>
+
             <Stack
                 sx={{
                     height: "100vh",
