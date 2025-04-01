@@ -2,7 +2,7 @@ import { Stack, Typography, Button } from "@mui/material";
 import Accordion from "./Accordion";
 import { MathJax } from "better-react-mathjax";
 
-function Problem({ Equation }) {
+function Problem({ equation, children, instruction, note }) {
     return (
         <>
             <Stack
@@ -12,29 +12,23 @@ function Problem({ Equation }) {
                 sx={{ backgroundColor: "#e0f0ff", border: "1px solid #000" }}
             >
                 <Typography>
-                    <MathJax>
-                        {
-                            "Ketika \\( x \\) mendekati \\( a \\), nilai \\( f(x) \\) mendekati \\( L \\)"
-                        }
-                    </MathJax>
+                    <MathJax>{instruction}</MathJax>
                 </Typography>
                 <Typography fontSize={"1.2em"} textAlign={"center"}>
-                    <MathJax>{Equation}</MathJax>
+                    <MathJax>{equation}</MathJax>
                 </Typography>
                 <Typography>
-                    <MathJax>
-                        {
-                            "dengan syarat \\(f(x)\\) sedekat mungkin dengan \\(L\\) untuk semua \\(x\\) yang cukup dekat dengan \\(a\\) dari sisi kiri dan kanan"
-                        }
-                    </MathJax>
+                    <MathJax>{note}</MathJax>
                 </Typography>
                 <Stack>
                     <Accordion
-                        question={<b>skibidi</b>}
-                        answer={<i>skibidi</i>}
+                        question={
+                            <Typography fontWeight={750}>Solution</Typography>
+                        }
+                        answer={children}
                         bgcolor_title="inherit"
                         color_title="kurai_ao"
-                        bgcolor_text="#f0f0f0"
+                        bgcolor_text="inherit"
                         color_text="#000"
                         sx={{ boxShadow: 0, maxWidth: "100%" }}
                         nopadding
@@ -48,5 +42,11 @@ function Problem({ Equation }) {
 }
 
 export default function DisplayProblem() {
-    return <Problem Equation={"\\[ \\lim_{x \\to a} f(x) = L \\]"} />;
+    return (
+        <Stack px={15}>
+            <Problem equation={"\\[ \\lim_{x \\to a} f(x) = L \\]"}>
+                <Stack>Hey jude</Stack>
+            </Problem>
+        </Stack>
+    );
 }
