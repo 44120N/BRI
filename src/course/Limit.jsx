@@ -327,7 +327,12 @@ export function LimitApproach() {
                     <Typography textTransform={'capitalize'} fontWeight={700} variant="h5">Pendekatan Limit</Typography>
                 </Stack>
                 <Typography color="#555">5 min</Typography>
-                <Typography>Limit memiliki 2 pendekatan yang berbeda berdasarkan arahnya: <Typography component={'b'} fontSize={'inherit'} fontWeight={600} className="highlight">limit kiri</Typography> dan <Typography component={'b'} fontSize={'inherit'} fontWeight={600} className="highlight">limit kanan</Typography>.</Typography>
+                <Typography>
+                    Limit fungsi memiliki 2 pendekatan yang berbeda berdasarkan arahnya: <Typography component="span" fontSize="inherit" fontWeight={600} className="highlight">limit kiri</Typography> dan <Typography component="span" fontSize="inherit" fontWeight={600} className="highlight">limit kanan</Typography>. 
+                    Limit fungsi dapat memiliki sebuah nilai apabila nilai <Typography component="span" fontSize="inherit" fontWeight={600} className="highlight">limit kiri = limit kanan</Typography>. 
+                    Namun apabila nilai <Typography component="span" fontSize="inherit" fontWeight={600} className="highlight">limit kiri <MathJax inline>{"\\( \\neq \\)"}</MathJax> limit kanan</Typography>, 
+                    maka limit fungsi tidak ada.
+                </Typography>
                 <Stack gap={2}>
                     <Typography fontWeight={700} fontSize={'1.2em'} mt={2}>Limit Kiri</Typography>
                     <Stack gap={3} px={2} py={1} sx={{ backgroundColor: '#e0f0ff', border: '1px solid #000' }}>
@@ -409,40 +414,50 @@ export function LimitApproach() {
                     <Stack gap={3} px={3} py={2} sx={{ backgroundColor: '#fafaff', border: '1px solid #000' }}>
                         <Typography>Perkirakan nilai limit berikut</Typography>
                         <Typography fontSize={'1.2em'} textAlign={'center'}>
-                            <MathJax>{"\\[ \\lim_{x \\to 1} \\frac{x^{2}-1}{x-1} \\]"}</MathJax>
+                            <MathJax>
+                                {"\\[ \\lim_{x \\to 2} g(x), \\quad \\text{ dimana } \\quad g(x) = \\begin{cases} \\displaystyle\\frac{x^{2} + 4x - 12}{x^{2} - 2x} & \\text{jika } x \\neq 2 \\\\ 6 & \\text{jika } x = 2 \\end{cases} \\]"}
+                            </MathJax>
                         </Typography>
                         <Stack direction={'row'} gap={3} flexWrap={'wrap'} justifyContent={'space-around'} alignItems={'center'}>
                             <Stack>
                                 <Typography>Pendekatan dari kiri:</Typography>
                                 <Typography>
-                                    <MathJax>{"\\( f(0,9) = 1,9 \\)"}</MathJax>
+                                    <MathJax>{"\\( f(1,9) = 4,158 \\)"}</MathJax>
                                 </Typography>
                                 <Typography>
-                                    <MathJax>{"\\( f(0,99) = 1,99 \\)"}</MathJax>
+                                    <MathJax>{"\\( f(1,99) = 4,015 \\)"}</MathJax>
                                 </Typography>
                                 <Typography>
-                                    <MathJax>{"\\( f(0,999) = 1,999 \\)"}</MathJax>
+                                    <MathJax>{"\\( f(1,999) = 4,001 \\)"}</MathJax>
                                 </Typography>
                             </Stack>
                             <Stack>
                                 <Typography>Pendekatan dari kanan:</Typography>
                                 <Typography>
-                                    <MathJax>{"\\( f(1,1) = 2,1 \\)"}</MathJax>
+                                    <MathJax>{"\\( f(2,1) = 3,857 \\)"}</MathJax>
                                 </Typography>
                                 <Typography>
-                                    <MathJax>{"\\( f(1,01) = 2,01 \\)"}</MathJax>
+                                    <MathJax>{"\\( f(2,01) = 3,985 \\)"}</MathJax>
                                 </Typography>
                                 <Typography>
-                                    <MathJax>{"\\( f(1,001) = 2,001 \\)"}</MathJax>
+                                    <MathJax>{"\\( f(2,001) = 3,999 \\)"}</MathJax>
                                 </Typography>
                             </Stack>
                         </Stack>
                         <Stack>
                             <Typography>
-                                <MathJax>{"Dapat disimpulkan bahwa nilai \\(x\\) mendekati nilai \\(2\\) dari sisi kiri maupun sisi kanan. Maka dari itu:"}</MathJax>
+                                <MathJax>{"Dapat disimpulkan bahwa nilai \\(x\\) mendekati nilai \\(4\\) dari sisi kiri maupun sisi kanan. Maka dari itu:"}</MathJax>
                             </Typography>
                             <Typography fontSize={'1.2em'} textAlign={'center'} color="kurai_ao.main">
-                                <MathJax>{"\\[ \\lim_{x \\to 1} \\frac{x^{2}-1}{x-1} = 2 \\]"}</MathJax>
+                                <MathJax>{"\\[ \\lim_{x \\to 2} g(x) = 4 \\]"}</MathJax>
+                            </Typography>
+                        </Stack>
+                        <Stack>
+                            <Typography>
+                                <MathJax>{"Pada kasus ini, perlu diingat bahwa:"}</MathJax>
+                            </Typography>
+                            <Typography fontSize={'1.2em'} textAlign={'center'} color="kurai_ao.main">
+                                <MathJax>{"\\[ \\lim_{x \\to 2} g(x) \\neq g(2) \\]"}</MathJax>
                             </Typography>
                         </Stack>
                     </Stack>
@@ -452,42 +467,42 @@ export function LimitApproach() {
                     <Stack gap={3} px={3} py={2} sx={{ backgroundColor: '#fafaff', border: '1px solid #000' }}>
                         <Typography>Perkirakan nilai limit berikut</Typography>
                         <Typography fontSize={'1.2em'} textAlign={'center'}>
-                            <MathJax>{
-                                "\\[ \\lim_{x \\to 2} g(x), \\quad \\text{ dimana } \\quad g(x) = \\begin{cases} \\frac{x^2 + 4x - 12}{x^2 - 2x} & \\text{if } x \\neq 2 \\\\ 6 & \\text{if } x = 2 \\end{cases} \\]"
-                            }</MathJax>
+                            <MathJax>
+                                {"\\[ \\lim_{x \\to 0} I(t), \\quad \\text{ dimana } \\quad I(t) = \\begin{cases} 0 & \\text{jika } t \\leq 0 \\\\ 1 & \\text{jika } t \\gt 0 \\end{cases} \\]"}
+                            </MathJax>
                         </Typography>
                         <Stack direction={'row'} gap={3} flexWrap={'wrap'} justifyContent={'space-around'} alignItems={'center'}>
                             <Stack>
                                 <Typography>Pendekatan dari kiri:</Typography>
                                 <Typography>
-                                    <MathJax>{"\\( f(0,9) = 1,9 \\)"}</MathJax>
+                                    <MathJax>{"\\( f(-0,1) = 0 \\)"}</MathJax>
                                 </Typography>
                                 <Typography>
-                                    <MathJax>{"\\( f(0,99) = 1,99 \\)"}</MathJax>
+                                    <MathJax>{"\\( f(-0,01) = 0 \\)"}</MathJax>
                                 </Typography>
                                 <Typography>
-                                    <MathJax>{"\\( f(0,999) = 1,999 \\)"}</MathJax>
+                                    <MathJax>{"\\( f(-0,001) = 0 \\)"}</MathJax>
                                 </Typography>
                             </Stack>
                             <Stack>
                                 <Typography>Pendekatan dari kanan:</Typography>
                                 <Typography>
-                                    <MathJax>{"\\( f(1,1) = 2,1 \\)"}</MathJax>
+                                    <MathJax>{"\\( f(0,1) = 1 \\)"}</MathJax>
                                 </Typography>
                                 <Typography>
-                                    <MathJax>{"\\( f(1,01) = 2,01 \\)"}</MathJax>
+                                    <MathJax>{"\\( f(0,01) = 1 \\)"}</MathJax>
                                 </Typography>
                                 <Typography>
-                                    <MathJax>{"\\( f(1,001) = 2,001 \\)"}</MathJax>
+                                    <MathJax>{"\\( f(0,001) = 1 \\)"}</MathJax>
                                 </Typography>
                             </Stack>
                         </Stack>
                         <Stack>
                             <Typography>
-                                <MathJax>{"Dapat disimpulkan bahwa nilai \\(x\\) mendekati nilai \\(2\\) dari sisi kiri maupun sisi kanan. Maka dari itu:"}</MathJax>
+                                <MathJax>{"Dapat disimpulkan bahwa nilai \\(x\\) mendekati nilai yang berbeda dari sisi kiri maupun sisi kanan. Maka dari itu:"}</MathJax>
                             </Typography>
                             <Typography fontSize={'1.2em'} textAlign={'center'} color="kurai_ao.main">
-                                <MathJax>{"\\[ \\lim_{x \\to 1} \\frac{x^{2}-1}{x-1} = 2 \\]"}</MathJax>
+                                <MathJax>{"\\[ \\lim_{x \\to 2} g(x) \\text{ tidak ada} \\]"}</MathJax>
                             </Typography>
                         </Stack>
                     </Stack>
