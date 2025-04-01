@@ -64,7 +64,7 @@ export default function Footer({ sx }) {
         <Stack
             direction={{ xs: "column", md: "row" }}
             sx={{
-                mb: { xs: 5, md: 0 },
+                mb: { xs: "3.932rem", sm: 0 },
                 py: 5,
                 px: { xs: 3, md: 6 },
                 bgcolor: "#f0f0f0",

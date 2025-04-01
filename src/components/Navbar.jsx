@@ -20,7 +20,6 @@ import SchoolIcon from "@mui/icons-material/School";
 import EventIcon from "@mui/icons-material/Event";
 import BookIcon from "@mui/icons-material/MenuBook";
 import RateReviewIcon from "@mui/icons-material/RateReview";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
 const menuItems = [
     { label: "Home", href: "/BRI/" },
@@ -83,22 +82,8 @@ const NavButtons = ({ sx }) => (
 );
 
 export default function Navbar() {
-    const [mobileOpen, setMobileOpen] = useState(false);
-    const [openDropdown, setOpenDropdown] = useState(false); // For mobile dropdown
-
     return (
         <>
-            {/* Mobile Drawer */}
-            <Drawer
-                active={mobileOpen}
-                setActive={setMobileOpen}
-                title="Menu"
-                bgcolor="primary.main"
-                color="#fff"
-                bdcolor="#000"
-                list={menuItems}
-            />
-
             {/* Top Navbar */}
             <AppBar
                 position="sticky"
@@ -111,17 +96,22 @@ export default function Navbar() {
                 }}
             >
                 <Toolbar sx={{ justifyContent: "space-between" }}>
-                    {/* Mobile Menu Button */}
-                    <MuiButton
-                        color="#fff"
-                        bgcolor="primary.main"
-                        bdcolor="#000"
-                        onClick={() => setMobileOpen(true)}
-                        sx={{ display: { xs: "flex", sm: "none" }, p: 1 }}
+                    {/* Logo */}
+                    <IconButton
+                        color="inherit"
+                        sx={{
+                            p: "1vh 1.5vh",
+                            display: { xs: "block", sm: "none" },
+                        }}
                     >
-                        <MenuIcon />
-                    </MuiButton>
-
+                        <Icon sx={{ height: "5vh" }}>
+                            <img
+                                src="/BRI/putih.svg"
+                                style={{ maxHeight: "5vh" }}
+                                alt="Rumah Ilmiah"
+                            />
+                        </Icon>
+                    </IconButton>
                     <Stack
                         sx={{
                             display: { xs: "block", sm: "flex" },
@@ -172,15 +162,16 @@ export default function Navbar() {
                 position="fixed"
                 color="primary"
                 sx={{
-                    top: "auto",
                     bottom: 0,
+                    top: "auto",
                     borderTop: "3px solid",
                     borderColor: "kurai_ao.main",
                     display: { xs: "flex", sm: "none" },
+                    alignItems: "center",
                 }}
             >
                 <Toolbar>
-                    <Stack direction="row" gap={5}>
+                    <Stack direction="row" gap={1}>
                         <Button
                             sx={{
                                 display: { xs: "flex", sm: "none" },
@@ -253,8 +244,8 @@ export default function Navbar() {
                             component={Link}
                             to="/BRI/"
                         >
-                            <AccountCircleIcon color="white" />
-                            <Typography variant="caption">Account</Typography>
+                            <BookIcon color="white" />
+                            <Typography variant="caption">Silabus</Typography>
                         </Button>
                     </Stack>
                 </Toolbar>
