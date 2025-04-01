@@ -101,7 +101,9 @@ export default function Navbar() {
                         color="inherit"
                         sx={{
                             p: "1vh 1.5vh",
-                            display: { xs: "block", sm: "none" },
+                            display: { xs: "flex", sm: "none" },
+                            justifyContent: "center",
+                            alignItems: "center",
                         }}
                     >
                         <Icon sx={{ height: "5vh" }}>
@@ -126,7 +128,9 @@ export default function Navbar() {
                             color="inherit"
                             sx={{
                                 p: "1vh 1.5vh",
-                                display: { xs: "none", sm: "block" },
+                                display: { xs: "none", sm: "flex" },
+                                justifyContent: "center",
+                                alignContent: "center",
                             }}
                         >
                             <Icon sx={{ height: "5vh" }}>

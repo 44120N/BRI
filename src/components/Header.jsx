@@ -15,8 +15,8 @@ const Header = () => {
                     p={{xs:1, sm:1.5, md:2}}
                 >
                     <Stack>
-                        <Typography textAlign={'center'} fontWeight={800} color="#fff" fontSize={{xs:'.6em', sm:'.8em', md:'1em'}}>
-                            🎉 Dapatkan keuntungan lebih banyak dengan <Typography component={'b'} color='quaternary.main' fontWeight={800} fontSize={{xs:'1em', sm:'1em', md:'1em'}}>Membership</Typography>!
+                        <Typography textAlign={'center'} fontWeight={800} color="#fff" fontSize={{xs:'.9em', sm:'1em', md:'1.2em'}}>
+                            🎉 Dapatkan keuntungan lebih banyak dengan <Typography component={'b'} color='quaternary.main' fontWeight={800} fontSize={{xs:'.9em', sm:'1em', md:'1.2em'}}>Membership</Typography>!
                         </Typography>
                     </Stack>
                     <Stack>
