@@ -15,7 +15,6 @@ import CourseList from "./pages/CourseList.jsx";
 import { LimitSyllabus, LimitIntro, LimitApproach } from "./course/Limit.jsx";
 import pagesData from "./data/pages.json";
 import PageNotFound from "./404.jsx";
-import DisplayProblem from "./components/Problem.jsx";
 
 const getInitialRoute = (course) => {
     const courseData = pagesData.find((c) => c.name === course);
@@ -55,7 +54,6 @@ const router = createBrowserRouter([
             // { path: "", element: <Navigate to={getInitialRoute("limit")} replace /> },
             { path: "intro", element: <LimitIntro /> },
             { path: "approach", element: <LimitApproach /> },
-            { path: "test", element: <DisplayProblem /> }, //DELETE AFTER TESTING
         ],
     },
     {

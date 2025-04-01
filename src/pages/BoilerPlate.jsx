@@ -4,6 +4,7 @@ import Button from "../components/Button";
 import Carousel from "../components/Carousel";
 import Tiles from "../components/Tiles";
 import Dropdown from "../components/Dropdown";
+import Problem from "../components/Problem";
 
 import SchoolIcon from "@mui/icons-material/School";
 import EventIcon from "@mui/icons-material/Event";
@@ -405,6 +406,9 @@ export default function Testing() {
                     >
                         Study
                     </Dropdown>
+                </Stack>
+                <Stack sx={{padding: '2% 3%'}} gap={2}>
+                    <Problem title="Contoh" equation={'\\[ x=2 \\]'} accordion_text="Pembahasan">Y</Problem>
                 </Stack>
             </Stack>
         </>

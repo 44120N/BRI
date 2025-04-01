@@ -6,23 +6,22 @@ import { Link } from "react-router-dom";
 const Accordion = ({
     question,
     answer,
-    bgcolor_title,
-    bgcolor_text,
-    bdcolor,
-    color_title,
-    color_text,
-    sx,
-    nopaddinginline,
-    nopadding,
-    nohover,
-    rawinput,
+    bgcolor_title = "#f0f0f0",
+    bgcolor_text = "#fff",
+    bdcolor = "#000",
+    color_title = "#000",
+    color_text = "#000",
+    sx = {},
+    nopaddinginline = false,
+    nohover = false,
+    rawinput = false,
 }) => {
     const [isOpen, setIsOpen] = useState(false);
-    const [contentHeight, setContentHeight] = useState(0);
     const contentRef = useRef(null);
+    const [contentHeight, setContentHeight] = useState(0);
 
     useEffect(() => {
-        if (contentRef.current) {
+        if (isOpen && contentRef.current) {
             setContentHeight(contentRef.current.scrollHeight);
         }
     }, [isOpen]);
@@ -38,19 +37,15 @@ const Accordion = ({
                 overflow: "hidden",
                 boxShadow: `5px 5px 0px ${bdcolor}`,
                 mb: 2,
-                backgroundColor: `${bgcolor_title}`,
+                backgroundColor: bgcolor_title,
+                transition: "transform 0.2s ease, box-shadow 0.2s ease",
                 ...(nohover
                     ? {}
                     : {
-                          "&:hover": {
-                              transform: "translate(5px, 5px)",
-                              boxShadow: "none",
-                          },
-                          "&:active": {
-                              transform: "translate(2px, 2px)",
-                          },
-                      }),
-                ...sx,
+                            "&:hover": { transform: "translate(5px, 5px)", boxShadow: "none" },
+                            "&:active": { transform: "translate(2px, 2px)" },
+                    }),
+                ...sx, // Merged global sx styles
             }}
         >
             <Button
@@ -61,16 +56,16 @@ const Accordion = ({
                     justifyContent: "space-between",
                     alignItems: "center",
                     width: "100%",
-                    padding: nopaddinginline || nopadding ? "2% 0" : "2% 3%",
+                    padding: nopaddinginline ? "2% 0" : "2% 3%",
                     fontSize: "1.1rem",
                     fontWeight: 600,
-                    backgroundColor: `${bgcolor_title}`,
-                    border: "none",
-                    outline: "none",
+                    backgroundColor: bgcolor_title,
+                    // borderBottom: isOpen ? `2px solid ${bdcolor}` : "0px",
+                    // borderRadius: isOpen ? "0px" : "8px",
+                    color: color_title,
                     cursor: "pointer",
-                    borderBottom: isOpen ? `2px solid ${bdcolor}` : "0px",
-                    borderRadius: isOpen ? "0px" : "8px",
-                    color: `${color_title}`,
+                    outline: "none",
+                    ...sx?.title, // Overrides title styles via sx prop
                 }}
             >
                 {rawinput ? (
@@ -84,17 +79,21 @@ const Accordion = ({
                         transition: "transform 0.3s ease",
                     }}
                 >
-                    <KeyboardArrowDownIcon color={color_title} />
+                    <Typography color={color_title}>
+                        <KeyboardArrowDownIcon />
+                    </Typography>
                 </Stack>
             </Button>
+
             <Stack
                 ref={contentRef}
                 style={{
-                    height: isOpen ? `${contentHeight}px` : "0",
+                    maxHeight: isOpen ? `${contentHeight}px` : "0",
                     overflow: "hidden",
-                    transition: "height ease-in-out",
-                    background: `${bgcolor_text}`,
-                    padding: isOpen ? (nopadding ? "2vw 0" : "2vw") : "0 2vw",
+                    transition: "max-height 0.3s ease-in-out, padding 0.2s ease",
+                    background: bgcolor_text,
+                    padding: isOpen ? "2vw" : "0 2vw",
+                    ...sx?.text, // Overrides text styles via sx prop
                 }}
             >
                 <Stack gap={2}>
@@ -106,29 +105,16 @@ const Accordion = ({
                                 <Link
                                     to={item.href || "#"}
                                     style={{ textDecoration: "none" }}
-                                    sx={{
-                                        py:
-                                            id < answer.length - 1
-                                                ? "1vh"
-                                                : "0px",
-                                    }}
+                                    sx={{ py: id < answer.length - 1 ? "1vh" : "0px" }}
                                 >
-                                    <Typography
-                                        fontSize={"0.9rem"}
-                                        margin={0}
-                                        color={color_text}
-                                    >
+                                    <Typography fontSize={"0.9rem"} margin={0} color={color_text}>
                                         {item.label}
                                     </Typography>
                                 </Link>
                             </Stack>
                         ))
                     ) : (
-                        <Typography
-                            fontSize={"0.9rem"}
-                            margin={0}
-                            color={color_text}
-                        >
+                        <Typography fontSize={"0.9rem"} margin={0} color={color_text}>
                             {answer}
                         </Typography>
                     )}
