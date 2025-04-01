@@ -1,13 +1,12 @@
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Box, Divider, Stack, Typography, Container, Grid2 } from "@mui/material";
+import { Box, Divider, Stack, Typography, Grid2 } from "@mui/material";
 import { MathJax } from "better-react-mathjax";
 
-import Carousel from "../components/Carousel";
-import Tiles from "../components/Tiles";
-import CustomInput from "../form/CustomInput";
 import Button from "../components/Button";
-import CourseCard from "../components/Card";
 import Syllabus from "../components/Syllabus";
+import RenderContent from "./RenderContent";
+import blogData from '../data/blogs.json'
 
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import ArticleOutlinedIcon from '@mui/icons-material/ArticleOutlined';
@@ -232,89 +231,114 @@ export function LimitSyllabus() {
     )
 };
 
+// export function LimitIntro() {
+//     return (
+//         <Stack px={{xs:5, sm:8, md:10}} py={4} gap={3} sx={{ backgroundColor: '#fff' }}>
+//             <Stack gap={1} direction={'column'}>
+//                 <Typography textTransform={'uppercase'} variant="body2" letterSpacing={-.5} color="#555">Konsep Limit Fungsi</Typography>
+//                 <Typography textTransform={'capitalize'} fontWeight={700} variant="h5">Introduksi Limit</Typography>
+//             </Stack>
+//             <Typography color="#555">5 min</Typography>
+//             <Typography>Bayangkan seorang pembalap Formula 1 melaju di lintasan. Jika kita menghitung kecepatannya setiap detik, semakin kecil interval waktunya, semakin akurat hasilnya. Tapi bagaimana kalau kita ingin tahu kecepatannya <Typography component={'span'} fontSize={'inherit'} fontWeight={600} className="highlight">tepat pada satu momen</Typography>? Seolah-olah waktu berhenti sesaat, bagaimana caranya?</Typography>
+//             <Typography>Itulah pertanyaan yang juga dipikirkan Isaac Newton saat ia mengembangkan kalkulus. Dia ingin memahami bagaimana sesuatu berubah <Typography component={'span'} fontSize={'inherit'} fontWeight={600} className="highlight">pada satu titik tertentu</Typography>, bukan hanya dalam selang waktu. Dan di sinilah konsep <Typography component={'span'} fontSize={'inherit'} fontWeight={600} className="highlight">limit</Typography> lahir sebagai kunci untuk memahami perubahan yang sangat kecil tetapi sangat berarti!</Typography>
+//             <Stack>
+//                 <Typography>Dalam konsep Matematika, limit digunakan untuk mengukur nilai suatu fungsi ketika mendekati suatu domain tertentu. Limit dapat didefinisikan secara notasi sebagai:</Typography>
+//                 <Stack gap={3} px={2} py={1} sx={{ backgroundColor: '#e0f0ff', border: '1px solid #000' }}>
+//                     <Typography>
+//                         <MathJax>{"Ketika \\( x \\) mendekati \\( a \\), nilai \\( f(x) \\) mendekati \\( L \\)"}</MathJax>
+//                     </Typography>
+//                     <Typography fontSize={'1.2em'} textAlign={'center'}>
+//                         <MathJax>{"\\[ \\lim_{x \\to a} f(x) = L \\]"}</MathJax>
+//                     </Typography>
+//                     <Typography>
+//                         <MathJax>{"dengan syarat \\(f(x)\\) sedekat mungkin dengan \\(L\\) untuk semua \\(x\\) yang cukup dekat dengan \\(a\\) dari sisi kiri dan kanan"}</MathJax>
+//                     </Typography>
+//                 </Stack>
+//             </Stack>
+//             <Stack direction={'row'} justifyContent={'center'} alignItems={'center'} my={3}>
+//                 <img src="/BRI/course/limit/limit.png" alt="limit_graph" style={{maxWidth:'80vw'}} />
+//             </Stack>
+//             <Typography>
+//                 Jadi, apa sebenarnya arti definisi ini? 
+//                 Baiklah, mari kita asumsikan bahwa kita tahu bahwa batas "dekat" itu memang ada.
+//                 <MathJax>
+//                     {"Untuk penyederhanaan, mari kita asumsikan bahwa kita ingin membuat \\(f(x)\\) tidak lebih dari \\(0,001\\) dari \\(L\\)."}
+//                 </MathJax>
+//                 <MathJax>
+//                     {"\\[ \\bigg|f(x) - L \\bigg| \\leq 0,001 \\]"}
+//                 </MathJax>
+//             </Typography>
+//             <Stack>
+//                 <Typography fontWeight={700} fontSize={'1.2em'} mt={2}>Contoh</Typography>
+//                 <Stack gap={3} px={3} py={2} sx={{ backgroundColor: '#fafaff', border: '1px solid #000' }}>
+//                     <Typography>Perkirakan nilai limit berikut</Typography>
+//                     <Typography fontSize={'1.2em'} textAlign={'center'}>
+//                         <MathJax>{"\\[ \\lim_{x \\to 1} \\frac{x^{2}-1}{x-1} \\]"}</MathJax>
+//                     </Typography>
+//                     <Stack direction={'row'} gap={3} flexWrap={'wrap'} justifyContent={'space-around'} alignItems={'center'}>
+//                         <Stack>
+//                             <Typography>Pendekatan dari kiri:</Typography>
+//                             <Typography>
+//                                 <MathJax>{"\\( f(0,9) = 1,9 \\)"}</MathJax>
+//                             </Typography>
+//                             <Typography>
+//                                 <MathJax>{"\\( f(0,99) = 1,99 \\)"}</MathJax>
+//                             </Typography>
+//                             <Typography>
+//                                 <MathJax>{"\\( f(0,999) = 1,999 \\)"}</MathJax>
+//                             </Typography>
+//                         </Stack>
+//                         <Stack>
+//                             <Typography>Pendekatan dari kanan:</Typography>
+//                             <Typography>
+//                                 <MathJax>{"\\( f(1,1) = 2,1 \\)"}</MathJax>
+//                             </Typography>
+//                             <Typography>
+//                                 <MathJax>{"\\( f(1,01) = 2,01 \\)"}</MathJax>
+//                             </Typography>
+//                             <Typography>
+//                                 <MathJax>{"\\( f(1,001) = 2,001 \\)"}</MathJax>
+//                             </Typography>
+//                         </Stack>
+//                     </Stack>
+//                     <Stack>
+//                         <Typography>
+//                             <MathJax>{"Dapat disimpulkan bahwa nilai \\(x\\) mendekati nilai \\(2\\) dari sisi kiri maupun sisi kanan. Maka dari itu:"}</MathJax>
+//                         </Typography>
+//                         <Typography fontSize={'1.2em'} textAlign={'center'} color="kurai_ao.main">
+//                             <MathJax>{"\\[ \\lim_{x \\to 1} \\frac{x^{2}-1}{x-1} = 2 \\]"}</MathJax>
+//                         </Typography>
+//                     </Stack>
+//                 </Stack>
+//             </Stack>
+//         </Stack>
+//     )
+// }
+
 export function LimitIntro() {
-    return (
-        <>
-            <Stack px={10} py={4} gap={3} sx={{ backgroundColor: '#fff' }}>
-                <Stack gap={1} direction={'column'}>
-                    <Typography textTransform={'uppercase'} variant="body2" letterSpacing={-.5} color="#555">Konsep Limit Fungsi</Typography>
-                    <Typography textTransform={'capitalize'} fontWeight={700} variant="h5">Introduksi Limit</Typography>
-                </Stack>
-                <Typography color="#555">5 min</Typography>
-                <Typography>Bayangkan seorang pembalap Formula 1 melaju di lintasan. Jika kita menghitung kecepatannya setiap detik, semakin kecil interval waktunya, semakin akurat hasilnya. Tapi bagaimana kalau kita ingin tahu kecepatannya <Typography component={'span'} fontSize={'inherit'} fontWeight={600} className="highlight">tepat pada satu momen</Typography>? Seolah-olah waktu berhenti sesaat, bagaimana caranya?</Typography>
-                <Typography>Itulah pertanyaan yang juga dipikirkan Isaac Newton saat ia mengembangkan kalkulus. Dia ingin memahami bagaimana sesuatu berubah <Typography component={'span'} fontSize={'inherit'} fontWeight={600} className="highlight">pada satu titik tertentu</Typography>, bukan hanya dalam selang waktu. Dan di sinilah konsep <Typography component={'span'} fontSize={'inherit'} fontWeight={600} className="highlight">limit</Typography> lahir sebagai kunci untuk memahami perubahan yang sangat kecil tetapi sangat berarti!</Typography>
-                <Stack>
-                    <Typography>Dalam konsep Matematika, limit digunakan untuk mengukur nilai suatu fungsi ketika mendekati suatu domain tertentu. Limit dapat didefinisikan secara notasi sebagai:</Typography>
-                    <Stack gap={3} px={2} py={1} sx={{ backgroundColor: '#e0f0ff', border: '1px solid #000' }}>
-                        <Typography>
-                            <MathJax>{"Ketika \\( x \\) mendekati \\( a \\), nilai \\( f(x) \\) mendekati \\( L \\)"}</MathJax>
-                        </Typography>
-                        <Typography fontSize={'1.2em'} textAlign={'center'}>
-                            <MathJax>{"\\[ \\lim_{x \\to a} f(x) = L \\]"}</MathJax>
-                        </Typography>
-                        <Typography>
-                            <MathJax>{"dengan syarat \\(f(x)\\) sedekat mungkin dengan \\(L\\) untuk semua \\(x\\) yang cukup dekat dengan \\(a\\) dari sisi kiri dan kanan"}</MathJax>
-                        </Typography>
-                    </Stack>
-                </Stack>
-                <Stack direction={'row'} justifyContent={'center'} alignItems={'center'} my={3}>
-                    <img src="/BRI/course/limit/limit.png" alt="limit_graph" style={{maxWidth:'80vw'}} />
-                </Stack>
-                <Typography>
-                    Jadi, apa sebenarnya arti definisi ini? 
-                    Baiklah, mari kita asumsikan bahwa kita tahu bahwa batas "dekat" itu memang ada.
-                    <MathJax>
-                        {"Untuk penyederhanaan, mari kita asumsikan bahwa kita ingin membuat \\(f(x)\\) tidak lebih dari \\(0,001\\) dari \\(L\\)."}
-                    </MathJax>
-                    <MathJax>
-                        {"\\[ \\bigg|f(x) - L \\bigg| \\leq 0,001 \\]"}
-                    </MathJax>
+    const [blog, setBlog] = useState(null);
+
+    useEffect(() => {
+        const pageUrl = "/BRI/course/limit/intro";
+        const foundBlog = blogData.find((b) => b.url === pageUrl);
+        setBlog(foundBlog || null);
+    }, []);
+
+    if (!blog) return <Typography>Loading...</Typography>;
+
+    return(
+        <Stack px={{xs:5, sm:8, md:10}} py={4} gap={3} sx={{ backgroundColor: '#fff' }}>
+            <Stack gap={1} direction="column">
+                <Typography textTransform="uppercase" variant="body2" letterSpacing={-0.5} color="#555">
+                    {blog.category}
                 </Typography>
-                <Stack>
-                    <Typography fontWeight={700} fontSize={'1.2em'} mt={2}>Contoh</Typography>
-                    <Stack gap={3} px={3} py={2} sx={{ backgroundColor: '#fafaff', border: '1px solid #000' }}>
-                        <Typography>Perkirakan nilai limit berikut</Typography>
-                        <Typography fontSize={'1.2em'} textAlign={'center'}>
-                            <MathJax>{"\\[ \\lim_{x \\to 1} \\frac{x^{2}-1}{x-1} \\]"}</MathJax>
-                        </Typography>
-                        <Stack direction={'row'} gap={3} flexWrap={'wrap'} justifyContent={'space-around'} alignItems={'center'}>
-                            <Stack>
-                                <Typography>Pendekatan dari kiri:</Typography>
-                                <Typography>
-                                    <MathJax>{"\\( f(0,9) = 1,9 \\)"}</MathJax>
-                                </Typography>
-                                <Typography>
-                                    <MathJax>{"\\( f(0,99) = 1,99 \\)"}</MathJax>
-                                </Typography>
-                                <Typography>
-                                    <MathJax>{"\\( f(0,999) = 1,999 \\)"}</MathJax>
-                                </Typography>
-                            </Stack>
-                            <Stack>
-                                <Typography>Pendekatan dari kanan:</Typography>
-                                <Typography>
-                                    <MathJax>{"\\( f(1,1) = 2,1 \\)"}</MathJax>
-                                </Typography>
-                                <Typography>
-                                    <MathJax>{"\\( f(1,01) = 2,01 \\)"}</MathJax>
-                                </Typography>
-                                <Typography>
-                                    <MathJax>{"\\( f(1,001) = 2,001 \\)"}</MathJax>
-                                </Typography>
-                            </Stack>
-                        </Stack>
-                        <Stack>
-                            <Typography>
-                                <MathJax>{"Dapat disimpulkan bahwa nilai \\(x\\) mendekati nilai \\(2\\) dari sisi kiri maupun sisi kanan. Maka dari itu:"}</MathJax>
-                            </Typography>
-                            <Typography fontSize={'1.2em'} textAlign={'center'} color="kurai_ao.main">
-                                <MathJax>{"\\[ \\lim_{x \\to 1} \\frac{x^{2}-1}{x-1} = 2 \\]"}</MathJax>
-                            </Typography>
-                        </Stack>
-                    </Stack>
-                </Stack>
+                <Typography textTransform="capitalize" fontWeight={700} variant="h5">
+                    {blog.title}
+                </Typography>
             </Stack>
-        </>
+            <Typography color="#555">{blog.time}</Typography>
+            <RenderContent data={blog.content} />
+        </Stack>
     )
 }
 
