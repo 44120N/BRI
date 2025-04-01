@@ -13,6 +13,9 @@ const Accordion = ({
     color_text,
     sx,
     nopaddinginline,
+    nopadding,
+    nohover,
+    rawinput,
 }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [contentHeight, setContentHeight] = useState(0);
@@ -23,7 +26,7 @@ const Accordion = ({
             setContentHeight(contentRef.current.scrollHeight);
         }
     }, [isOpen]);
-    
+
     return (
         <Paper
             elevation={3}
@@ -36,13 +39,17 @@ const Accordion = ({
                 boxShadow: `5px 5px 0px ${bdcolor}`,
                 mb: 2,
                 backgroundColor: `${bgcolor_title}`,
-                "&:hover": {
-                    transform: "translate(5px, 5px)",
-                    boxShadow: "none",
-                },
-                "&:active": {
-                    transform: "translate(2px, 2px)",
-                },
+                ...(nohover
+                    ? {}
+                    : {
+                          "&:hover": {
+                              transform: "translate(5px, 5px)",
+                              boxShadow: "none",
+                          },
+                          "&:active": {
+                              transform: "translate(2px, 2px)",
+                          },
+                      }),
                 ...sx,
             }}
         >
@@ -54,7 +61,7 @@ const Accordion = ({
                     justifyContent: "space-between",
                     alignItems: "center",
                     width: "100%",
-                    padding: nopaddinginline ? "2% 0" : "2% 3%",
+                    padding: nopaddinginline || nopadding ? "2% 0" : "2% 3%",
                     fontSize: "1.1rem",
                     fontWeight: 600,
                     backgroundColor: `${bgcolor_title}`,
@@ -66,7 +73,11 @@ const Accordion = ({
                     color: `${color_title}`,
                 }}
             >
-                <Typography color={color_title}>{question}</Typography>
+                {rawinput ? (
+                    question
+                ) : (
+                    <Typography color={color_title}>{question}</Typography>
+                )}
                 <Stack
                     style={{
                         transform: isOpen ? "rotate(180deg)" : "rotate(0deg)",
@@ -83,22 +94,41 @@ const Accordion = ({
                     overflow: "hidden",
                     transition: "height ease-in-out",
                     background: `${bgcolor_text}`,
-                    padding: isOpen ? "2vw" : "0 2vw",
+                    padding: isOpen ? (nopadding ? "2vw 0" : "2vw") : "0 2vw",
                 }}
             >
                 <Stack gap={2}>
-                    {Array.isArray(answer) ? (
+                    {rawinput ? (
+                        answer
+                    ) : Array.isArray(answer) ? (
                         answer.map((item, id) => (
                             <Stack key={id}>
-                                <Link to={item.href || "#"} style={{ textDecoration: "none", }} sx={{py:id<answer.length-1?'1vh':'0px'}}>
-                                    <Typography fontSize={"0.9rem"} margin={0} color={color_text} >
+                                <Link
+                                    to={item.href || "#"}
+                                    style={{ textDecoration: "none" }}
+                                    sx={{
+                                        py:
+                                            id < answer.length - 1
+                                                ? "1vh"
+                                                : "0px",
+                                    }}
+                                >
+                                    <Typography
+                                        fontSize={"0.9rem"}
+                                        margin={0}
+                                        color={color_text}
+                                    >
                                         {item.label}
                                     </Typography>
                                 </Link>
                             </Stack>
                         ))
                     ) : (
-                        <Typography fontSize={"0.9rem"} margin={0} color={color_text}>
+                        <Typography
+                            fontSize={"0.9rem"}
+                            margin={0}
+                            color={color_text}
+                        >
                             {answer}
                         </Typography>
                     )}
