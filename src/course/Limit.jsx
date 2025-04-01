@@ -372,7 +372,7 @@ export function LimitApproach() {
                     </Stack>
                     <Stack>
                         <Typography>Cara Mendapatkan</Typography>
-                        <Grid2 container spacing={1.6} direction={'column'}>
+                        <Grid2 container spacing={.5} direction={'column'}>
                             {[
                                 "\\(x\\) yang lebih kecil dari \\(a\\) dan semakin mendekati \\(a\\)",
                                 "Perhatikan apakah nilai \\(f(x)\\) mendekati suatu bilangan tetap",

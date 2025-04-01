@@ -41,7 +41,7 @@ const RenderContent = ({ data }) => {
 
             case "stack":
                 return (
-                    <Stack key={index} {...(item.props || {})}>
+                    <Stack key={index} direction={item.direction||'column'} justifyContent={item.justify||'normal'} alignItems={item.align||'center'} {...(item.props || {})}>
                         {item.children && <RenderContent data={item.children} />}
                     </Stack>
                 );
@@ -52,7 +52,7 @@ const RenderContent = ({ data }) => {
                         <img src={item.src} alt={item.alt} style={{maxWidth:'80vw'}} {...(item.props || {})} />
                     </Stack>
                 );
-            
+
             case "formula":
                 return (
                     <Stack
@@ -71,6 +71,28 @@ const RenderContent = ({ data }) => {
                             </Typography>
                         ))}
                     </Stack>
+                );
+
+            case "list":
+                return (
+                    <Grid2 container spacing={.5} direction={'column'}>
+                        {item.point.map((item, index) => (
+                            <Grid2 xs={3} sm={3} key={index}>
+                                <Stack direction="row" alignItems="center" gap={1}>
+                                    <CheckCircleIcon sx={{ color: "primary.main", fontSize: "1.2em" }} />
+                                    <Typography 
+                                        variant="body1"
+                                        fontSize={{xs: ".8em",sm:"1em"}}
+                                        color="black_blue"
+                                    >
+                                        <MathJax>
+                                            {item}
+                                        </MathJax>
+                                    </Typography>
+                                </Stack>
+                            </Grid2>
+                        ))}
+                    </Grid2>
                 );
 
             default:
