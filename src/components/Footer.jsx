@@ -3,7 +3,13 @@ import { Link } from "react-router-dom";
 import Accordion from "./Accordion";
 import Button from "./Button";
 
-import { Instagram, YouTube, Facebook, Telegram, WhatsApp } from "@mui/icons-material";
+import {
+    Instagram,
+    YouTube,
+    Facebook,
+    Telegram,
+    WhatsApp,
+} from "@mui/icons-material";
 
 const socialMedia = [
     { icon: <Instagram />, color: "linear-gradient(#833ab4,#fd1d1d,#fcb045)" },
@@ -14,15 +20,39 @@ const socialMedia = [
 ];
 
 const links = [
-    { title: "Tentang", items: [{label:"Lorem", href:'/1'}, {label:"Ipsum", href:'/1'}] },
-    { title: "Tutorial", items: [{label:"Lorem", href:'/2'}, {label:"Ipsum", href:'/2'}] },
-    { title: "Produk", items: [{label:"Lorem", href:'/3'}, {label:"Ipsum", href:'/3'}] },
+    {
+        title: "Tentang",
+        items: [
+            { label: "Lorem", href: "/1" },
+            { label: "Ipsum", href: "/1" },
+        ],
+    },
+    {
+        title: "Tutorial",
+        items: [
+            { label: "Lorem", href: "/2" },
+            { label: "Ipsum", href: "/2" },
+        ],
+    },
+    {
+        title: "Produk",
+        items: [
+            { label: "Lorem", href: "/3" },
+            { label: "Ipsum", href: "/3" },
+        ],
+    },
 ];
 
 const SocialButtons = ({ sx }) => (
     <Stack direction="row" gap={1.5} sx={sx}>
         {socialMedia.map(({ icon, color }, idx) => (
-            <Button key={idx} bgcolor={color} bdcolor={'#000'} color="#fff" sx={{ px: 1 }}>
+            <Button
+                key={idx}
+                bgcolor={color}
+                bdcolor={"#000"}
+                color="#fff"
+                sx={{ px: 1 }}
+            >
                 {icon}
             </Button>
         ))}
@@ -31,22 +61,51 @@ const SocialButtons = ({ sx }) => (
 
 export default function Footer({ sx }) {
     return (
-        <Stack direction={{ xs: "column", md: "row" }} sx={{ py: 5, px: { xs: 3, md: 6 }, bgcolor: "#f0f0f0", ...sx }}>
+        <Stack
+            direction={{ xs: "column", md: "row" }}
+            sx={{
+                mb: { xs: 5, md: 0 },
+                py: 5,
+                px: { xs: 3, md: 6 },
+                bgcolor: "#f0f0f0",
+                ...sx,
+            }}
+        >
             {/* Left Section */}
             <Stack width={{ md: "30%" }} gap={2}>
-                <Typography variant="h4" color="kurai_ao">Bimbel Rumah Ilmiah</Typography>
+                <Typography variant="h4" color="kurai_ao">
+                    Bimbel Rumah Ilmiah
+                </Typography>
                 <Typography color="kurai_ao" textAlign="justify" mb={2}>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo impedit ab, culpa natus accusamus vero assumenda.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Illo impedit ab, culpa natus accusamus vero assumenda.
                 </Typography>
                 <SocialButtons sx={{ display: { xs: "none", md: "flex" } }} />
             </Stack>
 
             {/* Middle Section (Desktop) */}
-            <Stack direction="row" sx={{ display: { xs: "none", md: "flex" }, width: { md: "70%" } }} justifyContent="space-evenly">
+            <Stack
+                direction="row"
+                sx={{
+                    display: { xs: "none", md: "flex" },
+                    width: { md: "70%" },
+                }}
+                justifyContent="space-evenly"
+            >
                 {links.map((list, id) => (
                     <Stack key={id} gap={2}>
-                        <Typography variant="h5" color="kurai_ao" fontWeight={600}>{list.title}</Typography>
-                        {list.items.map((item, id) => <Typography key={id}><Link>{item.label}</Link></Typography>)}
+                        <Typography
+                            variant="h5"
+                            color="kurai_ao"
+                            fontWeight={600}
+                        >
+                            {list.title}
+                        </Typography>
+                        {list.items.map((item, id) => (
+                            <Typography key={id}>
+                                <Link>{item.label}</Link>
+                            </Typography>
+                        ))}
                     </Stack>
                 ))}
             </Stack>
@@ -54,12 +113,24 @@ export default function Footer({ sx }) {
             {/* Middle Section (Mobile) */}
             <Stack sx={{ display: { md: "none", xs: "block" } }}>
                 {links.map((val, id) => (
-                    <Accordion key={id} question={val.title} answer={val.items} bgcolor_title="#f0f0f0" color_title="kurai_ao" bgcolor_text="#f0f0f0" color_text="#000" sx={{ boxShadow: 0 }} nopaddinginline />
+                    <Accordion
+                        key={id}
+                        question={val.title}
+                        answer={val.items}
+                        bgcolor_title="#f0f0f0"
+                        color_title="kurai_ao"
+                        bgcolor_text="#f0f0f0"
+                        color_text="#000"
+                        sx={{ boxShadow: 0 }}
+                        nopaddinginline
+                    />
                 ))}
             </Stack>
 
             {/* Social Media (Mobile) */}
-            <SocialButtons sx={{ display: { xs: "flex", md: "none" }, gap: 3 }} />
+            <SocialButtons
+                sx={{ display: { xs: "flex", md: "none" }, gap: 3 }}
+            />
         </Stack>
     );
 }
