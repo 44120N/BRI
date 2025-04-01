@@ -42,7 +42,7 @@ const router = createBrowserRouter([
         children: [
             // { path: "", element: <Navigate to={getInitialRoute("limit")} replace /> },
             { path: 'intro', element: <LimitIntro /> },
-            { path: 'theorem', element: <LimitApproach /> }
+            { path: 'approach', element: <LimitApproach /> }
         ],
     },
     {
