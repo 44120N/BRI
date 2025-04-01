@@ -123,6 +123,7 @@ export default function Footer({ sx }) {
                         color_text="#000"
                         sx={{ boxShadow: 0 }}
                         nopaddinginline
+                        nohover
                     />
                 ))}
             </Stack>
