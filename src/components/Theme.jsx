@@ -56,10 +56,10 @@ export default function Theme(props) {
         components: {
             MuiTypography: {
                 styleOverrides: {
-                    root: {
+                    root: ({theme}) => theme.unstable_sx({
                         fontFamily: "Inter, DM Sans, sans-serif",
-                        // textAlign: "justify",
-                    }
+                        textAlign: {xs:"justify", sm:"justify", md:"justify", lg:"left"},
+                    })
                 }
             },
             MuiButton: {

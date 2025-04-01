@@ -1,0 +1,108 @@
+[
+    {
+        "name": "limit",
+        "url": "/BRI/course/limit/intro",
+        "title": "Konsep Limit Fungsi",
+        "category": "Matematika",
+        "time": "5 min",
+        "content": [
+            {
+                "type": "heading",
+                "text": "Introduksi Limit"
+            },
+            {
+                "type": "paragraph",
+                "text": "Bayangkan seorang pembalap Formula 1 melaju di lintasan. Jika kita menghitung kecepatannya setiap detik, semakin kecil interval waktunya, semakin akurat hasilnya. Tapi bagaimana kalau kita ingin tahu kecepatannya",
+                "children": [
+                    {
+                        "text": " tepat pada satu momen?",
+                        "props": { "fontWeight": 600, "className": "highlight" }
+                    }
+                ]
+            },
+            {
+                "type": "paragraph",
+                "text": "Itulah pertanyaan yang juga dipikirkan Isaac Newton saat ia mengembangkan kalkulus. Dia ingin memahami bagaimana sesuatu berubah ",
+                "children": [
+                    {
+                        "text": "pada satu titik tertentu",
+                        "props": { "fontWeight": 600, "className": "highlight" }
+                    },
+                    {
+                        "text": ", bukan hanya dalam selang waktu. Dan di sinilah konsep "
+                    },
+                    {
+                        "text": "limit",
+                        "props": { "fontWeight": 600, "className": "highlight" }
+                    },
+                    {
+                        "text": " lahir sebagai kunci untuk memahami perubahan yang sangat kecil tetapi sangat berarti!"
+                    }
+                ]
+            },
+            {
+                "type": "formula",
+                "content": [
+                    {
+                        "type": "text",
+                        "text": "Ketika \\( x \\) mendekati \\( a \\), nilai \\( f(x) \\) mendekati \\( L \\)"
+                    },
+                    {
+                        "type": "math",
+                        "text": "\\[ \\lim_{x \\to a} f(x) = L \\]"
+                    },
+                    {
+                        "type": "text",
+                        "text": "dengan syarat \\( f(x) \\) sedekat mungkin dengan \\( L \\) untuk semua \\( x \\) yang cukup dekat dengan \\( a \\) dari sisi kiri dan kanan"
+                    }
+                ],
+                "props": {
+                    "backgroundColor": "#e0f0ff",
+                    "border": "1px solid #000",
+                    "paddingX": 2,
+                    "paddingY": 1
+                }
+            },
+            {
+                "type": "image",
+                "src": "/BRI/course/limit/limit.png",
+                "alt": "limit_graph",
+                "props": { "maxWidth": "80vw" }
+            },
+            {
+                "type": "example",
+                "title": "Contoh",
+                "content": [
+                    {
+                        "type": "math",
+                        "text": "\\[ \\lim_{x \\to 1} \\frac{x^{2}-1}{x-1} \\]",
+                        "props": { "fontSize": "1.2em", "textAlign": "center" }
+                    },
+                    {
+                        "type": "paragraph",
+                        "text": "Pendekatan dari kiri:",
+                        "children": [
+                            { "type": "math", "text": "\\( f(0,9) = 1,9 \\)" },
+                            { "type": "math", "text": "\\( f(0,99) = 1,99 \\)" },
+                            { "type": "math", "text": "\\( f(0,999) = 1,999 \\)" }
+                        ]
+                    },
+                    {
+                        "type": "paragraph",
+                        "text": "Pendekatan dari kanan:",
+                        "children": [
+                            { "type": "math", "text": "\\( f(1,1) = 2,1 \\)" },
+                            { "type": "math", "text": "\\( f(1,01) = 2,01 \\)" },
+                            { "type": "math", "text": "\\( f(1,001) = 2,001 \\)" }
+                        ]
+                    },
+                    {
+                        "type": "math",
+                        "text": "\\[ \\lim_{x \\to 1} \\frac{x^{2}-1}{x-1} = 2 \\]",
+                        "props": { "fontSize": "1.2em", "textAlign": "center", "color": "kurai_ao.main" }
+                    }
+                ]
+            }
+        ]
+    }
+]
