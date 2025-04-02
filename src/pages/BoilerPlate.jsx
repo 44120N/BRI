@@ -1,4 +1,5 @@
 import { Box, Divider, Stack, Typography, Container } from "@mui/material";
+import { MathJax } from "better-react-mathjax";
 import Accordion from "../components/Accordion";
 import Button from "../components/Button";
 import Carousel from "../components/Carousel";
@@ -45,20 +46,20 @@ export default function Testing() {
 
     const dropdown = [
         {
-            name: "Kursus Online",
+            label: "Kursus Online",
             desc: "Belajar di mana saja, kapan saja",
             icon: <SchoolIcon />,
             link: "/kursus",
         },
         {
-            name: "Webinar & Workshop",
+            label: "Webinar & Workshop",
             desc: "Belajar melalui event premium",
             icon: <EventIcon />,
             badge: "Rekomendasi",
             link: "/webinar",
         },
         {
-            name: "Alur Pembelajaran",
+            label: "Alur Pembelajaran",
             desc: "Belajar secara terstruktur dengan silabus",
             icon: <BookIcon />,
             link: "/alur",
@@ -408,7 +409,42 @@ export default function Testing() {
                     </Dropdown>
                 </Stack>
                 <Stack sx={{padding: '2% 3%'}} gap={2}>
-                    <Problem title="Contoh" equation={'\\[ x=2 \\]'} accordion_text="Pembahasan">Y</Problem>
+                    <Problem title="Contoh" equation={'\\[ \\lim_{x \\to 1} \\frac{x^{2}-1}{x-1} \\]'} instruction={"Perkirakan nilai limit berikut"} accordion_text="Pembahasan">
+                        <Stack direction={'row'} gap={3} flexWrap={'wrap'} justifyContent={'space-around'} alignItems={'center'}>
+                            <Stack>
+                                <Typography>Pendekatan dari kiri:</Typography>
+                                <Typography>
+                                    <MathJax>{"\\( f(0,9) = 1,9 \\)"}</MathJax>
+                                </Typography>
+                                <Typography>
+                                    <MathJax>{"\\( f(0,99) = 1,99 \\)"}</MathJax>
+                                </Typography>
+                                <Typography>
+                                    <MathJax>{"\\( f(0,999) = 1,999 \\)"}</MathJax>
+                                </Typography>
+                            </Stack>
+                            <Stack>
+                                <Typography>Pendekatan dari kanan:</Typography>
+                                <Typography>
+                                    <MathJax>{"\\( f(1,1) = 2,1 \\)"}</MathJax>
+                                </Typography>
+                                <Typography>
+                                    <MathJax>{"\\( f(1,01) = 2,01 \\)"}</MathJax>
+                                </Typography>
+                                <Typography>
+                                    <MathJax>{"\\( f(1,001) = 2,001 \\)"}</MathJax>
+                                </Typography>
+                            </Stack>
+                        </Stack>
+                        <Stack>
+                            <Typography>
+                                <MathJax>{"Dapat disimpulkan bahwa nilai \\(x\\) mendekati nilai \\(2\\) dari sisi kiri maupun sisi kanan. Maka dari itu:"}</MathJax>
+                            </Typography>
+                            <Typography fontSize={'1.2em'} textAlign={'center'} color="kurai_ao.main">
+                                <MathJax>{"\\[ \\lim_{x \\to 1} \\frac{x^{2}-1}{x-1} = 2 \\]"}</MathJax>
+                            </Typography>
+                        </Stack>
+                    </Problem>
                 </Stack>
             </Stack>
         </>

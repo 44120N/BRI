@@ -6,22 +6,22 @@ import { Link } from "react-router-dom";
 const Accordion = ({
     question,
     answer,
-    bgcolor_title = "#f0f0f0",
+    bgcolor_title = "primary.main",
     bgcolor_text = "#fff",
     bdcolor = "#000",
     color_title = "#000",
-    color_text = "#000",
+    color_text = "primary.main",
     sx = {},
     nopaddinginline = false,
     nohover = false,
     rawinput = false,
 }) => {
     const [isOpen, setIsOpen] = useState(false);
-    const contentRef = useRef(null);
     const [contentHeight, setContentHeight] = useState(0);
+    const contentRef = useRef(null);
 
     useEffect(() => {
-        if (isOpen && contentRef.current) {
+        if (contentRef.current) {
             setContentHeight(contentRef.current.scrollHeight);
         }
     }, [isOpen]);
@@ -36,7 +36,6 @@ const Accordion = ({
                 borderRadius: "8px",
                 overflow: "hidden",
                 boxShadow: `5px 5px 0px ${bdcolor}`,
-                mb: 2,
                 backgroundColor: bgcolor_title,
                 transition: "transform 0.2s ease, box-shadow 0.2s ease",
                 ...(nohover
@@ -45,7 +44,7 @@ const Accordion = ({
                             "&:hover": { transform: "translate(5px, 5px)", boxShadow: "none" },
                             "&:active": { transform: "translate(2px, 2px)" },
                     }),
-                ...sx, // Merged global sx styles
+                ...sx,
             }}
         >
             <Button
@@ -60,19 +59,15 @@ const Accordion = ({
                     fontSize: "1.1rem",
                     fontWeight: 600,
                     backgroundColor: bgcolor_title,
-                    // borderBottom: isOpen ? `2px solid ${bdcolor}` : "0px",
-                    // borderRadius: isOpen ? "0px" : "8px",
+                    borderBottom: (isOpen && bgcolor_title!=bgcolor_text) ? `2px solid ${bdcolor}` : "0px",
+                    borderRadius: isOpen ? "0px" : "8px",
                     color: color_title,
                     cursor: "pointer",
                     outline: "none",
-                    ...sx?.title, // Overrides title styles via sx prop
+                    ...sx?.title,
                 }}
             >
-                {rawinput ? (
-                    question
-                ) : (
-                    <Typography color={color_title}>{question}</Typography>
-                )}
+                <Typography color={color_title}>{question}</Typography>
                 <Stack
                     style={{
                         transform: isOpen ? "rotate(180deg)" : "rotate(0deg)",
@@ -87,13 +82,14 @@ const Accordion = ({
 
             <Stack
                 ref={contentRef}
+                justifyItems={'center'}
                 style={{
                     maxHeight: isOpen ? `${contentHeight}px` : "0",
                     overflow: "hidden",
-                    transition: "max-height 0.3s ease-in-out, padding 0.2s ease",
+                    transition: "height ease-in-out",
                     background: bgcolor_text,
-                    padding: isOpen ? "2vw" : "0 2vw",
-                    ...sx?.text, // Overrides text styles via sx prop
+                    padding: isOpen ? "2% 3%" : "0 2vw",
+                    ...sx?.text,
                 }}
             >
                 <Stack gap={2}>
@@ -114,7 +110,7 @@ const Accordion = ({
                             </Stack>
                         ))
                     ) : (
-                        <Typography fontSize={"0.9rem"} margin={0} color={color_text}>
+                        <Typography component={'div'} fontSize={"0.9rem"} color={color_text}>
                             {answer}
                         </Typography>
                     )}
