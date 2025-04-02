@@ -30,9 +30,11 @@ const RenderContent = ({ data }) => {
 
             case "math":
                 return (
-                    <Typography key={index} {...(item.props || {})}>
-                        <MathJax>{item.text}</MathJax>
-                    </Typography>
+                    <Stack direction={item.direction||"row"} justifyContent={item.justify||"normal"} alignItems={item.align||"normal"} gap={item.gap||0} key={index}>
+                        <Typography key={index} variant="body1" {...(item.props || {})}>
+                            <MathJax>{item.text}</MathJax>
+                        </Typography>
+                    </Stack>
                 );
 
             case "heading":
@@ -60,43 +62,51 @@ const RenderContent = ({ data }) => {
                 return (
                     <Stack
                         key={index}
-                        gap={3}
-                        px={item.props.paddingX || 2}
-                        py={item.props.paddingY || 1}
+                        gap={item.gap||3}
+                        px={item.props&&item.props.paddingX || 3}
+                        py={item.props&&item.props.paddingY || 2}
                         sx={{
-                            backgroundColor: item.props.backgroundColor || "#e0f0ff",
-                            border: item.props.border || "1px solid #000",
+                            backgroundColor: item.props&&item.props.backgroundColor || "#e0f0ff",
+                            border: item.props&&item.props.border || "1px solid #000",
                         }}
                     >
                         {item.children && <RenderContent data={item.children} />}
                     </Stack>
                 );
 
-            case "list":
-                return (
-                    <Stack>
-                        <Typography fontSize={'1em'} fontWeight={600}>{item.title}</Typography>
-                        <Grid2 container spacing={.5} direction={'column'}>
-                            {item.items.map((item, index) => (
-                                <Grid2 xs={3} sm={3} key={index}>
-                                    <Stack direction="row" alignItems="center" gap={1}>
-                                        <CheckCircleIcon sx={{ color: "primary.main", fontSize: "1.2em" }} />
-                                        <Typography 
-                                            variant="body1"
-                                            fontSize={{xs: ".8em",sm:"1em"}}
-                                            color="black_blue"
-                                        >
-                                            <MathJax>
-                                                {item}
-                                            </MathJax>
-                                        </Typography>
-                                    </Stack>
-                                </Grid2>
-                            ))}
-                        </Grid2>
-                    </Stack>
-                );
-
+                case "list":
+                    return (
+                        <Stack key={index} gap={item.gap || 0} direction={item.direction || 'column'} justifyContent={item.justify || 'normal'} {...(item.props || {})}>
+                            <Typography fontSize={'1em'} fontWeight={600}>{item.title}</Typography>
+                            <Grid2 container spacing={.5} direction={'column'}>
+                                {item.items.map((listItem, listIndex) => (
+                                    <Grid2 xs={3} sm={3} key={listIndex}>
+                                        <Stack direction="row" alignItems="center" gap={1}>
+                                            {item.bullet === "1" ? (
+                                                <Typography color={item.color||"primary.main"} fontWeight={600}>{listIndex + 1}.</Typography>
+                                            ) : item.bullet === "a" ? (
+                                                <Typography color={item.color||"primary.main"} fontWeight={600}>{String.fromCharCode(97 + listIndex)}.</Typography>
+                                            ) : item.bullet === "A" ? (
+                                                <Typography color={item.color||"primary.main"} fontWeight={600}>{String.fromCharCode(65 + listIndex)}.</Typography>
+                                            ) : (
+                                                <CheckCircleIcon sx={{ color: item.color||"primary.main", fontSize: "1.2em" }} />
+                                            )}
+                                            <Typography 
+                                                variant="body1"
+                                                fontSize={{ xs: ".8em", sm: "1em" }}
+                                                color="black_blue"
+                                            >
+                                                <MathJax>
+                                                    {listItem}
+                                                </MathJax>
+                                            </Typography>
+                                        </Stack>
+                                    </Grid2>
+                                ))}
+                            </Grid2>
+                        </Stack>
+                    );
+                
             case "example":
                 return(
                     <Problem

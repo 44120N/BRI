@@ -592,80 +592,84 @@ export function LimitApproach() {
     );
 }
 
+export function LimitProperty() {
+    const [blog, setBlog] = useState(null);
 
+    useEffect(() => {
+        const pageUrl = "/BRI/course/limit/property";
+        const foundBlog = blogData.find((b) => b.url === pageUrl);
+        setBlog(foundBlog || null);
+    }, []);
 
-export function LimitFactorization() {
+    if (!blog) return <Typography>Loading...</Typography>;
+
     return (
-        <>
-            <Stack px={10} py={4} gap={3} sx={{ backgroundColor: "#fff" }}>
-                <Stack gap={1} direction={"column"}>
-                    <Typography
-                        textTransform={"uppercase"}
-                        variant="body2"
-                        letterSpacing={-0.5}
-                        color="#555"
-                    >
-                        Konsep Limit Fungsi
-                    </Typography>
-                    <Typography
-                        textTransform={"capitalize"}
-                        fontWeight={700}
-                        variant="h5"
-                    >
-                        Contoh Pendekatan Limit
-                    </Typography>
-                </Stack>
-                <Typography color="#555">5 min</Typography>
-                <Typography>Misalkan kita memiliki fungsi berikut:</Typography>
-                <Stack
-                    direction={"row"}
-                    justifyContent={"center"}
-                    alignItems={"center"}
-                    my={3}
+        <Stack
+            px={{ xs: 5, sm: 8, md: 10 }}
+            py={4}
+            gap={3}
+            sx={{ backgroundColor: "#fff" }}
+        >
+            <Stack gap={1} direction="column">
+                <Typography
+                    textTransform="uppercase"
+                    variant="body2"
+                    letterSpacing={-0.5}
+                    color="#555"
                 >
-                    <MathJax>{"\\[ f(x) = \\frac{x^{2}-4}{x-2} \\]"}</MathJax>
-                </Stack>
-                <Typography>
-                    Ketika kita mencoba menghitung limit dari fungsi ini saat x
-                    mendekati 2, kita akan mendapatkan bentuk tak tentu (0/0).
-                    Namun, kita dapat menyederhanakan fungsi ini dengan
-                    memfaktorkan pembilangnya:
+                    {blog.unit}
                 </Typography>
-                <Stack
-                    direction={"row"}
-                    justifyContent={"center"}
-                    alignItems={"center"}
-                    my={3}
+                <Typography
+                    textTransform="capitalize"
+                    fontWeight={700}
+                    variant="h5"
                 >
-                    <MathJax>
-                        {"\\[ f(x) = \\frac{(x-2)(x+2)}{x-2} \\]"}
-                    </MathJax>
-                </Stack>
-                <Typography>
-                    Dengan menyederhanakan, kita mendapatkan:
+                    {blog.subunit}
                 </Typography>
-                <Stack
-                    direction={"row"}
-                    justifyContent={"center"}
-                    alignItems={"center"}
-                    my={3}
-                >
-                    <MathJax>{"\\[ f(x) = x + 2 \\]"}</MathJax>
-                </Stack>
-                <Typography>
-                    Sekarang, kita dapat menghitung limitnya:
-                </Typography>
-                <Stack
-                    direction={"row"}
-                    justifyContent={"center"}
-                    alignItems={"center"}
-                    my={3}
-                >
-                    <MathJax>
-                        {"\\[ \\lim_{x \\to 2} f(x) = 2 + 2 = 4 \\]"}
-                    </MathJax>
-                </Stack>
             </Stack>
-        </>
+            <Typography color="#555">{blog.time}</Typography>
+            <RenderContent data={blog.content} />
+        </Stack>
+    );
+}
+
+export function LimitEvaluation() {
+    const [blog, setBlog] = useState(null);
+
+    useEffect(() => {
+        const pageUrl = "/BRI/course/limit/evaluation";
+        const foundBlog = blogData.find((b) => b.url === pageUrl);
+        setBlog(foundBlog || null);
+    }, []);
+
+    if (!blog) return <Typography>Loading...</Typography>;
+
+    return (
+        <Stack
+            px={{ xs: 5, sm: 8, md: 10 }}
+            py={4}
+            gap={3}
+            sx={{ backgroundColor: "#fff" }}
+        >
+            <Stack gap={1} direction="column">
+                <Typography
+                    textTransform="uppercase"
+                    variant="body2"
+                    letterSpacing={-0.5}
+                    color="#555"
+                >
+                    {blog.unit}
+                </Typography>
+                <Typography
+                    textTransform="capitalize"
+                    fontWeight={700}
+                    variant="h5"
+                >
+                    {blog.subunit}
+                </Typography>
+            </Stack>
+            <Typography color="#555">{blog.time}</Typography>
+            <RenderContent data={blog.content} />
+        </Stack>
     );
 }

@@ -50,7 +50,8 @@
                     },
                     {
                         "type": "math",
-                        "text": "\\[ \\lim_{x \\to a} f(x) = L \\]"
+                        "justify": "center",
+                        "text": "\\[ \\lim\\limits_{x \\to a} f(x) = L \\]"
                     },
                     {
                         "type": "math",
@@ -71,10 +72,24 @@
                 "props": { "maxWidth": "80vw" }
             },
             {
+                "type": "paragraph",
+                "text": "Jadi, apa sebenarnya arti definisi ini? Baiklah, mari kita asumsikan bahwa kita tahu bahwa batas \"dekat\" itu memang ada. ",
+                "children": [
+                    {
+                        "type": "math",
+                        "text": "Untuk penyederhanaan, mari kita asumsikan bahwa kita ingin membuat \\(f(x)\\) tidak lebih dari \\(0,001\\) dari \\(L\\)."
+                    },
+                    {
+                        "type": "math",
+                        "text": "\\[ \\bigg|f(x) - L \\bigg| \\leq 0,001 \\]"
+                    }
+                ]
+            },
+            {
                 "type": "example",
                 "title": "Contoh",
                 "instruction": "Perkirakan nilai limit berikut",
-                "equation": "\\[ \\lim_{x \\to 1} \\frac{x^{2}-1}{x-1} \\]",
+                "equation": "\\[ \\lim\\limits_{x \\to 1} \\frac{x^{2}-1}{x-1} \\]",
                 "accordion_text": "Pembahasan",
                 "children": [
                     {
@@ -119,7 +134,7 @@
                                     },
                                     {
                                         "type": "math",
-                                        "text": "\\[ \\lim_{x \\to 1} \\frac{x^{2}-1}{x-1} = 2 \\]",
+                                        "text": "\\[ \\lim\\limits_{x \\to 1} \\frac{x^{2}-1}{x-1} = 2 \\]",
                                         "props": { "fontSize": "1.2em", "textAlign": "center", "color": "kurai_ao.main" }
                                     }
                                 ]
@@ -178,6 +193,39 @@
                 ]
             },
             {
+                "type": "formula",
+                "children": [
+                    {
+                        "type": "math",
+                        "text": "Diberikan fungsi \\(f(x)\\) jika"
+                    },
+                    {
+                        "type": "math",
+                        "justify": "center",
+                        "text": "\\[ \\lim\\limits_{x \\to a^{+}} f(x) = \\lim\\limits_{x \\to a^{-}} f(x) = L \\]"
+                    },
+                    {
+                        "type": "math",
+                        "text": "Maka limit fungsi akan ada"
+                    },
+                    {
+                        "type": "math",
+                        "justify": "center",
+                        "text": "\\[ \\lim\\limits_{x \\to a} f(x) = L \\]"
+                    },
+                    {
+                        "type": "math",
+                        "text": "Demikian pula, jika sebaliknya"
+                    }
+                ],
+                "props": {
+                    "backgroundColor": "#e0f0ff",
+                    "border": "1px solid #000",
+                    "paddingX": 2,
+                    "paddingY": 1
+                }
+            },
+            {
                 "type": "stack",
                 "gap": 2,
                 "children": [
@@ -190,7 +238,7 @@
                         "type": "formula",
                         "children": [
                             { "type": "math", "text": "Ketika \\( x \\) mendekati \\( a \\) dari kiri, nilai \\( f(x) \\) mendekati \\( L \\)" },
-                            { "type": "math", "text": "\\[ \\lim_{x \\to a^{-}} f(x) = L \\]" },
+                            { "type": "math", "justify": "center", "text": "\\[ \\lim\\limits_{x \\to a^{-}} f(x) = L \\]" },
                             { "type": "math", "text": "Note: Dari kiri artinya untuk setiap nilai \\(x\\) yang lebih kecil dari \\(a\\), namun sangat dekat dengan \\(a\\), tanpa mengubah \\(x\\) menjadi \\(a\\)" }
                         ],
                         "props": { "backgroundColor": "#e0f0ff", "border": "1px solid #000", "paddingX": 2, "paddingY": 1 }
@@ -218,7 +266,7 @@
                         "type": "formula",
                         "children": [
                             { "type": "math", "text": "Ketika \\( x \\) mendekati \\( a \\) dari kanan, nilai \\( f(x) \\) mendekati \\( L \\)" },
-                            { "type": "math", "text": "\\[ \\lim_{x \\to a^{+}} f(x) = L \\]" },
+                            { "type": "math", "justify": "center", "text": "\\[ \\lim\\limits_{x \\to a^{+}} f(x) = L \\]" },
                             { "type": "math", "text": "Note: Dari kanan artinya untuk setiap nilai \\(x\\) yang lebih besar dari \\(a\\), namun sangat dekat dengan \\(a\\), tanpa mengubah \\(x\\) menjadi \\(a\\)" }
                         ],
                         "props": { "backgroundColor": "#e0f0ff", "border": "1px solid #000", "paddingX": 2, "paddingY": 1 }
@@ -237,7 +285,7 @@
                 "type": "example",
                 "title": "Contoh 1",
                 "instruction": "Perkirakan nilai limit berikut",
-                "equation": "\\[ \\lim_{x \\to 2} g(x), \\quad \\text{ dimana } \\quad g(x) = \\begin{cases} \\displaystyle\\frac{x^{2} + 4x - 12}{x^{2} - 2x} & \\text{jika } x \\neq 2 \\\\ 6 & \\text{jika } x = 2 \\end{cases} \\]",
+                "equation": "\\[ \\lim\\limits_{x \\to 2} g(x), \\quad \\text{ dimana } \\quad g(x) = \\begin{cases} \\displaystyle\\frac{x^{2} + 4x - 12}{x^{2} - 2x} & \\text{jika } x \\neq 2 \\\\ 6 & \\text{jika } x = 2 \\end{cases} \\]",
                 "accordion_text": "Pembahasan",
                 "children": [
                     {
@@ -282,7 +330,7 @@
                                     },
                                     {
                                         "type": "math",
-                                        "text": "\\[ \\lim_{x \\to 2} g(x) = 4 \\]",
+                                        "text": "\\[ \\lim\\limits_{x \\to 2} g(x) = 4 \\]",
                                         "props": { "fontSize": "1.2em", "textAlign": "center", "color": "kurai_ao.main" }
                                     }
                                 ]
@@ -296,7 +344,7 @@
                                     },
                                     {
                                         "type": "math",
-                                        "text": "\\[ \\lim_{x \\to 2} g(x) \\neq g(2) \\]",
+                                        "text": "\\[ \\lim\\limits_{x \\to 2} g(x) \\neq g(2) \\]",
                                         "props": { "fontSize": "1.2em", "textAlign": "center", "color": "kurai_ao.main" }
                                     }
                                 ]
@@ -309,7 +357,7 @@
                 "type": "example",
                 "title": "Contoh 2",
                 "instruction": "Perkirakan nilai limit berikut",
-                "equation": "\\[ \\lim_{x \\to 0} I(t), \\quad \\text{ dimana } \\quad I(t) = \\begin{cases} 0 & \\text{jika } t \\leq 0 \\\\ 1 & \\text{jika } t \\gt 0 \\end{cases} \\]",
+                "equation": "\\[ \\lim\\limits_{x \\to 0} I(t), \\quad \\text{ dimana } \\quad I(t) = \\begin{cases} 0 & \\text{jika } t \\leq 0 \\\\ 1 & \\text{jika } t \\gt 0 \\end{cases} \\]",
                 "accordion_text": "Pembahasan",
                 "children": [
                     {
@@ -354,8 +402,552 @@
                                     },
                                     {
                                         "type": "math",
-                                        "text": "\\[ \\lim_{x \\to 2} I(t) \\text{ tidak ada} \\]",
+                                        "text": "\\[ \\lim\\limits_{x \\to 2} I(t) \\text{ tidak ada} \\]",
                                         "props": { "fontSize": "1.2em", "textAlign": "center", "color": "kurai_ao.main" }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "limit_property",
+        "url": "/BRI/course/limit/property",
+        "unit": "Konsep Limit Fungsi",
+        "subunit": "Sifat Limit",
+        "time": "10 min",
+        "content": [
+            {
+                "type": "paragraph",
+                "text": "Pada bagian ini, kita benar-benar akan menghitung beberapa ",
+                "children": [
+                    {
+                        "type": "paragraph",
+                        "text": "limit tentu",
+                        "props": { "fontWeight": 600, "className": "highlight" }
+                    },
+                    {
+                        "type": "paragraph",
+                        "text": " menggunakan metode "
+                    },
+                    {
+                        "type": "paragraph",
+                        "text": "substitusi",
+                        "props": { "fontWeight": 600, "className": "highlight" }
+                    },
+                    {
+                        "type": "paragraph",
+                        "text": ". Namun, sebelum kita melakukannya, kita akan memerlukan beberapa "
+                    },
+                    {
+                        "type": "paragraph",
+                        "text": "sifat limit",
+                        "props": { "fontWeight": 600, "className": "highlight" }
+                    },
+                    {
+                        "type": "paragraph",
+                        "text": " yang akan membuat hidup kita sedikit lebih mudah."
+                    }
+                ]
+            },
+            {
+                "type": "stack",
+                "children": [
+                    { "type": "heading", "text": "Sifat Limit Fungsi" },
+                    {
+                        "type": "formula",
+                        "gap": 1,
+                        "children": [
+                            {
+                                "type": "math",
+                                "text": "Asumsikan \\( \\lim\\limits_{x \\to a}f(x) \\) dan \\( \\lim\\limits_{x \\to a}g(x) \\) ada, serta \\( c \\in \\mathbb{R} \\)"
+                            },
+                            {
+                                "type": "list",
+                                "bullet": "1",
+                                "items": [
+                                    "\\[ \\lim\\limits_{x \\to a} c = c \\]",
+                                    "\\[ \\lim\\limits_{x \\to a} x = a \\]",
+                                    "\\[ \\lim\\limits_{x \\to a} x^{n} = a^{n} \\]",
+                                    "\\[ \\lim\\limits_{x \\to a} [c \\space f(x)] = c\\lim\\limits_{x \\to a}f(x) \\]",
+                                    "\\[ \\lim\\limits_{x \\to a} (f(x) \\pm g(x)) = \\lim\\limits_{x \\to a} f(x) \\pm \\lim\\limits_{x \\to a} g(x) \\]",
+                                    "\\[ \\lim\\limits_{x \\to a} (f(x) \\space g(x)) = \\lim\\limits_{x \\to a} f(x) \\space \\lim\\limits_{x \\to a} g(x) \\]",
+                                    "\\[ \\lim\\limits_{x \\to a} \\biggl(\\frac{f(x)}{g(x)}\\biggl) =  \\displaystyle\\frac{\\displaystyle\\lim\\limits_{x \\to a} f(x)}{\\displaystyle\\lim\\limits_{x \\to a} g(x)}, \\quad \\lim\\limits_{x \\to a}g(x) \\neq 0\\]",
+                                    "\\[ \\lim\\limits_{x \\to a} [f(x)]^{n} = \\biggl[\\lim\\limits_{x \\to a}f(x)\\biggl]^{n} \\]"
+                                ]
+                            },
+                            {
+                                "type": "paragraph",
+                                "text": "Note: ",
+                                "children": [
+                                    {
+                                        "type": "paragraph",
+                                        "text": "Sifat limit",
+                                        "props": { "fontWeight": 600, "className": "highlight" }
+                                    },
+                                    {
+                                        "type": "paragraph",
+                                        "text": " ini juga berlaku di "
+                                    },
+                                    {
+                                        "type": "paragraph",
+                                        "text": "limit kiri",
+                                        "props": { "fontWeight": 600, "className": "highlight" }
+                                    },
+                                    {
+                                        "type": "paragraph",
+                                        "text": " dan "
+                                    },
+                                    {
+                                        "type": "paragraph",
+                                        "text": "limit kanan",
+                                        "props": { "fontWeight": 600, "className": "highlight" }
+                                    },
+                                    {
+                                        "type": "paragraph",
+                                        "text": "."
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "type": "paragraph",
+                "text": "Beberapa contoh soal berikutnya adalah cara yang akan digunakan selanjutnya secara umum untuk menghitung sebuah limit fungsi, yang dikenal sebagai metode ",
+                "children": [
+                    {
+                        "type": "paragraph",
+                        "text": "substitusi",
+                        "props": { "fontWeight": 600, "className": "highlight" }
+                    },
+                    {
+                        "type": "paragraph",
+                        "text": " dengan menggunakan berbagai "
+                    },
+                    {
+                        "type": "paragraph",
+                        "text": "sifat limit",
+                        "props": { "fontWeight": 600, "className": "highlight" }
+                    },
+                    {
+                        "type": "paragraph",
+                        "text": "."
+                    }
+                ]
+            },
+            {
+                "type": "example",
+                "title": "Contoh 1",
+                "instruction": "Hitunglah nilai limit berikut",
+                "equation": "\\[ \\lim\\limits_{x \\to 2} (2x^{2}-4x+8) \\]",
+                "accordion_text": "Pembahasan",
+                "children": [
+                    {
+                        "type": "stack",
+                        "direction": "column",
+                        "gap": 3,
+                        "props": { "mt": 3 },
+                        "children": [
+                            {
+                                "type": "stack",
+                                "children": [
+                                    {
+                                        "type": "math",
+                                        "text": "Sifat Limit (5)"
+                                    },
+                                    {
+                                        "type": "math",
+                                        "justify": "center",
+                                        "text": "\\[ \\lim\\limits_{x \\to 2} (2x^{2}-4x+8) = \\lim\\limits_{x \\to 2} (2x^{2}) - \\lim\\limits_{x \\to 2} (4x) + \\lim\\limits_{x \\to 2} (8) \\]",
+                                        "props": { "fontSize": "1.2em", "textAlign": "center" }
+                                    },
+                                    {
+                                        "type": "math",
+                                        "text": "Sifat Limit (4)"
+                                    },
+                                    {
+                                        "type": "math",
+                                        "justify": "center",
+                                        "text": "\\[ \\lim\\limits_{x \\to 2} (2x^{2}) - \\lim\\limits_{x \\to 2} (4x) + \\lim\\limits_{x \\to 2} (8) = 2\\lim\\limits_{x \\to 2} (x^{2}) - 4\\lim\\limits_{x \\to 2} (x) + \\lim\\limits_{x \\to 2} (8) \\]",
+                                        "props": { "fontSize": "1.2em", "textAlign": "center" }
+                                    },
+                                    {
+                                        "type": "math",
+                                        "text": "Sifat Limit (1) (2)"
+                                    },
+                                    {
+                                        "type": "math",
+                                        "justify": "center",
+                                        "text": "\\[ 2\\lim\\limits_{x \\to 2} (x^{2}) - 4\\lim\\limits_{x \\to 2} (x) + \\lim\\limits_{x \\to 2} (8) = 2(2)^{2} - 4(2) + (8) \\]",
+                                        "props": { "fontSize": "1.2em", "textAlign": "center" }
+                                    },
+                                    {
+                                        "type": "math",
+                                        "text": "Kerjakan hingga mendapatkan sebuah nilai riil"
+                                    },
+                                    {
+                                        "type": "math",
+                                        "justify": "center",
+                                        "text": "\\[ 2(2)^{2} - 4(2) + (8) = 2(4) - 8 + 8 = 8 \\]",
+                                        "props": { "fontSize": "1.2em", "textAlign": "center" }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "type": "paragraph",
+                "text": "Sekarang dapat disadari bahwa jika kita telah mendefinisikan:",
+                "children": [
+                    { "type":"math", "text": "\\[ p(x) = 2x^{2} - 4x + 8 \\]" },
+                    { "type":"paragraph", "text": "maka dari contoh tadi:" },
+                    { 
+                        "type":"math", 
+                        "text": "\\[ \\begin{aligned} \\lim\\limits_{x \\to 2} p(x) &= \\lim\\limits_{x \\to 2} (2x^{2} - 4x + 8) \\\\ &= 2(2)^{2} - 4(2) + 8 \\\\ &= 8 \\\\ &= p(2) \\end{aligned} \\]" 
+                    }
+                ]
+            },
+            {
+                "type": "stack",
+                "children": [
+                    { "type": "heading", "text": "Metode Substitusi" },
+                    {
+                        "type": "formula",
+                        "gap": 1,
+                        "children": [
+                            {
+                                "type": "math",
+                                "text": "Jika \\(p(x)\\) merupakan fungsi polinomial"
+                            },
+                            {
+                                "type": "math",
+                                "justify": "center",
+                                "text": "\\[ \\lim\\limits_{x \\to a} p(x) = p(a) \\]"
+                            }
+                        ],
+                        "props": {
+                            "backgroundColor": "#e0f0ff",
+                            "border": "1px solid #000",
+                            "paddingX": 2,
+                            "paddingY": 1
+                        }
+                    }
+                ]
+            },
+            {
+                "type": "example",
+                "title": "Contoh 2",
+                "instruction": "Hitunglah nilai limit berikut",
+                "equation": "\\[ \\lim\\limits_{a \\to \\frac{1}{2}} \\frac{a^{2}-a-1}{a^{3}-2} \\]",
+                "accordion_text": "Pembahasan",
+                "children": [
+                    {
+                        "type": "stack",
+                        "direction": "column",
+                        "gap": 3,
+                        "props": { "mt": 3 },
+                        "children": [
+                            {
+                                "type": "stack",
+                                "children": [
+                                    {
+                                        "type": "math",
+                                        "text": "Sifat Limit (7)"
+                                    },
+                                    {
+                                        "type": "math",
+                                        "justify": "center",
+                                        "text": "\\[ \\lim\\limits_{a \\to \\frac{1}{2}} \\frac{a^{2}-a-1}{a^{3}-2} = \\frac{\\lim\\limits_{a \\to \\frac{1}{2}} (a^{2}-a-1)}{\\lim\\limits_{a \\to \\frac{1}{2}} (a^{3}-2)} \\]",
+                                        "props": { "fontSize": "1.2em", "textAlign": "center" }
+                                    },
+                                    {
+                                        "type": "math",
+                                        "text": "Substitusi"
+                                    },
+                                    {
+                                        "type": "math",
+                                        "justify": "center",
+                                        "text": "\\[ \\begin{aligned} \\lim\\limits_{a \\to \\frac{1}{2}} \\frac{a^{2}-a-1}{a^{3}-2} &=\\frac{\\bigl(\\frac{1}{2}\\bigl)^{2}-\\bigl(\\frac{1}{2}\\bigl)-1}{\\bigl(\\frac{1}{2}\\bigl)^{3}-2} \\\\ &=\\frac{\\frac{1}{4} - \\frac{1}{2} - 1}{\\frac{1}{8}-2} \\\\ &=\\frac{2-4-8}{1-16} \\\\ &=\\frac{-10}{-15} \\\\ &=\\frac{2}{3} \\end{aligned} \\]",
+                                        "props": { "fontSize": "1.2em", "textAlign": "center" }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "limit_evaluation",
+        "url": "/BRI/course/limit/evaluation",
+        "unit": "Teknik Evaluasi Limit",
+        "subunit": "Faktorisasi",
+        "time": "10 min",
+        "content": [
+            {
+                "type": "paragraph",
+                "text": "Pada bagian ini, kita benar-benar akan menghitung beberapa ",
+                "children": [
+                    {
+                        "type": "paragraph",
+                        "text": "limit tentu",
+                        "props": { "fontWeight": 600, "className": "highlight" }
+                    },
+                    {
+                        "type": "paragraph",
+                        "text": " menggunakan metode "
+                    },
+                    {
+                        "type": "paragraph",
+                        "text": "substitusi",
+                        "props": { "fontWeight": 600, "className": "highlight" }
+                    },
+                    {
+                        "type": "paragraph",
+                        "text": ". Namun, sebelum kita melakukannya, kita akan memerlukan beberapa "
+                    },
+                    {
+                        "type": "paragraph",
+                        "text": "sifat limit",
+                        "props": { "fontWeight": 600, "className": "highlight" }
+                    },
+                    {
+                        "type": "paragraph",
+                        "text": " yang akan membuat hidup kita sedikit lebih mudah."
+                    }
+                ]
+            },
+            {
+                "type": "stack",
+                "children": [
+                    { "type": "heading", "text": "Sifat Limit Fungsi" },
+                    {
+                        "type": "formula",
+                        "gap": 1,
+                        "children": [
+                            {
+                                "type": "math",
+                                "text": "Asumsikan \\( \\lim\\limits_{x \\to a}f(x) \\) dan \\( \\lim\\limits_{x \\to a}g(x) \\) ada, serta \\( c \\in \\mathbb{R} \\)"
+                            },
+                            {
+                                "type": "list",
+                                "bullet": "1",
+                                "items": [
+                                    "\\[ \\lim\\limits_{x \\to a} c = c \\]",
+                                    "\\[ \\lim\\limits_{x \\to a} x = a \\]",
+                                    "\\[ \\lim\\limits_{x \\to a} x^{n} = a^{n} \\]",
+                                    "\\[ \\lim\\limits_{x \\to a} [c \\space f(x)] = c\\lim\\limits_{x \\to a}f(x) \\]",
+                                    "\\[ \\lim\\limits_{x \\to a} (f(x) \\pm g(x)) = \\lim\\limits_{x \\to a} f(x) \\pm \\lim\\limits_{x \\to a} g(x) \\]",
+                                    "\\[ \\lim\\limits_{x \\to a} (f(x) \\space g(x)) = \\lim\\limits_{x \\to a} f(x) \\space \\lim\\limits_{x \\to a} g(x) \\]",
+                                    "\\[ \\lim\\limits_{x \\to a} \\biggl(\\frac{f(x)}{g(x)}\\biggl) =  \\displaystyle\\frac{\\displaystyle\\lim\\limits_{x \\to a} f(x)}{\\displaystyle\\lim\\limits_{x \\to a} g(x)}, \\quad \\lim\\limits_{x \\to a}g(x) \\neq 0\\]",
+                                    "\\[ \\lim\\limits_{x \\to a} [f(x)]^{n} = \\biggl[\\lim\\limits_{x \\to a}f(x)\\biggl]^{n} \\]"
+                                ]
+                            },
+                            {
+                                "type": "paragraph",
+                                "text": "Note: ",
+                                "children": [
+                                    {
+                                        "type": "paragraph",
+                                        "text": "Sifat limit",
+                                        "props": { "fontWeight": 600, "className": "highlight" }
+                                    },
+                                    {
+                                        "type": "paragraph",
+                                        "text": " ini juga berlaku di "
+                                    },
+                                    {
+                                        "type": "paragraph",
+                                        "text": "limit kiri",
+                                        "props": { "fontWeight": 600, "className": "highlight" }
+                                    },
+                                    {
+                                        "type": "paragraph",
+                                        "text": " dan "
+                                    },
+                                    {
+                                        "type": "paragraph",
+                                        "text": "limit kanan",
+                                        "props": { "fontWeight": 600, "className": "highlight" }
+                                    },
+                                    {
+                                        "type": "paragraph",
+                                        "text": "."
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "type": "paragraph",
+                "text": "Beberapa contoh soal berikutnya adalah cara yang akan digunakan selanjutnya secara umum untuk menghitung sebuah limit fungsi, yang dikenal sebagai metode ",
+                "children": [
+                    {
+                        "type": "paragraph",
+                        "text": "substitusi",
+                        "props": { "fontWeight": 600, "className": "highlight" }
+                    },
+                    {
+                        "type": "paragraph",
+                        "text": " dengan menggunakan berbagai "
+                    },
+                    {
+                        "type": "paragraph",
+                        "text": "sifat limit",
+                        "props": { "fontWeight": 600, "className": "highlight" }
+                    },
+                    {
+                        "type": "paragraph",
+                        "text": "."
+                    }
+                ]
+            },
+            {
+                "type": "example",
+                "title": "Contoh 1",
+                "instruction": "Hitunglah nilai limit berikut",
+                "equation": "\\[ \\lim\\limits_{x \\to 2} (2x^{2}-4x+8) \\]",
+                "accordion_text": "Pembahasan",
+                "children": [
+                    {
+                        "type": "stack",
+                        "direction": "column",
+                        "gap": 3,
+                        "props": { "mt": 3 },
+                        "children": [
+                            {
+                                "type": "stack",
+                                "children": [
+                                    {
+                                        "type": "math",
+                                        "text": "Sifat Limit (5)"
+                                    },
+                                    {
+                                        "type": "math",
+                                        "justify": "center",
+                                        "text": "\\[ \\lim\\limits_{x \\to 2} (2x^{2}-4x+8) = \\lim\\limits_{x \\to 2} (2x^{2}) - \\lim\\limits_{x \\to 2} (4x) + \\lim\\limits_{x \\to 2} (8) \\]",
+                                        "props": { "fontSize": "1.2em", "textAlign": "center" }
+                                    },
+                                    {
+                                        "type": "math",
+                                        "text": "Sifat Limit (4)"
+                                    },
+                                    {
+                                        "type": "math",
+                                        "justify": "center",
+                                        "text": "\\[ \\lim\\limits_{x \\to 2} (2x^{2}) - \\lim\\limits_{x \\to 2} (4x) + \\lim\\limits_{x \\to 2} (8) = 2\\lim\\limits_{x \\to 2} (x^{2}) - 4\\lim\\limits_{x \\to 2} (x) + \\lim\\limits_{x \\to 2} (8) \\]",
+                                        "props": { "fontSize": "1.2em", "textAlign": "center" }
+                                    },
+                                    {
+                                        "type": "math",
+                                        "text": "Sifat Limit (1) (2)"
+                                    },
+                                    {
+                                        "type": "math",
+                                        "justify": "center",
+                                        "text": "\\[ 2\\lim\\limits_{x \\to 2} (x^{2}) - 4\\lim\\limits_{x \\to 2} (x) + \\lim\\limits_{x \\to 2} (8) = 2(2)^{2} - 4(2) + (8) \\]",
+                                        "props": { "fontSize": "1.2em", "textAlign": "center" }
+                                    },
+                                    {
+                                        "type": "math",
+                                        "text": "Kerjakan hingga mendapatkan sebuah nilai riil"
+                                    },
+                                    {
+                                        "type": "math",
+                                        "justify": "center",
+                                        "text": "\\[ 2(2)^{2} - 4(2) + (8) = 2(4) - 8 + 8 = 8 \\]",
+                                        "props": { "fontSize": "1.2em", "textAlign": "center" }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "type": "paragraph",
+                "text": "Sekarang dapat disadari bahwa jika kita telah mendefinisikan:",
+                "children": [
+                    { "type":"math", "text": "\\[ p(x) = 2x^{2} - 4x + 8 \\]" },
+                    { "type":"paragraph", "text": "maka dari contoh tadi:" },
+                    { 
+                        "type":"math", 
+                        "text": "\\[ \\begin{aligned} \\lim\\limits_{x \\to 2} p(x) &= \\lim\\limits_{x \\to 2} (2x^{2} - 4x + 8) \\\\ &= 2(2)^{2} - 4(2) + 8 \\\\ &= 8 \\\\ &= p(2) \\end{aligned} \\]" 
+                    }
+                ]
+            },
+            {
+                "type": "stack",
+                "children": [
+                    { "type": "heading", "text": "Metode Substitusi" },
+                    {
+                        "type": "formula",
+                        "gap": 1,
+                        "children": [
+                            {
+                                "type": "math",
+                                "text": "Jika \\(p(x)\\) merupakan fungsi polinomial"
+                            },
+                            {
+                                "type": "math",
+                                "justify": "center",
+                                "text": "\\[ \\lim\\limits_{x \\to a} p(x) = p(a) \\]"
+                            }
+                        ],
+                        "props": {
+                            "backgroundColor": "#e0f0ff",
+                            "border": "1px solid #000",
+                            "paddingX": 2,
+                            "paddingY": 1
+                        }
+                    }
+                ]
+            },
+            {
+                "type": "example",
+                "title": "Contoh 2",
+                "instruction": "Hitunglah nilai limit berikut",
+                "equation": "\\[ \\lim\\limits_{a \\to \\frac{1}{2}} \\frac{a^{2}-a-1}{a^{3}-2} \\]",
+                "accordion_text": "Pembahasan",
+                "children": [
+                    {
+                        "type": "stack",
+                        "direction": "column",
+                        "gap": 3,
+                        "props": { "mt": 3 },
+                        "children": [
+                            {
+                                "type": "stack",
+                                "children": [
+                                    {
+                                        "type": "math",
+                                        "text": "Sifat Limit (7)"
+                                    },
+                                    {
+                                        "type": "math",
+                                        "justify": "center",
+                                        "text": "\\[ \\lim\\limits_{a \\to \\frac{1}{2}} \\frac{a^{2}-a-1}{a^{3}-2} = \\frac{\\lim\\limits_{a \\to \\frac{1}{2}} (a^{2}-a-1)}{\\lim\\limits_{a \\to \\frac{1}{2}} (a^{3}-2)} \\]",
+                                        "props": { "fontSize": "1.2em", "textAlign": "center" }
+                                    },
+                                    {
+                                        "type": "math",
+                                        "text": "Substitusi"
+                                    },
+                                    {
+                                        "type": "math",
+                                        "justify": "center",
+                                        "text": "\\[ \\begin{aligned} \\lim\\limits_{a \\to \\frac{1}{2}} \\frac{a^{2}-a-1}{a^{3}-2} &=\\frac{\\bigl(\\frac{1}{2}\\bigl)^{2}-\\bigl(\\frac{1}{2}\\bigl)-1}{\\bigl(\\frac{1}{2}\\bigl)^{3}-2} \\\\ &=\\frac{\\frac{1}{4} - \\frac{1}{2} - 1}{\\frac{1}{8}-2} \\\\ &=\\frac{2-4-8}{1-16} \\\\ &=\\frac{-10}{-15} \\\\ &=\\frac{2}{3} \\end{aligned} \\]",
+                                        "props": { "fontSize": "1.2em", "textAlign": "center" }
                                     }
                                 ]
                             }
