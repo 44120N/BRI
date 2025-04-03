@@ -41,12 +41,8 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 * array -> array -> string/jsx element
 */
 export function CustomRawTable({ content, sx }) {
-    React.useEffect(() => {
-        // Re-render MathJax whenever the content updates
-        window.MathJax?.typesetPromise();
-    }, [content]);
     return (
-        <MathJaxContext>
+        <>
             {Array.isArray(content) &&
             content.every((row) => Array.isArray(row)) ? (
                 content.every((row) =>
@@ -153,6 +149,6 @@ export function CustomRawTable({ content, sx }) {
             ) : (
                 <Typography>This is not a valid table structure</Typography>
             )}
-        </MathJaxContext>
+        </>
     );
 }

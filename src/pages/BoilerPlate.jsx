@@ -19,7 +19,7 @@ const tableData = [
         {
             content: (
                 <MathJax>
-                    [\\frac{1}{2}\]
+                    {"\\[ \\frac{1}{2} \\]"}
                 </MathJax>
             ),
             colspan: 2,
