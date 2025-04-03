@@ -476,7 +476,7 @@
                                     "\\[ \\lim\\limits_{x \\to a} (f(x) \\pm g(x)) = \\lim\\limits_{x \\to a} f(x) \\pm \\lim\\limits_{x \\to a} g(x) \\]",
                                     "\\[ \\lim\\limits_{x \\to a} (f(x) \\space g(x)) = \\lim\\limits_{x \\to a} f(x) \\space \\lim\\limits_{x \\to a} g(x) \\]",
                                     "\\[ \\lim\\limits_{x \\to a} \\biggl(\\frac{f(x)}{g(x)}\\biggl) =  \\displaystyle\\frac{\\displaystyle\\lim\\limits_{x \\to a} f(x)}{\\displaystyle\\lim\\limits_{x \\to a} g(x)}, \\quad \\lim\\limits_{x \\to a}g(x) \\neq 0\\]",
-                                    "\\[ \\lim\\limits_{x \\to a} [f(x)]^{n} = \\biggl[\\lim\\limits_{x \\to a}f(x)\\biggl]^{n} \\]"
+                                    "\\[ \\lim\\limits_{x \\to a} \\bigl[f(x)\\bigl]^{n} = \\biggl[\\lim\\limits_{x \\to a}f(x)\\biggl]^{n} \\]"
                                 ]
                             },
                             {
@@ -688,22 +688,30 @@
     {
         "name": "limit_evaluation",
         "url": "/BRI/course/limit/evaluation",
-        "unit": "Teknik Evaluasi Limit",
-        "subunit": "Faktorisasi",
+        "unit": "Komputasi Limit",
+        "subunit": "Teknik Evaluasi Limit",
         "time": "10 min",
         "content": [
             {
                 "type": "paragraph",
-                "text": "Pada bagian ini, kita benar-benar akan menghitung beberapa ",
+                "text": "Pada bagian sebelumnya kita melihat bahwa ada limit fungsi yang memungkinkan kita untuk menggunakan metode ",
                 "children": [
                     {
                         "type": "paragraph",
-                        "text": "limit tentu",
+                        "text": "substitusi",
                         "props": { "fontWeight": 600, "className": "highlight" }
                     },
                     {
                         "type": "paragraph",
-                        "text": " menggunakan metode "
+                        "text": "."
+                    },
+                    {
+                        "type": "math",
+                        "text": "\\[ \\lim\\limits_{x \\to a} f(x) = f(a) \\]"
+                    },
+                    {
+                        "type": "paragraph",
+                        "text": "Akan tetapi, ada juga limit fungsi yang tidak dapat diatasi dengan mudah. ​​Tujuan dari bagian ini adalah untuk mengembangkan teknik dalam menangani beberapa limit fungsi yang tidak memungkinkan kita untuk menggunakan metode "
                     },
                     {
                         "type": "paragraph",
@@ -712,43 +720,26 @@
                     },
                     {
                         "type": "paragraph",
-                        "text": ". Namun, sebelum kita melakukannya, kita akan memerlukan beberapa "
-                    },
-                    {
-                        "type": "paragraph",
-                        "text": "sifat limit",
-                        "props": { "fontWeight": 600, "className": "highlight" }
-                    },
-                    {
-                        "type": "paragraph",
-                        "text": " yang akan membuat hidup kita sedikit lebih mudah."
+                        "text": " begitu saja."
                     }
                 ]
             },
             {
                 "type": "stack",
                 "children": [
-                    { "type": "heading", "text": "Sifat Limit Fungsi" },
+                    { "type": "heading", "text": "Cheatsheet Aljabar" },
                     {
                         "type": "formula",
                         "gap": 1,
                         "children": [
                             {
-                                "type": "math",
-                                "text": "Asumsikan \\( \\lim\\limits_{x \\to a}f(x) \\) dan \\( \\lim\\limits_{x \\to a}g(x) \\) ada, serta \\( c \\in \\mathbb{R} \\)"
-                            },
-                            {
                                 "type": "list",
                                 "bullet": "1",
                                 "items": [
-                                    "\\[ \\lim\\limits_{x \\to a} c = c \\]",
-                                    "\\[ \\lim\\limits_{x \\to a} x = a \\]",
-                                    "\\[ \\lim\\limits_{x \\to a} x^{n} = a^{n} \\]",
-                                    "\\[ \\lim\\limits_{x \\to a} [c \\space f(x)] = c\\lim\\limits_{x \\to a}f(x) \\]",
-                                    "\\[ \\lim\\limits_{x \\to a} (f(x) \\pm g(x)) = \\lim\\limits_{x \\to a} f(x) \\pm \\lim\\limits_{x \\to a} g(x) \\]",
-                                    "\\[ \\lim\\limits_{x \\to a} (f(x) \\space g(x)) = \\lim\\limits_{x \\to a} f(x) \\space \\lim\\limits_{x \\to a} g(x) \\]",
-                                    "\\[ \\lim\\limits_{x \\to a} \\biggl(\\frac{f(x)}{g(x)}\\biggl) =  \\displaystyle\\frac{\\displaystyle\\lim\\limits_{x \\to a} f(x)}{\\displaystyle\\lim\\limits_{x \\to a} g(x)}, \\quad \\lim\\limits_{x \\to a}g(x) \\neq 0\\]",
-                                    "\\[ \\lim\\limits_{x \\to a} [f(x)]^{n} = \\biggl[\\lim\\limits_{x \\to a}f(x)\\biggl]^{n} \\]"
+                                    "\\[ a^{2}-b^{2}=(a+b)(a-b) \\]",
+                                    "\\[ a^{3} \\pm b^{3}=(a \\pm b)(a^{2} \\mp ab + b^{2}) \\]",
+                                    "\\[ a^{n} - b^{n}=(a - b) \\Biggl( \\sum_{i=0}^{n-1} a^{n-i-1} b^{i} \\Biggl) \\]",
+                                    "\\[ a^{n} - (-b)^{n}=(a + b) \\Biggl( \\sum_{i=0}^{n-1} (-1)^{n} a^{n-i-1} b^{i} \\Biggl) \\]"
                                 ]
                             },
                             {
@@ -757,16 +748,25 @@
                                 "children": [
                                     {
                                         "type": "paragraph",
-                                        "text": "Sifat limit",
+                                        "text": "Bentuk aljabar",
                                         "props": { "fontWeight": 600, "className": "highlight" }
                                     },
                                     {
                                         "type": "paragraph",
-                                        "text": " ini juga berlaku di "
+                                        "text": " ini merupakan bentuk yang sering digunakan dalam "
                                     },
                                     {
                                         "type": "paragraph",
-                                        "text": "limit kiri",
+                                        "text": "limit fungsi",
+                                        "props": { "fontWeight": 600, "className": "highlight" }
+                                    },
+                                    {
+                                        "type": "paragraph",
+                                        "text": " pada metode "
+                                    },
+                                    {
+                                        "type": "paragraph",
+                                        "text": "faktorisasi",
                                         "props": { "fontWeight": 600, "className": "highlight" }
                                     },
                                     {
@@ -775,7 +775,7 @@
                                     },
                                     {
                                         "type": "paragraph",
-                                        "text": "limit kanan",
+                                        "text": "perkalian sekawan",
                                         "props": { "fontWeight": 600, "className": "highlight" }
                                     },
                                     {
@@ -789,34 +789,10 @@
                 ]
             },
             {
-                "type": "paragraph",
-                "text": "Beberapa contoh soal berikutnya adalah cara yang akan digunakan selanjutnya secara umum untuk menghitung sebuah limit fungsi, yang dikenal sebagai metode ",
-                "children": [
-                    {
-                        "type": "paragraph",
-                        "text": "substitusi",
-                        "props": { "fontWeight": 600, "className": "highlight" }
-                    },
-                    {
-                        "type": "paragraph",
-                        "text": " dengan menggunakan berbagai "
-                    },
-                    {
-                        "type": "paragraph",
-                        "text": "sifat limit",
-                        "props": { "fontWeight": 600, "className": "highlight" }
-                    },
-                    {
-                        "type": "paragraph",
-                        "text": "."
-                    }
-                ]
-            },
-            {
                 "type": "example",
                 "title": "Contoh 1",
                 "instruction": "Hitunglah nilai limit berikut",
-                "equation": "\\[ \\lim\\limits_{x \\to 2} (2x^{2}-4x+8) \\]",
+                "equation": "\\[ \\lim\\limits_{h \\to 0} \\frac{2(h-4)^{2}-32}{h} \\]",
                 "accordion_text": "Pembahasan",
                 "children": [
                     {
@@ -830,42 +806,42 @@
                                 "children": [
                                     {
                                         "type": "math",
-                                        "text": "Sifat Limit (5)"
+                                        "text": "Substitusi"
                                     },
                                     {
                                         "type": "math",
                                         "justify": "center",
-                                        "text": "\\[ \\lim\\limits_{x \\to 2} (2x^{2}-4x+8) = \\lim\\limits_{x \\to 2} (2x^{2}) - \\lim\\limits_{x \\to 2} (4x) + \\lim\\limits_{x \\to 2} (8) \\]",
+                                        "text": "\\[ \\lim\\limits_{h \\to 0} \\frac{2(h-4)^{2}-32}{h} = \\frac{2((0)-4)^{2}-32}{0} = \\frac{0}{0} \\]",
                                         "props": { "fontSize": "1.2em", "textAlign": "center" }
                                     },
                                     {
                                         "type": "math",
-                                        "text": "Sifat Limit (4)"
+                                        "text": "Ekspansi"
                                     },
                                     {
                                         "type": "math",
                                         "justify": "center",
-                                        "text": "\\[ \\lim\\limits_{x \\to 2} (2x^{2}) - \\lim\\limits_{x \\to 2} (4x) + \\lim\\limits_{x \\to 2} (8) = 2\\lim\\limits_{x \\to 2} (x^{2}) - 4\\lim\\limits_{x \\to 2} (x) + \\lim\\limits_{x \\to 2} (8) \\]",
+                                        "text": "\\[ \\lim\\limits_{h \\to 0} \\frac{2(h-4)^{2}-32}{h} = \\lim\\limits_{h \\to 0} \\frac{2(h^{2}-8h+16)-32}{h} = \\lim\\limits_{h \\to 0} \\frac{2h^{2}-16h}{h} \\]",
                                         "props": { "fontSize": "1.2em", "textAlign": "center" }
                                     },
                                     {
                                         "type": "math",
-                                        "text": "Sifat Limit (1) (2)"
+                                        "text": "Faktorisasi"
                                     },
                                     {
                                         "type": "math",
                                         "justify": "center",
-                                        "text": "\\[ 2\\lim\\limits_{x \\to 2} (x^{2}) - 4\\lim\\limits_{x \\to 2} (x) + \\lim\\limits_{x \\to 2} (8) = 2(2)^{2} - 4(2) + (8) \\]",
+                                        "text": "\\[ \\lim\\limits_{h \\to 0} \\frac{2h^{2}-16h}{h} = \\lim\\limits_{h \\to 0} \\frac{2h(h-8)}{h} = 2\\lim\\limits_{h \\to 0} (h-8) \\]",
                                         "props": { "fontSize": "1.2em", "textAlign": "center" }
                                     },
                                     {
                                         "type": "math",
-                                        "text": "Kerjakan hingga mendapatkan sebuah nilai riil"
+                                        "text": "Substitusi"
                                     },
                                     {
                                         "type": "math",
                                         "justify": "center",
-                                        "text": "\\[ 2(2)^{2} - 4(2) + (8) = 2(4) - 8 + 8 = 8 \\]",
+                                        "text": "\\[ 2\\lim\\limits_{h \\to 0} (h-8) = 2((0)-8) = 2(-8) = -16 \\]",
                                         "props": { "fontSize": "1.2em", "textAlign": "center" }
                                     }
                                 ]
@@ -876,40 +852,36 @@
             },
             {
                 "type": "paragraph",
-                "text": "Sekarang dapat disadari bahwa jika kita telah mendefinisikan:",
+                "text": "Sebagai catatan penting, ",
                 "children": [
-                    { "type":"math", "text": "\\[ p(x) = 2x^{2} - 4x + 8 \\]" },
-                    { "type":"paragraph", "text": "maka dari contoh tadi:" },
+                    { "type":"math", "text": "\\( \\frac{0}{0} \\)" },
+                    { "type":"paragraph", "text": " disebut " },
                     { 
-                        "type":"math", 
-                        "text": "\\[ \\begin{aligned} \\lim\\limits_{x \\to 2} p(x) &= \\lim\\limits_{x \\to 2} (2x^{2} - 4x + 8) \\\\ &= 2(2)^{2} - 4(2) + 8 \\\\ &= 8 \\\\ &= p(2) \\end{aligned} \\]" 
-                    }
-                ]
-            },
-            {
-                "type": "stack",
-                "children": [
-                    { "type": "heading", "text": "Metode Substitusi" },
+                        "type":"paragraph", 
+                        "text": "bentuk tak tentu",
+                        "props": { "fontWeight": 600, "className": "highlight" }
+                    },
                     {
-                        "type": "formula",
-                        "gap": 1,
-                        "children": [
-                            {
-                                "type": "math",
-                                "text": "Jika \\(p(x)\\) merupakan fungsi polinomial"
-                            },
-                            {
-                                "type": "math",
-                                "justify": "center",
-                                "text": "\\[ \\lim\\limits_{x \\to a} p(x) = p(a) \\]"
-                            }
-                        ],
-                        "props": {
-                            "backgroundColor": "#e0f0ff",
-                            "border": "1px solid #000",
-                            "paddingX": 2,
-                            "paddingY": 1
-                        }
+                        "type": "paragraph",
+                        "text": ". Ini berarti kita tidak benar-benar tahu apa hasilnya sampai kita melakukan beberapa proses lagi. Biasanya, \\(0\\) pada penyebut berarti "
+                    },
+                    {
+                        "type": "paragraph",
+                        "text": "tidak terdefinisi",
+                        "props": { "fontWeight": 600, "className": "highlight" }
+                    },
+                    { 
+                        "type":"paragraph", 
+                        "text": ". Namun, itu hanya akan benar jika pembilangnya juga bukan \\(0\\). Hasil dari \\(\\frac{0}{0}\\) dapat merupakan nilai apapun karena seluruh nilai bila dikali dengan \\(0\\) akan menghasilkan \\(0\\) juga. Dikarenakan hasilnya yang tidak menentu (dapat berupa nilai apapun), maka \\(\\frac{0}{0}\\) dikenal sebagai "
+                    },
+                    { 
+                        "type":"paragraph", 
+                        "text": "bentuk tak tentu",
+                        "props": { "fontWeight": 600, "className": "highlight" }
+                    },
+                    {
+                        "type": "paragraph",
+                        "text": "."
                     }
                 ]
             },
@@ -917,7 +889,7 @@
                 "type": "example",
                 "title": "Contoh 2",
                 "instruction": "Hitunglah nilai limit berikut",
-                "equation": "\\[ \\lim\\limits_{a \\to \\frac{1}{2}} \\frac{a^{2}-a-1}{a^{3}-2} \\]",
+                "equation": "\\[ \\lim\\limits_{x \\to 4} \\frac{x^{2}-2x-8}{x^{3}-64} \\]",
                 "accordion_text": "Pembahasan",
                 "children": [
                     {
@@ -931,12 +903,22 @@
                                 "children": [
                                     {
                                         "type": "math",
-                                        "text": "Sifat Limit (7)"
+                                        "text": "Substitusi"
                                     },
                                     {
                                         "type": "math",
                                         "justify": "center",
-                                        "text": "\\[ \\lim\\limits_{a \\to \\frac{1}{2}} \\frac{a^{2}-a-1}{a^{3}-2} = \\frac{\\lim\\limits_{a \\to \\frac{1}{2}} (a^{2}-a-1)}{\\lim\\limits_{a \\to \\frac{1}{2}} (a^{3}-2)} \\]",
+                                        "text": "\\[ \\lim\\limits_{x \\to 4} \\frac{x^{2}-2x-8}{x^{3}-64} = \\frac{(4)^{2}-2(4)-8}{(4)^{3}-64} = \\frac{0}{0} \\]",
+                                        "props": { "fontSize": "1.2em", "textAlign": "center" }
+                                    },
+                                    {
+                                        "type": "math",
+                                        "text": "Faktorisasi dan Eliminasi"
+                                    },
+                                    {
+                                        "type": "math",
+                                        "justify": "center",
+                                        "text": "\\[ \\lim\\limits_{x \\to 4} \\frac{x^{2}-2x-8}{x^{3}-8} = \\lim\\limits_{x \\to 4} \\frac{(x+2)(x-4)}{(x-4)(x^{2}+4x+16)} = \\lim\\limits_{x \\to 4} \\frac{x+2}{x^{2}+4x+16} \\]",
                                         "props": { "fontSize": "1.2em", "textAlign": "center" }
                                     },
                                     {
@@ -946,7 +928,724 @@
                                     {
                                         "type": "math",
                                         "justify": "center",
-                                        "text": "\\[ \\begin{aligned} \\lim\\limits_{a \\to \\frac{1}{2}} \\frac{a^{2}-a-1}{a^{3}-2} &=\\frac{\\bigl(\\frac{1}{2}\\bigl)^{2}-\\bigl(\\frac{1}{2}\\bigl)-1}{\\bigl(\\frac{1}{2}\\bigl)^{3}-2} \\\\ &=\\frac{\\frac{1}{4} - \\frac{1}{2} - 1}{\\frac{1}{8}-2} \\\\ &=\\frac{2-4-8}{1-16} \\\\ &=\\frac{-10}{-15} \\\\ &=\\frac{2}{3} \\end{aligned} \\]",
+                                        "text": "\\[ \\lim\\limits_{x \\to 4} \\frac{x+2}{x^{2}+4x+16} = \\frac{(4)+2}{(4)^{2}+4(4)+16} = \\frac{6}{64} = \\frac{3}{32} \\]",
+                                        "props": { "fontSize": "1.2em", "textAlign": "center" }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "type": "example",
+                "title": "Contoh 3",
+                "instruction": "Hitunglah nilai limit berikut",
+                "equation": "\\[ \\lim\\limits_{t \\to 2} \\frac{2t-\\sqrt{5t+6}}{2-t} \\]",
+                "accordion_text": "Pembahasan",
+                "children": [
+                    {
+                        "type": "stack",
+                        "direction": "column",
+                        "gap": 3,
+                        "props": { "mt": 3 },
+                        "children": [
+                            {
+                                "type": "stack",
+                                "children": [
+                                    {
+                                        "type": "math",
+                                        "text": "Substitusi"
+                                    },
+                                    {
+                                        "type": "math",
+                                        "justify": "center",
+                                        "text": "\\[ \\lim\\limits_{t \\to 2} \\frac{2t-\\sqrt{5t+6}}{2-t} = \\frac{2(2)-\\sqrt{5(2)+6}}{2-(2)} = \\frac{0}{0} \\]",
+                                        "props": { "fontSize": "1.2em", "textAlign": "center" }
+                                    },
+                                    {
+                                        "type": "math",
+                                        "text": "Perkalian Sekawan | \\( \\space a^{2}-b^{2}=(a+b)(a-b) \\)"
+                                    },
+                                    {
+                                        "type": "math",
+                                        "justify": "center",
+                                        "text": "\\[ \\lim\\limits_{t \\to 2} \\frac{2t-\\sqrt{5t+6}}{2-t} = \\lim\\limits_{t \\to 2} \\frac{2t-\\sqrt{5t+6}}{2-t} \\quad \\frac{2t+\\sqrt{5t+6}}{2t+\\sqrt{5t+6}} \\]",
+                                        "props": { "fontSize": "1.2em", "textAlign": "center" }
+                                    },
+                                    {
+                                        "type": "math",
+                                        "text": "Operasikan"
+                                    },
+                                    {
+                                        "type": "math",
+                                        "justify": "center",
+                                        "text": "\\[  \\lim\\limits_{t \\to 2} \\frac{(2t)^{2}-(5t+6)}{(2-t)(2t+\\sqrt{5t+6})} = \\lim\\limits_{t \\to 2} \\frac{4t^{2}-5t-6}{(2-t)(2t+\\sqrt{5t+6})} \\]",
+                                        "props": { "fontSize": "1.2em", "textAlign": "center" }
+                                    },
+                                    {
+                                        "type": "math",
+                                        "text": "Faktorisasi"
+                                    },
+                                    {
+                                        "type": "math",
+                                        "justify": "center",
+                                        "text": "\\[  \\lim\\limits_{t \\to 2} \\frac{4t^{2}-5t-6}{(2-t)(2t+\\sqrt{5t+6})} = \\lim\\limits_{t \\to 2} \\frac{1}{(2t+\\sqrt{5t+6})} \\space \\lim\\limits_{t \\to 2} \\frac{(t-2)(4t-3)}{(2-t)} \\]",
+                                        "props": { "fontSize": "1.2em", "textAlign": "center" }
+                                    },
+                                    {
+                                        "type": "math",
+                                        "text": "Substitusi dan Eliminasi"
+                                    },
+                                    {
+                                        "type": "math",
+                                        "justify": "center",
+                                        "text": "\\[  \\lim\\limits_{t \\to 2} \\frac{1}{(2t+\\sqrt{5t+6})} \\space \\lim\\limits_{t \\to 2} \\frac{(t-2)(4t-3)}{(2-t)} = \\frac{1}{(2(2)+\\sqrt{5(2)+6})} \\space \\biggl[-\\lim\\limits_{t \\to 2} (4t-3) \\biggl] = -\\frac{1}{8} \\space (4(2)-3) = -\\frac{5}{8} \\]",
+                                        "props": { "fontSize": "1.2em", "textAlign": "center" }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "type": "paragraph",
+                "text": "Dalam perkalian sekawan, ",
+                "children": [
+                    { 
+                        "type":"paragraph", 
+                        "text": "produk sekawan",
+                        "props": { "fontWeight": 600, "className": "highlight" }
+                    },
+                    {
+                        "type": "paragraph",
+                        "text": " yang tidak digunakan untuk "
+                    },
+                    { 
+                        "type":"paragraph", 
+                        "text": "perkalian sekawan",
+                        "props": { "fontWeight": 600, "className": "highlight" }
+                    },
+                    {
+                        "type": "paragraph",
+                        "text": ", dapat dipisah menggunakan "
+                    },
+                    { 
+                        "type":"paragraph", 
+                        "text": "Sifat Limit (6)",
+                        "props": { "fontWeight": 600, "className": "highlight" }
+                    },
+                    {
+                        "type": "paragraph",
+                        "text": " dan digunakan metode "
+                    },
+                    {
+                        "type": "paragraph",
+                        "text": "substitusi",
+                        "props": { "fontWeight": 600, "className": "highlight" }
+                    },
+                    { 
+                        "type":"paragraph", 
+                        "text": ". Hal ini dapat terjadi karena seluruh "
+                    },
+                    { 
+                        "type":"paragraph", 
+                        "text": "produk sekawan",
+                        "props": { "fontWeight": 600, "className": "highlight" }
+                    },
+                    {
+                        "type": "paragraph",
+                        "text": " dapat dipastikan tidak menghasilkan nilai \\(0\\). Selain itu, fungsi utama "
+                    },
+                    { 
+                        "type":"paragraph", 
+                        "text": "produk sekawan",
+                        "props": { "fontWeight": 600, "className": "highlight" }
+                    },
+                    { 
+                        "type":"paragraph", 
+                        "text": " dalam operasi "
+                    },
+                    { 
+                        "type":"paragraph", 
+                        "text": "perkalian sekawan",
+                        "props": { "fontWeight": 600, "className": "highlight" }
+                    },
+                    {
+                        "type": "paragraph",
+                        "text": " adalah sebagai fungsi yang dapat menyederhanakan limit fungsi sehingga "
+                    },
+                    {
+                        "type": "paragraph",
+                        "text": "fungsi pembuat nol",
+                        "props": { "fontWeight": 600, "className": "highlight" }
+                    },
+                    {
+                        "type": "paragraph",
+                        "text": " dapat ditemukan dan dilakukan "
+                    },
+                    {
+                        "type": "paragraph",
+                        "text": "eliminasi",
+                        "props": { "fontWeight": 600, "className": "highlight" }
+                    },
+                    {
+                        "type": "paragraph",
+                        "text": ". Maka, "
+                    },
+                    { 
+                        "type":"paragraph", 
+                        "text": "produk sekawan",
+                        "props": { "fontWeight": 600, "className": "highlight" }
+                    },
+                    { 
+                        "type":"paragraph", 
+                        "text": " yang tidak digunakan dalam operasi "
+                    },
+                    { 
+                        "type":"paragraph", 
+                        "text": "perkalian sekawan",
+                        "props": { "fontWeight": 600, "className": "highlight" }
+                    },
+                    {
+                        "type": "paragraph",
+                        "text": " tidak perlu dikalikan, namun langsung di-"
+                    },
+                    {
+                        "type": "paragraph",
+                        "text": "substitusi",
+                        "props": { "fontWeight": 600, "className": "highlight" }
+                    },
+                    {
+                        "type": "paragraph",
+                        "text": " saja."
+                    }
+                ]
+            },
+            {
+                "type": "example",
+                "title": "Contoh 4",
+                "instruction": "Hitunglah nilai limit berikut",
+                "equation": "\\[ \\lim\\limits_{a \\to -1} \\frac{\\sqrt[^3]{a}+1}{\\sqrt{-a}-1} \\]",
+                "accordion_text": "Pembahasan",
+                "children": [
+                    {
+                        "type": "stack",
+                        "direction": "column",
+                        "gap": 3,
+                        "props": { "mt": 3 },
+                        "children": [
+                            {
+                                "type": "stack",
+                                "children": [
+                                    {
+                                        "type": "math",
+                                        "text": "Substitusi"
+                                    },
+                                    {
+                                        "type": "math",
+                                        "justify": "center",
+                                        "text": "\\[ \\lim\\limits_{a \\to -1} \\frac{\\sqrt[^3]{a}+1}{\\sqrt{-a}-1} = \\frac{\\sqrt[^3]{-1}+1}{\\sqrt{-(-1)}-1} = \\frac{0}{0} \\]",
+                                        "props": { "fontSize": "1.2em", "textAlign": "center" }
+                                    },
+                                    {
+                                        "type": "math",
+                                        "text": "Perkalian Sekawan | \\( \\space a^{2}-b^{2}=(a+b)(a-b), \\space a^{3}+b^{3} = (a+b)(a^{2}-ab+b^{2}) \\)"
+                                    },
+                                    {
+                                        "type": "math",
+                                        "justify": "center",
+                                        "text": "\\[ \\lim\\limits_{a \\to -1} \\frac{\\sqrt[^3]{a}+1}{\\sqrt{-a}-1} = \\lim\\limits_{a \\to -1} \\frac{\\sqrt[^3]{a}+1}{\\sqrt{-a}-1} \\quad \\frac{(\\sqrt{-a}+1)(a^{2}-a+1)}{(\\sqrt{-a}+1)(a^{2}-a+1)} \\]",
+                                        "props": { "fontSize": "1.2em", "textAlign": "center" }
+                                    },
+                                    {
+                                        "type": "math",
+                                        "text": "Operasikan"
+                                    },
+                                    {
+                                        "type": "math",
+                                        "justify": "center",
+                                        "text": "\\[ \\lim\\limits_{a \\to -1} \\frac{((\\sqrt[^3]{a})^{3}+1^{3})(\\sqrt{-a}+1)}{((\\sqrt{-a})^{2}-(1)^2)(a^{2}-a+1)} = \\lim\\limits_{a \\to -1} \\frac{\\sqrt{-a}+1}{a^{2}-a+1} \\space \\lim\\limits_{a \\to -1} \\frac{a+1}{-a-1} \\]",
+                                        "props": { "fontSize": "1.2em", "textAlign": "center" }
+                                    },
+                                    {
+                                        "type": "math",
+                                        "text": "Substitusi dan Eliminasi"
+                                    },
+                                    {
+                                        "type": "math",
+                                        "justify": "center",
+                                        "text": "\\[ \\lim\\limits_{a \\to -1} \\frac{\\sqrt{-a}+1}{a^{2}-a+1} \\space \\lim\\limits_{a \\to -1} \\frac{a+1}{-(a+1)} = \\frac{\\sqrt{-(-1)}+1}{(-1)^{2}-(-1)+1} \\space (-1) = -\\frac{2}{3} \\]",
+                                        "props": { "fontSize": "1.2em", "textAlign": "center" }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "limit_infinity",
+        "url": "/BRI/course/limit/infinity",
+        "unit": "Konsep Limit Tak Hingga",
+        "subunit": "Limit Tak Hingga",
+        "time": "10 min",
+        "content": [
+            {
+                "type": "paragraph",
+                "text": "Pada bagian ini kita akan melihat jenis ",
+                "children": [
+                    {
+                        "type": "paragraph",
+                        "text": "limit fungsi",
+                        "props": { "fontWeight": 600, "className": "highlight" }
+                    },
+                    {
+                        "type": "paragraph",
+                        "text": " yang menghasilkan nilai "
+                    },
+                    {
+                        "type": "math",
+                        "text": "\\( \\infty \\)"
+                    },
+                    {
+                        "type": "math",
+                        "text": " (tak hingga). Selain itu, pada bagian ini kita akan mempelajari cara membedakan suatu limit fungsi yang menghasilkan \\( \\infty \\), \\( -\\infty \\), dan yang "
+                    },
+                    {
+                        "type": "paragraph",
+                        "text": "tidak ada",
+                        "props": { "fontWeight": 600, "className": "highlight" }
+                    },
+                    {
+                        "type": "paragraph",
+                        "text": "."
+                    }
+                ]
+            },
+            {
+                "type": "stack",
+                "children": [
+                    { "type": "heading", "text": "Limit Tak Hingga" },
+                    {
+                        "type": "formula",
+                        "gap": 1,
+                        "children": [
+                            {
+                                "type": "paragraph",
+                                "text": "Ketika ",
+                                "children": [
+                                    {
+                                        "type": "math",
+                                        "text": "\\( f(x) \\)"
+                                    },
+                                    {
+                                        "type": "paragraph",
+                                        "text": " menjadi sangat besar untuk semua \\( x \\) yang cukup dekat dengan \\( a \\) dari kedua sisi, tanpa benar-benar membiarkan \\( x \\) menjadi \\( a \\)."
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "math",
+                                "justify": "center",
+                                "text": "\\[ \\lim\\limits_{x \\to a} f(x) = \\pm \\infty \\]"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "type": "example",
+                "title": "Contoh 1",
+                "instruction": "Hitunglah nilai limit berikut",
+                "equation": "\\[ \\lim\\limits_{h \\to 0} \\frac{2(h-4)^{2}-32}{h} \\]",
+                "accordion_text": "Pembahasan",
+                "children": [
+                    {
+                        "type": "stack",
+                        "direction": "column",
+                        "gap": 3,
+                        "props": { "mt": 3 },
+                        "children": [
+                            {
+                                "type": "stack",
+                                "children": [
+                                    {
+                                        "type": "math",
+                                        "text": "Substitusi"
+                                    },
+                                    {
+                                        "type": "math",
+                                        "justify": "center",
+                                        "text": "\\[ \\lim\\limits_{h \\to 0} \\frac{2(h-4)^{2}-32}{h} = \\frac{2((0)-4)^{2}-32}{0} = \\frac{0}{0} \\]",
+                                        "props": { "fontSize": "1.2em", "textAlign": "center" }
+                                    },
+                                    {
+                                        "type": "math",
+                                        "text": "Ekspansi"
+                                    },
+                                    {
+                                        "type": "math",
+                                        "justify": "center",
+                                        "text": "\\[ \\lim\\limits_{h \\to 0} \\frac{2(h-4)^{2}-32}{h} = \\lim\\limits_{h \\to 0} \\frac{2(h^{2}-8h+16)-32}{h} = \\lim\\limits_{h \\to 0} \\frac{2h^{2}-16h}{h} \\]",
+                                        "props": { "fontSize": "1.2em", "textAlign": "center" }
+                                    },
+                                    {
+                                        "type": "math",
+                                        "text": "Faktorisasi"
+                                    },
+                                    {
+                                        "type": "math",
+                                        "justify": "center",
+                                        "text": "\\[ \\lim\\limits_{h \\to 0} \\frac{2h^{2}-16h}{h} = \\lim\\limits_{h \\to 0} \\frac{2h(h-8)}{h} = 2\\lim\\limits_{h \\to 0} (h-8) \\]",
+                                        "props": { "fontSize": "1.2em", "textAlign": "center" }
+                                    },
+                                    {
+                                        "type": "math",
+                                        "text": "Substitusi"
+                                    },
+                                    {
+                                        "type": "math",
+                                        "justify": "center",
+                                        "text": "\\[ 2\\lim\\limits_{h \\to 0} (h-8) = 2((0)-8) = 2(-8) = -16 \\]",
+                                        "props": { "fontSize": "1.2em", "textAlign": "center" }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "type": "paragraph",
+                "text": "Sebagai catatan penting, ",
+                "children": [
+                    { "type":"math", "text": "\\( \\frac{0}{0} \\)" },
+                    { "type":"paragraph", "text": " disebut " },
+                    { 
+                        "type":"paragraph", 
+                        "text": "bentuk tak tentu",
+                        "props": { "fontWeight": 600, "className": "highlight" }
+                    },
+                    {
+                        "type": "paragraph",
+                        "text": ". Ini berarti kita tidak benar-benar tahu apa hasilnya sampai kita melakukan beberapa proses lagi. Biasanya, \\(0\\) pada penyebut berarti "
+                    },
+                    {
+                        "type": "paragraph",
+                        "text": "tidak terdefinisi",
+                        "props": { "fontWeight": 600, "className": "highlight" }
+                    },
+                    { 
+                        "type":"paragraph", 
+                        "text": ". Namun, itu hanya akan benar jika pembilangnya juga bukan \\(0\\). Hasil dari \\(\\frac{0}{0}\\) dapat merupakan nilai apapun karena seluruh nilai bila dikali dengan \\(0\\) akan menghasilkan \\(0\\) juga. Dikarenakan hasilnya yang tidak menentu (dapat berupa nilai apapun), maka \\(\\frac{0}{0}\\) dikenal sebagai "
+                    },
+                    { 
+                        "type":"paragraph", 
+                        "text": "bentuk tak tentu",
+                        "props": { "fontWeight": 600, "className": "highlight" }
+                    },
+                    {
+                        "type": "paragraph",
+                        "text": "."
+                    }
+                ]
+            },
+            {
+                "type": "example",
+                "title": "Contoh 2",
+                "instruction": "Hitunglah nilai limit berikut",
+                "equation": "\\[ \\lim\\limits_{x \\to 4} \\frac{x^{2}-2x-8}{x^{3}-64} \\]",
+                "accordion_text": "Pembahasan",
+                "children": [
+                    {
+                        "type": "stack",
+                        "direction": "column",
+                        "gap": 3,
+                        "props": { "mt": 3 },
+                        "children": [
+                            {
+                                "type": "stack",
+                                "children": [
+                                    {
+                                        "type": "math",
+                                        "text": "Substitusi"
+                                    },
+                                    {
+                                        "type": "math",
+                                        "justify": "center",
+                                        "text": "\\[ \\lim\\limits_{x \\to 4} \\frac{x^{2}-2x-8}{x^{3}-64} = \\frac{(4)^{2}-2(4)-8}{(4)^{3}-64} = \\frac{0}{0} \\]",
+                                        "props": { "fontSize": "1.2em", "textAlign": "center" }
+                                    },
+                                    {
+                                        "type": "math",
+                                        "text": "Faktorisasi dan Eliminasi"
+                                    },
+                                    {
+                                        "type": "math",
+                                        "justify": "center",
+                                        "text": "\\[ \\lim\\limits_{x \\to 4} \\frac{x^{2}-2x-8}{x^{3}-8} = \\lim\\limits_{x \\to 4} \\frac{(x+2)(x-4)}{(x-4)(x^{2}+4x+16)} = \\lim\\limits_{x \\to 4} \\frac{x+2}{x^{2}+4x+16} \\]",
+                                        "props": { "fontSize": "1.2em", "textAlign": "center" }
+                                    },
+                                    {
+                                        "type": "math",
+                                        "text": "Substitusi"
+                                    },
+                                    {
+                                        "type": "math",
+                                        "justify": "center",
+                                        "text": "\\[ \\lim\\limits_{x \\to 4} \\frac{x+2}{x^{2}+4x+16} = \\frac{(4)+2}{(4)^{2}+4(4)+16} = \\frac{6}{64} = \\frac{3}{32} \\]",
+                                        "props": { "fontSize": "1.2em", "textAlign": "center" }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "type": "example",
+                "title": "Contoh 3",
+                "instruction": "Hitunglah nilai limit berikut",
+                "equation": "\\[ \\lim\\limits_{t \\to 2} \\frac{2t-\\sqrt{5t+6}}{2-t} \\]",
+                "accordion_text": "Pembahasan",
+                "children": [
+                    {
+                        "type": "stack",
+                        "direction": "column",
+                        "gap": 3,
+                        "props": { "mt": 3 },
+                        "children": [
+                            {
+                                "type": "stack",
+                                "children": [
+                                    {
+                                        "type": "math",
+                                        "text": "Substitusi"
+                                    },
+                                    {
+                                        "type": "math",
+                                        "justify": "center",
+                                        "text": "\\[ \\lim\\limits_{t \\to 2} \\frac{2t-\\sqrt{5t+6}}{2-t} = \\frac{2(2)-\\sqrt{5(2)+6}}{2-(2)} = \\frac{0}{0} \\]",
+                                        "props": { "fontSize": "1.2em", "textAlign": "center" }
+                                    },
+                                    {
+                                        "type": "math",
+                                        "text": "Perkalian Sekawan | \\( \\space a^{2}-b^{2}=(a+b)(a-b) \\)"
+                                    },
+                                    {
+                                        "type": "math",
+                                        "justify": "center",
+                                        "text": "\\[ \\lim\\limits_{t \\to 2} \\frac{2t-\\sqrt{5t+6}}{2-t} = \\lim\\limits_{t \\to 2} \\frac{2t-\\sqrt{5t+6}}{2-t} \\quad \\frac{2t+\\sqrt{5t+6}}{2t+\\sqrt{5t+6}} \\]",
+                                        "props": { "fontSize": "1.2em", "textAlign": "center" }
+                                    },
+                                    {
+                                        "type": "math",
+                                        "text": "Operasikan"
+                                    },
+                                    {
+                                        "type": "math",
+                                        "justify": "center",
+                                        "text": "\\[  \\lim\\limits_{t \\to 2} \\frac{(2t)^{2}-(5t+6)}{(2-t)(2t+\\sqrt{5t+6})} = \\lim\\limits_{t \\to 2} \\frac{4t^{2}-5t-6}{(2-t)(2t+\\sqrt{5t+6})} \\]",
+                                        "props": { "fontSize": "1.2em", "textAlign": "center" }
+                                    },
+                                    {
+                                        "type": "math",
+                                        "text": "Faktorisasi"
+                                    },
+                                    {
+                                        "type": "math",
+                                        "justify": "center",
+                                        "text": "\\[  \\lim\\limits_{t \\to 2} \\frac{4t^{2}-5t-6}{(2-t)(2t+\\sqrt{5t+6})} = \\lim\\limits_{t \\to 2} \\frac{1}{(2t+\\sqrt{5t+6})} \\space \\lim\\limits_{t \\to 2} \\frac{(t-2)(4t-3)}{(2-t)} \\]",
+                                        "props": { "fontSize": "1.2em", "textAlign": "center" }
+                                    },
+                                    {
+                                        "type": "math",
+                                        "text": "Substitusi dan Eliminasi"
+                                    },
+                                    {
+                                        "type": "math",
+                                        "justify": "center",
+                                        "text": "\\[  \\lim\\limits_{t \\to 2} \\frac{1}{(2t+\\sqrt{5t+6})} \\space \\lim\\limits_{t \\to 2} \\frac{(t-2)(4t-3)}{(2-t)} = \\frac{1}{(2(2)+\\sqrt{5(2)+6})} \\space \\biggl[-\\lim\\limits_{t \\to 2} (4t-3) \\biggl] = -\\frac{1}{8} \\space (4(2)-3) = -\\frac{5}{8} \\]",
+                                        "props": { "fontSize": "1.2em", "textAlign": "center" }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "type": "paragraph",
+                "text": "Dalam perkalian sekawan, ",
+                "children": [
+                    { 
+                        "type":"paragraph", 
+                        "text": "produk sekawan",
+                        "props": { "fontWeight": 600, "className": "highlight" }
+                    },
+                    {
+                        "type": "paragraph",
+                        "text": " yang tidak digunakan untuk "
+                    },
+                    { 
+                        "type":"paragraph", 
+                        "text": "perkalian sekawan",
+                        "props": { "fontWeight": 600, "className": "highlight" }
+                    },
+                    {
+                        "type": "paragraph",
+                        "text": ", dapat dipisah menggunakan "
+                    },
+                    { 
+                        "type":"paragraph", 
+                        "text": "Sifat Limit (6)",
+                        "props": { "fontWeight": 600, "className": "highlight" }
+                    },
+                    {
+                        "type": "paragraph",
+                        "text": " dan digunakan metode "
+                    },
+                    {
+                        "type": "paragraph",
+                        "text": "substitusi",
+                        "props": { "fontWeight": 600, "className": "highlight" }
+                    },
+                    { 
+                        "type":"paragraph", 
+                        "text": ". Hal ini dapat terjadi karena seluruh "
+                    },
+                    { 
+                        "type":"paragraph", 
+                        "text": "produk sekawan",
+                        "props": { "fontWeight": 600, "className": "highlight" }
+                    },
+                    {
+                        "type": "paragraph",
+                        "text": " dapat dipastikan tidak menghasilkan nilai \\(0\\). Selain itu, fungsi utama "
+                    },
+                    { 
+                        "type":"paragraph", 
+                        "text": "produk sekawan",
+                        "props": { "fontWeight": 600, "className": "highlight" }
+                    },
+                    { 
+                        "type":"paragraph", 
+                        "text": " dalam operasi "
+                    },
+                    { 
+                        "type":"paragraph", 
+                        "text": "perkalian sekawan",
+                        "props": { "fontWeight": 600, "className": "highlight" }
+                    },
+                    {
+                        "type": "paragraph",
+                        "text": " adalah sebagai fungsi yang dapat menyederhanakan limit fungsi sehingga "
+                    },
+                    {
+                        "type": "paragraph",
+                        "text": "fungsi pembuat nol",
+                        "props": { "fontWeight": 600, "className": "highlight" }
+                    },
+                    {
+                        "type": "paragraph",
+                        "text": " dapat ditemukan dan dilakukan "
+                    },
+                    {
+                        "type": "paragraph",
+                        "text": "eliminasi",
+                        "props": { "fontWeight": 600, "className": "highlight" }
+                    },
+                    {
+                        "type": "paragraph",
+                        "text": ". Maka, "
+                    },
+                    { 
+                        "type":"paragraph", 
+                        "text": "produk sekawan",
+                        "props": { "fontWeight": 600, "className": "highlight" }
+                    },
+                    { 
+                        "type":"paragraph", 
+                        "text": " yang tidak digunakan dalam operasi "
+                    },
+                    { 
+                        "type":"paragraph", 
+                        "text": "perkalian sekawan",
+                        "props": { "fontWeight": 600, "className": "highlight" }
+                    },
+                    {
+                        "type": "paragraph",
+                        "text": " tidak perlu dikalikan, namun langsung di-"
+                    },
+                    {
+                        "type": "paragraph",
+                        "text": "substitusi",
+                        "props": { "fontWeight": 600, "className": "highlight" }
+                    },
+                    {
+                        "type": "paragraph",
+                        "text": " saja."
+                    }
+                ]
+            },
+            {
+                "type": "example",
+                "title": "Contoh 4",
+                "instruction": "Hitunglah nilai limit berikut",
+                "equation": "\\[ \\lim\\limits_{a \\to -1} \\frac{\\sqrt[^3]{a}+1}{\\sqrt{-a}-1} \\]",
+                "accordion_text": "Pembahasan",
+                "children": [
+                    {
+                        "type": "stack",
+                        "direction": "column",
+                        "gap": 3,
+                        "props": { "mt": 3 },
+                        "children": [
+                            {
+                                "type": "stack",
+                                "children": [
+                                    {
+                                        "type": "math",
+                                        "text": "Substitusi"
+                                    },
+                                    {
+                                        "type": "math",
+                                        "justify": "center",
+                                        "text": "\\[ \\lim\\limits_{a \\to -1} \\frac{\\sqrt[^3]{a}+1}{\\sqrt{-a}-1} = \\frac{\\sqrt[^3]{-1}+1}{\\sqrt{-(-1)}-1} = \\frac{0}{0} \\]",
+                                        "props": { "fontSize": "1.2em", "textAlign": "center" }
+                                    },
+                                    {
+                                        "type": "math",
+                                        "text": "Perkalian Sekawan | \\( \\space a^{2}-b^{2}=(a+b)(a-b), \\space a^{3}+b^{3} = (a+b)(a^{2}-ab+b^{2}) \\)"
+                                    },
+                                    {
+                                        "type": "math",
+                                        "justify": "center",
+                                        "text": "\\[ \\lim\\limits_{a \\to -1} \\frac{\\sqrt[^3]{a}+1}{\\sqrt{-a}-1} = \\lim\\limits_{a \\to -1} \\frac{\\sqrt[^3]{a}+1}{\\sqrt{-a}-1} \\quad \\frac{(\\sqrt{-a}+1)(a^{2}-a+1)}{(\\sqrt{-a}+1)(a^{2}-a+1)} \\]",
+                                        "props": { "fontSize": "1.2em", "textAlign": "center" }
+                                    },
+                                    {
+                                        "type": "math",
+                                        "text": "Operasikan"
+                                    },
+                                    {
+                                        "type": "math",
+                                        "justify": "center",
+                                        "text": "\\[ \\lim\\limits_{a \\to -1} \\frac{((\\sqrt[^3]{a})^{3}+1^{3})(\\sqrt{-a}+1)}{((\\sqrt{-a})^{2}-(1)^2)(a^{2}-a+1)} = \\lim\\limits_{a \\to -1} \\frac{\\sqrt{-a}+1}{a^{2}-a+1} \\space \\lim\\limits_{a \\to -1} \\frac{a+1}{-a-1} \\]",
+                                        "props": { "fontSize": "1.2em", "textAlign": "center" }
+                                    },
+                                    {
+                                        "type": "math",
+                                        "text": "Substitusi dan Eliminasi"
+                                    },
+                                    {
+                                        "type": "math",
+                                        "justify": "center",
+                                        "text": "\\[ \\lim\\limits_{a \\to -1} \\frac{\\sqrt{-a}+1}{a^{2}-a+1} \\space \\lim\\limits_{a \\to -1} \\frac{a+1}{-(a+1)} = \\frac{\\sqrt{-(-1)}+1}{(-1)^{2}-(-1)+1} \\space (-1) = -\\frac{2}{3} \\]",
                                         "props": { "fontSize": "1.2em", "textAlign": "center" }
                                     }
                                 ]
