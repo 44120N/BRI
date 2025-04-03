@@ -41,6 +41,7 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 * array -> array -> string/jsx element
 */
 export function CustomRawTable({ content, sx }) {
+    React.useEffect(()=>{console.log(content)})
     return (
         <>
             {Array.isArray(content) &&
@@ -49,11 +50,12 @@ export function CustomRawTable({ content, sx }) {
                     row.every(
                         (col) =>
                             typeof col === "object" &&
+                            !React.isValidElement(col) &&
                             col !== null &&
                             !Array.isArray(col)
                     )
                 ) ? (
-                    <TableContainer component={Paper} sx={{ ...sx["table"] }}>
+                    <TableContainer component={Paper} sx={{ ...sx?.table }}>
                         <Table
                             sx={{ minWidth: 700 }}
                             aria-label="customized table"
@@ -106,7 +108,7 @@ export function CustomRawTable({ content, sx }) {
                         </Typography>
                         <TableContainer
                             component={Paper}
-                            sx={{ ...sx["table"] }}
+                            sx={{ ...sx?.table }}
                         >
                             <Table
                                 sx={{ minWidth: 700 }}
@@ -115,12 +117,12 @@ export function CustomRawTable({ content, sx }) {
                                 <TableHead>
                                     <TableRow>
                                         {/* Mapping table head (index 0) */}
-                                        {content[0].map((col, index) => (
+                                        {content[0].map((cell, index) => (
                                             <StyledTableCell
                                                 key={index}
                                                 align="center"
                                             >
-                                                {col}
+                                                {cell}
                                             </StyledTableCell>
                                         ))}
                                     </TableRow>

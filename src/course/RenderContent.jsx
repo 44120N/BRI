@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Stack, Typography, Grid2 } from "@mui/material";
 import { MathJax } from "better-react-mathjax";
 import Problem from "../components/Problem";
+import { CustomRawTable } from "../components/Tabel";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
 // Function to render JSON content dynamically
@@ -46,7 +47,7 @@ const RenderContent = ({ data }) => {
 
             case "stack":
                 return (
-                    <Stack key={index} gap={item.gap||0} direction={item.direction||'column'} justifyContent={item.justify||'normal'} alignItems={item.align||'normal'} {...(item.props || {})}>
+                    <Stack key={index} gap={item.gap||0} direction={item.direction||'column'} justifyContent={item.justify||'normal'} alignItems={item.align||'normal'} flexWrap={item.wrap||'wrap'} {...(item.props || {})}>
                         {item.children && <RenderContent data={item.children} />}
                     </Stack>
                 );
@@ -63,14 +64,17 @@ const RenderContent = ({ data }) => {
                     <Stack
                         key={index}
                         gap={item.gap||3}
-                        px={item.props&&item.props.paddingX || 3}
+                        px={item.props&&item.props.paddingX || {xs:1, sm:2, md:3}}
                         py={item.props&&item.props.paddingY || 2}
+                        maxWidth={'80vw'}
                         sx={{
                             backgroundColor: item.props&&item.props.backgroundColor || "#e0f0ff",
                             border: item.props&&item.props.border || "1px solid #000",
                         }}
                     >
-                        {item.children && <RenderContent data={item.children} />}
+                        <Stack sx={{overflowX:"auto", overflowY:"hidden"}}>
+                            {item.children && <RenderContent data={item.children} />}
+                        </Stack>
                     </Stack>
                 );
 
@@ -121,9 +125,24 @@ const RenderContent = ({ data }) => {
                         <RenderContent data={item.children} />
                     </Problem>
                 )
+
+            case "table":
+                return (
+                    <CustomRawTable 
+                        content={item.data.map((row, i) =>
+                            row.map((col, j) => (
+                                <RenderContent key={`${i}-${j}`} data={[col]} />
+                            ))
+                        )}
+                        key={index}
+                        // content={item.data}
+                        {...(item.props || {})}
+                    />
+                )
             
             default:
-                return null;
+                console.warn("Unhandled content type:", item);
+                return <Typography key={index}>Unknown content</Typography>;
         }
     });
 };

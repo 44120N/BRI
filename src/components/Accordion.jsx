@@ -67,7 +67,7 @@ const Accordion = ({
                     ...sx?.title,
                 }}
             >
-                <Typography color={color_title}>{question}</Typography>
+                <Typography component={'span'} color={color_title}>{question}</Typography>
                 <Stack
                     style={{
                         transform: isOpen ? "rotate(180deg)" : "rotate(0deg)",

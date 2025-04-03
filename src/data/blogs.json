@@ -68,8 +68,7 @@
             {
                 "type": "image",
                 "src": "/BRI/course/limit/limit.png",
-                "alt": "limit_graph",
-                "props": { "maxWidth": "80vw" }
+                "alt": "limit_graph"
             },
             {
                 "type": "paragraph",
@@ -330,6 +329,7 @@
                                     },
                                     {
                                         "type": "math",
+                                        "justify": "center",
                                         "text": "\\[ \\lim\\limits_{x \\to 2} g(x) = 4 \\]",
                                         "props": { "fontSize": "1.2em", "textAlign": "center", "color": "kurai_ao.main" }
                                     }
@@ -339,11 +339,12 @@
                                 "type": "stack",
                                 "children": [
                                     {
-                                        "type": "text",
+                                        "type": "paragraph",
                                         "text": "Pada kasus ini, perlu diingat bahwa:"
                                     },
                                     {
                                         "type": "math",
+                                        "justify": "center",
                                         "text": "\\[ \\lim\\limits_{x \\to 2} g(x) \\neq g(2) \\]",
                                         "props": { "fontSize": "1.2em", "textAlign": "center", "color": "kurai_ao.main" }
                                     }
@@ -402,6 +403,7 @@
                                     },
                                     {
                                         "type": "math",
+                                        "justify": "center",
                                         "text": "\\[ \\lim\\limits_{x \\to 2} I(t) \\text{ tidak ada} \\]",
                                         "props": { "fontSize": "1.2em", "textAlign": "center", "color": "kurai_ao.main" }
                                     }
@@ -1260,8 +1262,8 @@
             {
                 "type": "example",
                 "title": "Contoh 1",
-                "instruction": "Hitunglah nilai limit berikut",
-                "equation": "\\[ \\lim\\limits_{h \\to 0} \\frac{2(h-4)^{2}-32}{h} \\]",
+                "instruction": "Hitunglah setiap limit berikut",
+                "equation": "\\[ \\lim\\limits_{x \\to 0^{-}} \\frac{1}{x} \\qquad\\qquad \\lim\\limits_{x \\to 0^{+}} \\frac{1}{x} \\qquad\\qquad \\lim\\limits_{x \\to 0} \\frac{1}{x} \\]",
                 "accordion_text": "Pembahasan",
                 "children": [
                     {
@@ -1273,45 +1275,20 @@
                             {
                                 "type": "stack",
                                 "children": [
-                                    {
-                                        "type": "math",
-                                        "text": "Substitusi"
-                                    },
-                                    {
-                                        "type": "math",
-                                        "justify": "center",
-                                        "text": "\\[ \\lim\\limits_{h \\to 0} \\frac{2(h-4)^{2}-32}{h} = \\frac{2((0)-4)^{2}-32}{0} = \\frac{0}{0} \\]",
-                                        "props": { "fontSize": "1.2em", "textAlign": "center" }
-                                    },
-                                    {
-                                        "type": "math",
-                                        "text": "Ekspansi"
-                                    },
-                                    {
-                                        "type": "math",
-                                        "justify": "center",
-                                        "text": "\\[ \\lim\\limits_{h \\to 0} \\frac{2(h-4)^{2}-32}{h} = \\lim\\limits_{h \\to 0} \\frac{2(h^{2}-8h+16)-32}{h} = \\lim\\limits_{h \\to 0} \\frac{2h^{2}-16h}{h} \\]",
-                                        "props": { "fontSize": "1.2em", "textAlign": "center" }
-                                    },
-                                    {
-                                        "type": "math",
-                                        "text": "Faktorisasi"
-                                    },
-                                    {
-                                        "type": "math",
-                                        "justify": "center",
-                                        "text": "\\[ \\lim\\limits_{h \\to 0} \\frac{2h^{2}-16h}{h} = \\lim\\limits_{h \\to 0} \\frac{2h(h-8)}{h} = 2\\lim\\limits_{h \\to 0} (h-8) \\]",
-                                        "props": { "fontSize": "1.2em", "textAlign": "center" }
-                                    },
-                                    {
-                                        "type": "math",
-                                        "text": "Substitusi"
-                                    },
-                                    {
-                                        "type": "math",
-                                        "justify": "center",
-                                        "text": "\\[ 2\\lim\\limits_{h \\to 0} (h-8) = 2((0)-8) = 2(-8) = -16 \\]",
-                                        "props": { "fontSize": "1.2em", "textAlign": "center" }
+                                    { 
+                                        "type": "table", 
+                                        "data": [
+                                            [
+                                                {"type":"math", "text":"\\( x \\)"},
+                                                {"type":"math", "text":"\\( y \\)"},
+                                                {"type":"math", "text":"\\( z \\)"}
+                                            ], 
+                                            [
+                                                {"type":"math", "text":"\\( a \\)"},
+                                                {"type":"math", "text":"\\( b \\)"},
+                                                {"type":"math", "text":"\\( c \\)"}
+                                            ]
+                                        ] 
                                     }
                                 ]
                             }

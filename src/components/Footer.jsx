@@ -121,7 +121,7 @@ export default function Footer({ sx }) {
                         color_title="kurai_ao"
                         bgcolor_text="#f0f0f0"
                         color_text="#000"
-                        sx={{ boxShadow: 0 }}
+                        sx={{ boxShadow: 0, border:"none" }}
                         nopaddinginline
                         nohover
                     />

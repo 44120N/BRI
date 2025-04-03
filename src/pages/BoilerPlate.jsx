@@ -50,7 +50,8 @@ const tableData1 = [
     ["1,01", "1,001", "202002"],
 ];
 const tableData2 = [
-    [<>Test</>, "1,9", "1,99", "1,999", "...", "2,1", "2,01", "2,001"],
+    [ <Stack><Typography><MathJax>{"\\( x \\)"}</MathJax></Typography></Stack>, <Stack><Typography><MathJax>{"\\( x \\)"}</MathJax></Typography></Stack>, <Stack><Typography><MathJax>{"\\( x \\)"}</MathJax></Typography></Stack>, ],
+    [ <Stack><Typography><MathJax>{"\\( x \\)"}</MathJax></Typography></Stack>, <Stack><Typography><MathJax>{"\\( x \\)"}</MathJax></Typography></Stack>, <Stack><Typography><MathJax>{"\\( x \\)"}</MathJax></Typography></Stack>, ],
 ];
 
 export default function Testing() {
@@ -579,7 +580,7 @@ export default function Testing() {
                                 </MathJax>
                             </Typography>
                             <CustomRawTable
-                                content={tableData}
+                                content={tableData2}
                                 sx={{
                                     table: {
                                         width: "50%",
