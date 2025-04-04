@@ -74,10 +74,18 @@ const StyledTableCell = styled(TableCell, {
         [`&.${tableCellClasses.head}`]: {
             backgroundColor: styles.headBackground,
             color: styles.headColor,
-            borderBottom: `1px solid ${styles.borderColor}`, // ✅ High specificity
+            borderBottom: `2px solid ${styles.borderColor}`, // ✅ High specificity
+            borderRight: "2px solid #000",
+            "&:last-child": {
+                borderRight: "none",
+            },
         },
         [`&.${tableCellClasses.body}`]: {
             fontSize: 14,
+            borderRight: "2px solid #000",
+            "&:last-child": {
+                borderRight: "none",
+            },
         },
     };
 });
@@ -91,10 +99,22 @@ const StyledTableRow = styled(TableRow)(({ theme, variant }) => {
     };
 });
 
-export function CustomRawTable({ content, variant="monotone", spacing=2, sx }) {
+export function CustomRawTable({
+    content,
+    variant = "monotone",
+    spacing = 2,
+    sx,
+}) {
     return (
         <>
-            <Stack spacing={spacing} sx={{ height: "fit-content", justifyContent:"center", alignItems:"center" }}>
+            <Stack
+                spacing={spacing}
+                sx={{
+                    height: "fit-content",
+                    justifyContent: "center",
+                    alignItems: "center",
+                }}
+            >
                 {Array.isArray(content) &&
                 content.every((row) => Array.isArray(row)) ? (
                     content.every((row) =>
