@@ -229,15 +229,23 @@ export default function CourseList() {
                 anchor="left"
                 open={openDrawer}
                 onClose={() => setOpenDrawer(false)}
+                slotProps={{
+                    backdrop:{
+                        sx: {
+                            backgroundColor: "rgba(0, 0, 0, 0.618)",
+                        }
+                    }
+                }}
             >
                 <Stack
                     sx={{
-                        width: "75vw",
+                        width: {xs:"75vw", sm:"45vw"},
                         height: "100vh",
                         overflowY: "auto",
                         px: 2,
                         pt: 3,
                         backgroundColor: "white",
+                        borderRight: "2px solid #000",
                     }}
                     gap={2}
                     id="drawer-filter"
