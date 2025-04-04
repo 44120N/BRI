@@ -55,14 +55,14 @@ const RenderContent = ({ data }) => {
             case "image":
                 return (
                     <Stack key={index} direction="row" justifyContent="center" my={3}>
-                        <img src={item.src} alt={item.alt} style={{maxWidth:'80%'}} {...(item.props || {})} />
+                        <img src={item.src} alt={item.alt} style={{maxWidth:'80vw'}} {...(item.props || {})} />
                     </Stack>
                 );
             
             case "video":
                 return (
                     <Stack key={index} direction="row" justifyContent="center" my={3}>
-                        <video controls style={{maxWidth:'80%'}} {...(item.props || {})}>
+                        <video controls style={{maxWidth:'80vw'}} {...(item.props || {})}>
                             <source src={item.src} type="video/mp4" />
                             Your browser does not support the video tag.
                         </video>
@@ -76,7 +76,7 @@ const RenderContent = ({ data }) => {
                         gap={item.gap||3}
                         px={item.props&&item.props.paddingX || {xs:1, sm:2, md:3}}
                         py={item.props&&item.props.paddingY || 2}
-                        width={'100%'}
+                        maxWidth={'80vw'}
                         sx={{
                             backgroundColor: item.props&&item.props.backgroundColor || "#e0f0ff",
                             border: item.props&&item.props.border || "1px solid #000",
