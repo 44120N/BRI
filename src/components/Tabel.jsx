@@ -56,6 +56,55 @@ const getVariantStyles = (theme, variant) => {
                 rowBackground: theme.palette.action.hover, // Hover effect
                 borderColor: "#000", // Darker blue border
             };
+        case "secondary":
+            return {
+                headBackground: theme.palette.secondary.main,
+                headColor: theme.palette.common.white, // White text
+                rowBackground: theme.palette.action.hover, // Hover effect
+                borderColor: "#000", // Darker blue border
+            };
+        case "tertiary":
+            return {
+                headBackground: theme.palette.tertiary.main,
+                headColor: theme.palette.common.white, // White text
+                rowBackground: theme.palette.action.hover, // Hover effect
+                borderColor: "#000", // Darker blue border
+            };
+        case "quaternary":
+            return {
+                headBackground: theme.palette.quaternary.main,
+                headColor: theme.palette.common.white, // White text
+                rowBackground: theme.palette.action.hover, // Hover effect
+                borderColor: "#000", // Darker blue border
+            };
+        case "success":
+            return {
+                headBackground: theme.palette.success.main,
+                headColor: theme.palette.common.white, // White text
+                rowBackground: theme.palette.action.hover, // Hover effect
+                borderColor: "#000", // Darker blue border
+            };
+        case "error":
+            return {
+                headBackground: theme.palette.error.main,
+                headColor: theme.palette.common.white, // White text
+                rowBackground: theme.palette.action.hover, // Hover effect
+                borderColor: "#000", // Darker blue border
+            };
+        case "warning":
+            return {
+                headBackground: theme.palette.warning.main,
+                headColor: theme.palette.common.white, // White text
+                rowBackground: theme.palette.action.hover, // Hover effect
+                borderColor: "#000", // Darker blue border
+            };
+        case "info":
+            return {
+                headBackground: theme.palette.info.main,
+                headColor: theme.palette.common.white, // White text
+                rowBackground: theme.palette.action.hover, // Hover effect
+                borderColor: "#000", // Darker blue border
+            };
         default:
             return {
                 headBackground: theme.palette.grey[900],
@@ -74,18 +123,11 @@ const StyledTableCell = styled(TableCell, {
         [`&.${tableCellClasses.head}`]: {
             backgroundColor: styles.headBackground,
             color: styles.headColor,
-            borderBottom: `2px solid ${styles.borderColor}`, // ✅ High specificity
-            borderRight: "2px solid #000",
-            "&:last-child": {
-                borderRight: "none",
-            },
+            border: `2px solid ${styles.borderColor||"#000"}`,
         },
         [`&.${tableCellClasses.body}`]: {
             fontSize: 14,
-            borderRight: "2px solid #000",
-            "&:last-child": {
-                borderRight: "none",
-            },
+            border: `2px solid ${styles.borderColor||"#000"}`,
         },
     };
 });
