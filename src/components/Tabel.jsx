@@ -8,119 +8,186 @@ import {
     TableHead,
     TableRow,
     Typography,
+    Stack,
 } from "@mui/material";
 import { tableCellClasses } from "@mui/material/TableCell";
 import Paper from "@mui/material/Paper";
-import { MathJax, MathJaxContext } from "better-react-mathjax";
 
-const StyledTableCell = styled(TableCell)(({ theme }) => ({
-    [`&.${tableCellClasses.head}`]: {
-        backgroundColor: theme.palette.common.black,
-        color: theme.palette.common.white,
-    },
-    [`&.${tableCellClasses.body}`]: {
-        fontSize: 14,
-    },
-}));
+// GYATTTTTT
+// This function calculates the contrast text color based on the background color
+const getContrastTextColor = (bgColor) => {
+    const hex = bgColor.replace("#", "");
+    const r =
+        parseInt(hex.length === 3 ? hex[0] + hex[0] : hex.slice(0, 2), 16) /
+        255;
+    const g =
+        parseInt(hex.length === 3 ? hex[1] + hex[1] : hex.slice(2, 4), 16) /
+        255;
+    const b =
+        parseInt(hex.length === 3 ? hex[2] + hex[2] : hex.slice(4, 6), 16) /
+        255;
 
-const StyledTableRow = styled(TableRow)(({ theme }) => ({
-    "&:nth-of-type(odd)": {
-        backgroundColor: theme.palette.action.hover,
-    },
-    "&:last-child td, &:last-child th": {
-        border: 0,
-    },
-}));
+    const luminance = 0.2126 * r + 0.7152 * g + 0.0722 * b;
 
-// IM AURAMAXXING Data Structure AT 11PM RN 🤫🧏‍♂️
-/*
-* Here's the array structure for JSON:
-* array -> array -> objects
+    return luminance > 0.5 ? "#000" : "#FFF";
+};
 
-* Here's the array structure for "arrays inside an array":
-* array -> array -> string/jsx element
-*/
-export function CustomRawTable({ content, sx }) {
-    React.useEffect(()=>{console.log(content)})
+const getVariantStyles = (theme, variant) => {
+    if (typeof variant === "string" && /^#([A-Fa-f0-9]{3,8})$/.test(variant)) {
+        return {
+            headBackground: variant, // Use provided HEX color
+            headColor: getContrastTextColor(variant), // Default text color
+            rowBackground: "#F5F5F5", // Light gray rows
+            borderColor: "#000",
+        };
+    }
+    switch (variant) {
+        case "monotone":
+            return {
+                headBackground: "#000", // Black header
+                headColor: "#FFF", // White text
+                rowBackground: "#F5F5F5", // Light gray rows
+                borderColor: "#000",
+            };
+        case "primary":
+            return {
+                headBackground: theme.palette.primary.main, // Primary blue
+                headColor: theme.palette.common.white, // White text
+                rowBackground: theme.palette.action.hover, // Hover effect
+                borderColor: "#000", // Darker blue border
+            };
+        default:
+            return {
+                headBackground: theme.palette.grey[900],
+                headColor: theme.palette.common.white,
+                rowBackground: theme.palette.grey[100],
+                borderColor: theme.palette.grey[700],
+            };
+    }
+};
+
+const StyledTableCell = styled(TableCell, {
+    shouldForwardProp: (prop) => prop !== "variant",
+})(({ theme, variant }) => {
+    const styles = getVariantStyles(theme, variant);
+    return {
+        [`&.${tableCellClasses.head}`]: {
+            backgroundColor: styles.headBackground,
+            color: styles.headColor,
+            borderBottom: `2px solid ${styles.borderColor}`, // ✅ High specificity
+            borderRight: "2px solid #000",
+            "&:last-child": {
+                borderRight: "none",
+            },
+        },
+        [`&.${tableCellClasses.body}`]: {
+            fontSize: 14,
+            borderRight: "2px solid #000",
+            "&:last-child": {
+                borderRight: "none",
+            },
+        },
+    };
+});
+
+const StyledTableRow = styled(TableRow)(({ theme, variant }) => {
+    const styles = getVariantStyles(theme, variant);
+    return {
+        "&:nth-of-type(odd)": {
+            backgroundColor: styles.rowBackground,
+        },
+    };
+});
+
+export function CustomRawTable({
+    content,
+    variant = "monotone",
+    spacing = 2,
+    sx,
+}) {
     return (
         <>
-            {Array.isArray(content) &&
-            content.every((row) => Array.isArray(row)) ? (
-                content.every((row) =>
-                    row.every(
-                        (col) =>
-                            typeof col === "object" &&
-                            !React.isValidElement(col) &&
-                            col !== null &&
-                            !Array.isArray(col)
-                    )
-                ) ? (
-                    <TableContainer component={Paper} sx={{ ...sx?.table }}>
-                        <Table
-                            sx={{ minWidth: 700 }}
-                            aria-label="customized table"
-                        >
-                            <TableHead>
-                                <TableRow>
-                                    {/* Mapping table head (index 0) */}
-                                    {content[0].map((col, index) => (
-                                        <StyledTableCell
-                                            key={index}
-                                            align="center"
-                                            colSpan={col.colspan || 1}
-                                            rowSpan={col.rowspan || 1}
-                                        >
-                                            {col.content}
-                                        </StyledTableCell>
-                                    ))}
-                                </TableRow>
-                            </TableHead>
-                            <TableBody>
-                                {/* Mapping table body (index 1 and beyond) */}
-                                {content.slice(1).map((row, rowIndex) => (
-                                    <StyledTableRow key={rowIndex}>
-                                        {row.map((cell, cellIndex) => (
+            <Stack
+                spacing={spacing}
+                sx={{
+                    height: "fit-content",
+                    justifyContent: "center",
+                    alignItems: "center",
+                }}
+            >
+                {Array.isArray(content) &&
+                content.every((row) => Array.isArray(row)) ? (
+                    content.every((row) =>
+                        row.every(
+                            (col) =>
+                                typeof col === "object" &&
+                                !React.isValidElement(col) &&
+                                col !== null &&
+                                !Array.isArray(col)
+                        )
+                    ) ? (
+                        <TableContainer component={Paper} sx={{ ...sx?.table }}>
+                            <Table
+                                sx={{ minWidth: 700 }}
+                                aria-label="customized table"
+                            >
+                                <TableHead>
+                                    <StyledTableRow variant={variant}>
+                                        {content[0].map((col, index) => (
                                             <StyledTableCell
-                                                key={cellIndex}
+                                                key={index}
                                                 align="center"
-                                                colSpan={cell.colspan || 1}
-                                                rowSpan={cell.rowspan || 1}
+                                                colSpan={col.colspan || 1}
+                                                rowSpan={col.rowspan || 1}
+                                                variant={variant} // ✅ must be passed!
                                             >
-                                                {cell.content}
+                                                {col.content}
                                             </StyledTableCell>
                                         ))}
                                     </StyledTableRow>
-                                ))}
-                            </TableBody>
-                        </Table>
-                    </TableContainer>
-                ) : content.every((row) =>
-                      row.every(
-                          (col) =>
-                              typeof col === "string" ||
-                              React.isValidElement(col)
-                      )
-                  ) ? (
-                    <>
-                        <Typography>
-                            This is an array of arrays containing strings or JSX
-                            elements
-                        </Typography>
-                        <TableContainer
-                            component={Paper}
-                            sx={{ ...sx?.table }}
-                        >
+                                </TableHead>
+
+                                <TableBody>
+                                    {content.slice(1).map((row, rowIndex) => (
+                                        <StyledTableRow
+                                            key={rowIndex}
+                                            variant={variant}
+                                        >
+                                            {row.map((cell, cellIndex) => (
+                                                <StyledTableCell
+                                                    key={cellIndex}
+                                                    align="center"
+                                                    colSpan={cell.colspan || 1}
+                                                    rowSpan={cell.rowspan || 1}
+                                                    variant={variant}
+                                                >
+                                                    {cell.content}
+                                                </StyledTableCell>
+                                            ))}
+                                        </StyledTableRow>
+                                    ))}
+                                </TableBody>
+                            </Table>
+                        </TableContainer>
+                    ) : content.every((row) =>
+                          row.every(
+                              (col) =>
+                                  typeof col === "string" ||
+                                  React.isValidElement(col)
+                          )
+                      ) ? (
+                        <TableContainer component={Paper} sx={{ ...sx?.table }}>
                             <Table
                                 sx={{ minWidth: 700 }}
                                 aria-label="customized table"
                             >
                                 <TableHead>
                                     <TableRow>
-                                        {/* Mapping table head (index 0) */}
                                         {content[0].map((cell, index) => (
                                             <StyledTableCell
                                                 key={index}
                                                 align="center"
+                                                variant={variant}
                                             >
                                                 {cell}
                                             </StyledTableCell>
@@ -128,13 +195,16 @@ export function CustomRawTable({ content, sx }) {
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>
-                                    {/* Mapping table body (index 1 and beyond) */}
                                     {content.slice(1).map((row, rowIndex) => (
-                                        <StyledTableRow key={rowIndex}>
+                                        <StyledTableRow
+                                            key={rowIndex}
+                                            variant={variant}
+                                        >
                                             {row.map((cell, cellIndex) => (
                                                 <StyledTableCell
                                                     key={cellIndex}
                                                     align="center"
+                                                    variant={variant}
                                                 >
                                                     {cell}
                                                 </StyledTableCell>
@@ -144,13 +214,13 @@ export function CustomRawTable({ content, sx }) {
                                 </TableBody>
                             </Table>
                         </TableContainer>
-                    </>
+                    ) : (
+                        <Typography>This is a mixed array structure</Typography>
+                    )
                 ) : (
-                    <Typography>This is a mixed array structure</Typography>
-                )
-            ) : (
-                <Typography>This is not a valid table structure</Typography>
-            )}
+                    <Typography>This is not a valid table structure</Typography>
+                )}
+            </Stack>
         </>
     );
 }

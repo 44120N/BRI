@@ -17,11 +17,7 @@ const tableData = [
     //table row
     [
         {
-            content: (
-                <MathJax>
-                    {"\\[ \\frac{1}{2} \\]"}
-                </MathJax>
-            ),
+            content: <MathJax>{"\\[ \\frac{1}{2} \\]"}</MathJax>,
             colspan: 2,
             rowspan: 3,
         }, //table column
@@ -50,8 +46,40 @@ const tableData1 = [
     ["1,01", "1,001", "202002"],
 ];
 const tableData2 = [
-    [ <Stack><Typography><MathJax>{"\\( x \\)"}</MathJax></Typography></Stack>, <Stack><Typography><MathJax>{"\\( x \\)"}</MathJax></Typography></Stack>, <Stack><Typography><MathJax>{"\\( x \\)"}</MathJax></Typography></Stack>, ],
-    [ <Stack><Typography><MathJax>{"\\( x \\)"}</MathJax></Typography></Stack>, <Stack><Typography><MathJax>{"\\( x \\)"}</MathJax></Typography></Stack>, <Stack><Typography><MathJax>{"\\( x \\)"}</MathJax></Typography></Stack>, ],
+    [
+        <Stack>
+            <Typography>
+                <MathJax>{"\\( x \\)"}</MathJax>
+            </Typography>
+        </Stack>,
+        <Stack>
+            <Typography>
+                <MathJax>{"\\( x \\)"}</MathJax>
+            </Typography>
+        </Stack>,
+        <Stack>
+            <Typography>
+                <MathJax>{"\\( x \\)"}</MathJax>
+            </Typography>
+        </Stack>,
+    ],
+    [
+        <Stack>
+            <Typography>
+                <MathJax>{"\\( x \\)"}</MathJax>
+            </Typography>
+        </Stack>,
+        <Stack>
+            <Typography>
+                <MathJax>{"\\( x \\)"}</MathJax>
+            </Typography>
+        </Stack>,
+        <Stack>
+            <Typography>
+                <MathJax>{"\\( x \\)"}</MathJax>
+            </Typography>
+        </Stack>,
+    ],
 ];
 
 export default function Testing() {
@@ -583,10 +611,17 @@ export default function Testing() {
                                 content={tableData2}
                                 sx={{
                                     table: {
-                                        width: "50%",
-                                        mx: "auto",
+                                        width: {
+                                            xs: "100%",
+                                            sm: "75%",
+                                            lg: "50%",
+                                        },
+                                        border: "2px solid black",
                                     },
                                 }}
+                                spacing={2}
+                                variant={"#FF00FF"}
+                                align="center"
                             />
                         </Stack>
                     </Problem>
