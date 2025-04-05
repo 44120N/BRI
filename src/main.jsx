@@ -12,7 +12,7 @@ import {
 import Home from "./pages/Home.jsx";
 import Testing from "./pages/BoilerPlate.jsx";
 import CourseList from "./pages/CourseList.jsx";
-import { LimitSyllabus, LimitIntro, LimitApproach, LimitProperty, LimitEvaluation, LimitInf } from "./course/Limit.jsx";
+import { LimitSyllabus, LimitIntro, LimitApproach, LimitProperty, LimitEvaluation, LimitInf, LimitAtInf } from "./course/Limit.jsx";
 import pagesData from "./data/pages.json";
 import PageNotFound from "./404.jsx";
 
@@ -57,6 +57,7 @@ const router = createBrowserRouter([
             { path: "property", element: <LimitProperty /> },
             { path: "evaluation", element: <LimitEvaluation /> },
             { path: "infinity", element: <LimitInf /> },
+            { path: "atinfinity", element: <LimitAtInf /> },
         ],
     },
     {

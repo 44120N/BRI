@@ -32,7 +32,7 @@ const RenderContent = ({ data }) => {
             case "math":
                 return (
                     <Stack direction={item.direction||"row"} justifyContent={item.justify||"normal"} alignItems={item.align||"normal"} gap={item.gap||0} key={index}>
-                        <Typography key={index} variant="body1" {...(item.props || {})}>
+                        <Typography key={index} fontSize={item?.size} {...(item.props || {})}>
                             <MathJax>{item.text}</MathJax>
                         </Typography>
                     </Stack>

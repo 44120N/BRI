@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Box, Divider, Stack, Typography, Grid2 } from "@mui/material";
-import { MathJax } from "better-react-mathjax";
+import { Stack, Typography, Grid2 } from "@mui/material";
 
 import Button from "../components/Button";
 import Syllabus from "../components/Syllabus";
 import RenderContent from "./RenderContent";
+import Template from "./Template";
 import blogData from "../data/blogs.json";
 
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
@@ -511,206 +511,37 @@ export function LimitSyllabus() {
 }
 
 export function LimitIntro() {
-    const [blog, setBlog] = useState(null);
-
-    useEffect(() => {
-        const pageUrl = "/BRI/course/limit/intro";
-        const foundBlog = blogData.find((b) => b.url === pageUrl);
-        setBlog(foundBlog || null);
-    }, []);
-
-    if (!blog) return <Typography>Loading...</Typography>;
-
     return (
-        <Stack
-            px={{ xs: 5, sm: 8, md: 10 }}
-            py={4}
-            gap={3}
-            sx={{ backgroundColor: "#fff" }}
-        >
-            <Stack gap={1} direction="column">
-                <Typography
-                    textTransform="uppercase"
-                    variant="body2"
-                    letterSpacing={-0.5}
-                    color="#555"
-                >
-                    {blog.unit}
-                </Typography>
-                <Typography
-                    textTransform="capitalize"
-                    fontWeight={700}
-                    variant="h5"
-                >
-                    {blog.subunit}
-                </Typography>
-            </Stack>
-            <Typography color="#555">{blog.time}</Typography>
-            <RenderContent data={blog.content} />
-        </Stack>
+        <Template url={"/BRI/course/limit/intro"} />
     );
 }
 
 export function LimitApproach() {
-    const [blog, setBlog] = useState(null);
-
-    useEffect(() => {
-        const pageUrl = "/BRI/course/limit/approach";
-        const foundBlog = blogData.find((b) => b.url === pageUrl);
-        setBlog(foundBlog || null);
-    }, []);
-
-    if (!blog) return <Typography>Loading...</Typography>;
-
     return (
-        <Stack
-            px={{ xs: 5, sm: 8, md: 10 }}
-            py={4}
-            gap={3}
-            sx={{ backgroundColor: "#fff" }}
-        >
-            <Stack gap={1} direction="column">
-                <Typography
-                    textTransform="uppercase"
-                    variant="body2"
-                    letterSpacing={-0.5}
-                    color="#555"
-                >
-                    {blog.unit}
-                </Typography>
-                <Typography
-                    textTransform="capitalize"
-                    fontWeight={700}
-                    variant="h5"
-                >
-                    {blog.subunit}
-                </Typography>
-            </Stack>
-            <Typography color="#555">{blog.time}</Typography>
-            <RenderContent data={blog.content} />
-        </Stack>
+        <Template url={"/BRI/course/limit/approach"} />
     );
 }
 
 export function LimitProperty() {
-    const [blog, setBlog] = useState(null);
-
-    useEffect(() => {
-        const pageUrl = "/BRI/course/limit/property";
-        const foundBlog = blogData.find((b) => b.url === pageUrl);
-        setBlog(foundBlog || null);
-    }, []);
-
-    if (!blog) return <Typography>Loading...</Typography>;
-
     return (
-        <Stack
-            px={{ xs: 5, sm: 8, md: 10 }}
-            py={4}
-            gap={3}
-            sx={{ backgroundColor: "#fff" }}
-        >
-            <Stack gap={1} direction="column">
-                <Typography
-                    textTransform="uppercase"
-                    variant="body2"
-                    letterSpacing={-0.5}
-                    color="#555"
-                >
-                    {blog.unit}
-                </Typography>
-                <Typography
-                    textTransform="capitalize"
-                    fontWeight={700}
-                    variant="h5"
-                >
-                    {blog.subunit}
-                </Typography>
-            </Stack>
-            <Typography color="#555">{blog.time}</Typography>
-            <RenderContent data={blog.content} />
-        </Stack>
+        <Template url={"/BRI/course/limit/property"} />
     );
 }
 
 export function LimitEvaluation() {
-    const [blog, setBlog] = useState(null);
-
-    useEffect(() => {
-        const pageUrl = "/BRI/course/limit/evaluation";
-        const foundBlog = blogData.find((b) => b.url === pageUrl);
-        setBlog(foundBlog || null);
-    }, []);
-
-    if (!blog) return <Typography>Loading...</Typography>;
-
     return (
-        <Stack
-            px={{ xs: 5, sm: 8, md: 10 }}
-            py={4}
-            gap={3}
-            sx={{ backgroundColor: "#fff" }}
-        >
-            <Stack gap={1} direction="column">
-                <Typography
-                    textTransform="uppercase"
-                    variant="body2"
-                    letterSpacing={-0.5}
-                    color="#555"
-                >
-                    {blog.unit}
-                </Typography>
-                <Typography
-                    textTransform="capitalize"
-                    fontWeight={700}
-                    variant="h5"
-                >
-                    {blog.subunit}
-                </Typography>
-            </Stack>
-            <Typography color="#555">{blog.time}</Typography>
-            <RenderContent data={blog.content} />
-        </Stack>
+        <Template url={"/BRI/course/limit/evaluation"} />
     );
 }
 
 export function LimitInf() {
-    const [blog, setBlog] = useState(null);
-
-    useEffect(() => {
-        const pageUrl = "/BRI/course/limit/infinity";
-        const foundBlog = blogData.find((b) => b.url === pageUrl);
-        setBlog(foundBlog || null);
-    }, []);
-
-    if (!blog) return <Typography>Loading...</Typography>;
-
     return (
-        <Stack
-            px={{ xs: 5, sm: 8, md: 10 }}
-            py={4}
-            gap={3}
-            sx={{ backgroundColor: "#fff" }}
-        >
-            <Stack gap={1} direction="column">
-                <Typography
-                    textTransform="uppercase"
-                    variant="body2"
-                    letterSpacing={-0.5}
-                    color="#555"
-                >
-                    {blog.unit}
-                </Typography>
-                <Typography
-                    textTransform="capitalize"
-                    fontWeight={700}
-                    variant="h5"
-                >
-                    {blog.subunit}
-                </Typography>
-            </Stack>
-            <Typography color="#555">{blog.time}</Typography>
-            <RenderContent data={blog.content} />
-        </Stack>
+        <Template url={"/BRI/course/limit/infinity"} />
+    );
+}
+
+export function LimitAtInf() {
+    return (
+        <Template url={"/BRI/course/limit/atinfinity"} />
     );
 }

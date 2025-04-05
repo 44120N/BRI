@@ -1693,6 +1693,792 @@
                         ]
                     }
                 ]
+            },
+            {
+                "type": "paragraph",
+                "text": "Berikut ini adalah beberapa fungsi khusus dalam matematika yang memiliki ",
+                "children": [
+                    { 
+                        "type":"paragraph", 
+                        "text": "asimtot vertikal",
+                        "props": { "fontWeight": 600, "className": "highlight" }
+                    },
+                    {
+                        "type": "paragraph",
+                        "text": "."
+                    }
+                ]
+            },
+            {
+                "type": "example",
+                "title": "Contoh 5",
+                "instruction": "Hitunglah setiap limit berikut",
+                "equation": "\\[ \\lim\\limits_{x \\to \\frac{\\pi}{2}^{-}} \\tan(x) \\qquad\\qquad \\lim\\limits_{x \\to \\frac{\\pi}{2}^{+}} \\tan(x) \\qquad\\qquad \\lim\\limits_{x \\to \\frac{\\pi}{2}} \\tan(x) \\]",
+                "accordion_text": "Pembahasan",
+                "children": [
+                    {
+                        "type": "stack",
+                        "direction": "column",
+                        "gap": 3,
+                        "props": { "mt": 3 },
+                        "children": [
+                            {
+                                "type": "stack",
+                                "children": [
+                                    { 
+                                        "type": "table", 
+                                        "data": [
+                                            [
+                                                {"type":"math", "text":"\\( x^{-} \\)", "justify": "center"},
+                                                {"type":"math", "text":"\\( \\tan(x) \\)", "justify": "center"},
+                                                {"type":"math", "text":"\\( x^{+} \\)", "justify": "center"},
+                                                {"type":"math", "text":"\\( \\tan(x) \\)", "justify": "center"}
+                                            ], 
+                                            [
+                                                {"type":"math", "text":"\\( \\frac{\\pi}{3} \\)", "justify": "center"},
+                                                {"type":"math", "text":"\\( \\sqrt{3} \\)", "justify": "center"},
+                                                {"type":"math", "text":"\\( \\frac{2\\pi}{3} \\)", "justify": "center"},
+                                                {"type":"math", "text":"\\( -\\sqrt{3} \\)", "justify": "center"}
+                                            ],
+                                            [
+                                                {"type":"math", "text":"\\( \\frac{3\\pi}{8} \\)", "justify": "center"},
+                                                {"type":"math", "text":"\\( \\sqrt{2}+1 \\)", "justify": "center"},
+                                                {"type":"math", "text":"\\( \\frac{5\\pi}{8} \\)", "justify": "center"},
+                                                {"type":"math", "text":"\\( -(\\sqrt{2}+1) \\)", "justify": "center"}
+                                            ],
+                                            [
+                                                {"type":"math", "text":"\\( \\frac{2\\pi}{5} \\)", "justify": "center"},
+                                                {"type":"math", "text":"\\( \\sqrt{5+2\\sqrt{5}} \\)", "justify": "center"},
+                                                {"type":"math", "text":"\\( \\frac{3\\pi}{5} \\)", "justify": "center"},
+                                                {"type":"math", "text":"\\( -\\sqrt{5+2\\sqrt{5}} \\)", "justify": "center"}
+                                            ],
+                                            [
+                                                {"type":"math", "text":"\\( \\frac{5\\pi}{12} \\)", "justify": "center"},
+                                                {"type":"math", "text":"\\( 2+\\sqrt{3} \\)", "justify": "center"},
+                                                {"type":"math", "text":"\\( \\frac{7\\pi}{12} \\)", "justify": "center"},
+                                                {"type":"math", "text":"\\( -(2+\\sqrt{3}) \\)", "justify": "center"}
+                                            ]
+                                        ] 
+                                    },
+                                    {
+                                        "type": "video",
+                                        "src": "/BRI/course/limit/TangentGraph.mp4"
+                                    },
+                                    {
+                                        "type": "paragraph",
+                                        "text": "maka dapat disimpulkan bahwa"
+                                    },
+                                    {
+                                        "type": "math",
+                                        "justify": "center",
+                                        "text": "\\[ \\lim\\limits_{x \\to \\frac{\\pi}{2}^{-}} \\tan(x) = \\infty \\quad\\qquad \\lim\\limits_{x \\to \\frac{\\pi}{2}^{+}} \\tan(x) = -\\infty \\]"
+                                    },
+                                    {
+                                        "type": "math",
+                                        "text": "sehingga"
+                                    },
+                                    {
+                                        "type": "paragraph",
+                                        "children": [
+                                            {
+                                                "type":"paragraph", 
+                                                "text":"\\( \\lim\\limits_{x \\to \\frac{\\pi}{2}} \\tan(x) \\) tidak ada"
+                                            }
+                                        ], 
+                                        "align": "center", 
+                                        "size": "1.2em"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "type": "example",
+                "title": "Contoh 6",
+                "instruction": "Hitunglah setiap limit berikut",
+                "equation": "\\[ \\lim\\limits_{x \\to 0^{-}} \\ln(x) \\qquad\\qquad \\lim\\limits_{x \\to 0^{+}} \\ln(x) \\qquad\\qquad \\lim\\limits_{x \\to 0} \\ln(x) \\]",
+                "accordion_text": "Pembahasan",
+                "children": [
+                    {
+                        "type": "stack",
+                        "direction": "column",
+                        "gap": 3,
+                        "props": { "mt": 3 },
+                        "children": [
+                            {
+                                "type": "stack",
+                                "children": [
+                                    {
+                                        "type": "paragraph",
+                                        "children": [
+                                            {
+                                                "type":"paragraph", 
+                                                "text":"Sejak domain dari \\( \\ln(x) \\) adalah \\( x \\gt 0 \\), maka kita tidak dapat menghitung limit kiri dari \\( \\ln(x) \\) di \\( x=0 \\)"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "paragraph",
+                                "align": "center",
+                                "children": [
+                                    {"type":"paragraph", "text":"\\( \\lim\\limits_{x \\to 0^{-}} \\ln(x) \\) tidak terdefinisi"}
+                                ]
+                            },
+                            { 
+                                "type": "table", 
+                                "data": [
+                                    [
+                                        {"type":"math", "text":"\\( x^{+} \\)", "justify": "center"},
+                                        {"type":"math", "text":"\\( \\ln(x) \\)", "justify": "center"}
+                                    ], 
+                                    [
+                                        {"type":"math", "text":"\\( 0.1 \\)", "justify": "center"},
+                                        {"type":"math", "text":"\\( -2.30259 \\)", "justify": "center"}
+                                    ],
+                                    [
+                                        {"type":"math", "text":"\\( 0.01 \\)", "justify": "center"},
+                                        {"type":"math", "text":"\\( -4.60517 \\)", "justify": "center"}
+                                    ],
+                                    [
+                                        {"type":"math", "text":"\\( 0.001 \\)", "justify": "center"},
+                                        {"type":"math", "text":"\\( -6.90776 \\)", "justify": "center"}
+                                    ],
+                                    [
+                                        {"type":"math", "text":"\\( 0.0001 \\)", "justify": "center"},
+                                        {"type":"math", "text":"\\( -9.21034 \\)", "justify": "center"}
+                                    ]
+                                ] 
+                            },
+                            {
+                                "type": "video",
+                                "src": "/BRI/course/limit/LogarithmGraph.mp4"
+                            },
+                            {
+                                "type": "paragraph",
+                                "text": "maka dapat disimpulkan bahwa"
+                            },
+                            {
+                                "type": "math",
+                                "justify": "center",
+                                "text": "\\[ \\lim\\limits_{x \\to 0^{+}} \\ln(x) = -\\infty \\]"
+                            },
+                            {
+                                "type": "math",
+                                "text": "sehingga"
+                            },
+                            {
+                                "type": "paragraph",
+                                "children": [
+                                    {
+                                        "type":"paragraph", 
+                                        "text":"\\( \\lim\\limits_{x \\to 0} \\ln(x) \\) tidak ada"
+                                    }
+                                ], 
+                                "align": "center", 
+                                "size": "1.2em"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "type": "stack",
+                "children": [
+                    { "type": "heading", "text": "Sifat Limit Tak Hingga" },
+                    {
+                        "type": "formula",
+                        "gap": 1,
+                        "children": [
+                            {
+                                "type": "math",
+                                "text": "Asumsikan \\( \\lim\\limits_{x \\to a}f(x) = L \\) dan \\( \\lim\\limits_{x \\to a}g(x) = \\infty \\), serta \\( a \\) dan \\( L \\in \\mathbb{R} \\)"
+                            },
+                            {
+                                "type": "list",
+                                "bullet": "1",
+                                "items": [
+                                    "\\[ \\lim\\limits_{x \\to a} [f(x) \\pm g(x)] = \\pm \\infty \\]",
+                                    "Jika \\( L \\gt 0 \\) maka \\( \\lim\\limits_{x \\to a} [f(x) \\space g(x)] = \\infty \\)",
+                                    "Jika \\( L \\lt 0 \\) maka \\( \\lim\\limits_{x \\to a} [f(x) \\space g(x)] = -\\infty \\)",
+                                    "\\[ \\lim\\limits_{x \\to a} \\frac{f(x)}{g(x)} = 0 \\]"
+                                ]
+                            },
+                            {
+                                "type": "paragraph",
+                                "text": "Note: ",
+                                "children": [
+                                    {
+                                        "type": "paragraph",
+                                        "text": "Sifat limit tak hingga [1:3]",
+                                        "props": { "fontWeight": 600, "className": "highlight" }
+                                    },
+                                    {
+                                        "type": "paragraph",
+                                        "text": " akan berubah tanda apabila \\( \\lim\\limits_{x \\to a}g(x) = -\\infty \\)."
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "limit_at_infinity",
+        "url": "/BRI/course/limit/atinfinity",
+        "unit": "Konsep Limit Tak Hingga",
+        "subunit": "Limit di Tak Hingga",
+        "time": "10 min",
+        "content": [
+            {
+                "type": "paragraph",
+                "text": "Pada bagian sebelumnya kita telah melihat limit yang menghasilkan nilai tak hingga. Sekarang, kita akan melihat ",
+                "children": [
+                    {
+                        "type": "paragraph",
+                        "text": "limit fungsi menuju di hingga",
+                        "props": { "fontWeight": 600, "className": "highlight" }
+                    },
+                    {
+                        "type": "paragraph",
+                        "text": "."
+                    }
+                ]
+            },
+            {
+                "type": "stack",
+                "children": [
+                    { "type": "heading", "text": "Limit di Tak Hingga" },
+                    {
+                        "type": "formula",
+                        "gap": 1,
+                        "children": [
+                            {
+                                "type": "paragraph",
+                                "text": "Ketika ",
+                                "children": [
+                                    {
+                                        "type": "math",
+                                        "text": "\\( f(x) \\)"
+                                    },
+                                    {
+                                        "type": "paragraph",
+                                        "text": " menuju \\( L \\) untuk semua \\( x \\) yang cukup dekat dengan \\( \\pm \\infty \\)."
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "math",
+                                "justify": "center",
+                                "text": "\\[ \\lim\\limits_{x \\to \\pm \\infty} f(x) = L \\]"
+                            }
+                        ]
+                    }
+                ]
+            },
+            { 
+                "type":"paragraph", 
+                "children": [
+                    { 
+                        "type":"paragraph", 
+                        "text":"Dengan kata lain, kita akan melihat apa yang terjadi pada suatu fungsi jika kita membiarkan \\( x \\) menjadi sangat besar baik dalam arti positif maupun negatif." 
+                    }
+                ] 
+            },
+            {
+                "type": "stack",
+                "children": [
+                    { "type": "heading", "text": "Pembagian oleh Tak Hingga" },
+                    {
+                        "type": "formula",
+                        "gap": 1,
+                        "children": [
+                            {
+                                "type": "paragraph",
+                                "text": "Asumsikan ",
+                                "children": [
+                                    {
+                                        "type": "math",
+                                        "text": "\\( c \\in \\mathbb{R} \\) dan \\( r \\in \\mathbb{Q} \\)"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "math",
+                                "justify": "center",
+                                "text": "\\[ \\lim\\limits_{x \\to \\pm \\infty} \\frac{c}{x^{r}} = 0 \\]"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "type": "example",
+                "title": "Contoh 1",
+                "instruction": "Hitunglah setiap limit berikut",
+                "equation": "\\[ \\lim\\limits_{x \\to \\infty} (4x^{4}-2x^{2}+x-8)  \\]",
+                "accordion_text": "Pembahasan",
+                "children": [
+                    {
+                        "type": "stack",
+                        "direction": "column",
+                        "gap": {"xs":2, "sm":4, "md":6},
+                        "props": { "mt": 3 },
+                        "children": [
+                            {
+                                "type": "stack",
+                                "children": [
+                                    {
+                                        "type": "math",
+                                        "text": "Substitusi"
+                                    },
+                                    {
+                                        "type": "math",
+                                        "justify": "center",
+                                        "text": "\\[ \\lim\\limits_{x \\to \\infty} (4x^{4}-2x^{2}+x-8) = \\infty-\\infty+\\infty \\]"
+                                    },
+                                    {
+                                        "type": "math",
+                                        "text": "Faktorisasi"
+                                    },
+                                    {
+                                        "type": "math",
+                                        "justify": "center",
+                                        "text": "\\[ \\lim\\limits_{x \\to \\infty} (4x^{4}-2x^{2}+x-8) = \\lim\\limits_{x \\to \\infty} x^{4} \\biggl( 4-\\frac{2}{x^{2}}+\\frac{1}{x^{3}}-\\frac{8}{x^{4}} \\biggl) \\]"
+                                    },
+                                    {
+                                        "type": "math",
+                                        "text": "Substitusi"
+                                    },
+                                    {
+                                        "type": "math",
+                                        "justify": "center",
+                                        "text": "\\[ \\lim\\limits_{x \\to \\infty} x^{4} \\biggl( 4-\\frac{2}{x^{2}}+\\frac{1}{x^{3}}-\\frac{8}{x^{4}} \\biggl) = (\\infty)^{4}(4-0+0-0) = \\infty \\]"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "type": "example",
+                "title": "Contoh 2",
+                "instruction": "Hitunglah setiap limit berikut",
+                "equation": "\\[ \\lim\\limits_{t \\to -\\infty} \\biggl( \\frac{1}{12}t^{5}+999t^{3}-101t^{2}+7 \\biggl) \\]",
+                "accordion_text": "Pembahasan",
+                "children": [
+                    {
+                        "type": "stack",
+                        "direction": "column",
+                        "gap": {"xs":2, "sm":4, "md":6},
+                        "props": { "mt": 3 },
+                        "children": [
+                            {
+                                "type": "stack",
+                                "children": [
+                                    {
+                                        "type": "math",
+                                        "text": "Substitusi"
+                                    },
+                                    {
+                                        "type": "math",
+                                        "justify": "center",
+                                        "text": "\\[ \\lim\\limits_{t \\to -\\infty} \\biggl( \\frac{1}{12}t^{5}+999t^{3}-101t^{2}+7 \\biggl) = \\infty+\\infty-\\infty \\]"
+                                    },
+                                    {
+                                        "type": "math",
+                                        "text": "Faktorisasi"
+                                    },
+                                    {
+                                        "type": "math",
+                                        "justify": "center",
+                                        "text": "\\[ \\lim\\limits_{t \\to -\\infty} \\biggl( \\frac{1}{12}t^{5}+999t^{3}-101t^{2}+7 \\biggl) = \\lim\\limits_{t \\to -\\infty} t^{5} \\biggl( \\frac{1}{12}+\\frac{999}{t^{2}}-\\frac{101}{t^{3}}+\\frac{7}{t^{5}} \\biggl) \\]"
+                                    },
+                                    {
+                                        "type": "math",
+                                        "text": "Substitusi"
+                                    },
+                                    {
+                                        "type": "math",
+                                        "justify": "center",
+                                        "text": "\\[ \\lim\\limits_{t \\to -\\infty} t^{5} \\biggl( \\frac{1}{12}+\\frac{999}{t^{2}}-\\frac{101}{t^{3}}+\\frac{7}{t^{5}} \\biggl) = (-\\infty)^{5} \\biggl( \\frac{1}{12}+0-0+0 \\biggl) = -\\infty \\]"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "type": "paragraph",
+                "text": "Dari beberapa contoh di atas, terdapat sebuah sifat sederhana yang berlaku untuk setiap ",
+                "children": [
+                    { 
+                        "type":"paragraph", 
+                        "text": "fungsi polinomial",
+                        "props": { "fontWeight": 600, "className": "highlight" }
+                    },
+                    {
+                        "type": "paragraph",
+                        "text": " di "
+                    },
+                    {
+                        "type": "paragraph",
+                        "text": "limit menuju tak hingga",
+                        "props": { "fontWeight": 600, "className": "highlight" }
+                    },
+                    { 
+                        "type":"paragraph", 
+                        "text": "."
+                    }
+                ]
+            },
+            {
+                "type": "stack",
+                "children": [
+                    { "type": "heading", "text": "Polinomial di Tak Hingga" },
+                    {
+                        "type": "formula",
+                        "gap": 1,
+                        "children": [
+                            {
+                                "type": "paragraph",
+                                "text": "Asumsikan ",
+                                "children": [
+                                    {
+                                        "type": "paragraph",
+                                        "text": "\\(p(x)\\) merupakan fungsi polinomial dari derajat \\( n \\) dan \\( a_{n} \\) adalah koefisien pangkat tertinggi dari \\( p(x) \\)"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "math",
+                                "justify": "center",
+                                "text": "\\[ p(x) = \\sum_{i=0}^{n}a_{i}x^{i} = a_{n}x^{n} + \\dots + a_{0} \\]"
+                            },
+                            {
+                                "type": "math",
+                                "justify": "center",
+                                "text": "\\[ \\lim\\limits_{x \\to \\pm \\infty} p(x) = \\lim\\limits_{x \\to \\pm \\infty} a_{n}x^{n} \\]"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "type": "paragraph",
+                "text": "Dalam ",
+                "children": [
+                    { 
+                        "type":"paragraph", 
+                        "text": "limit menuju tak hingga",
+                        "props": { "fontWeight": 600, "className": "highlight" }
+                    },
+                    {
+                        "type": "paragraph",
+                        "text": ",  sifat umum dari "
+                    },
+                    { 
+                        "type":"paragraph", 
+                        "text": "fungsi polinomial",
+                        "props": { "fontWeight": 600, "className": "highlight" }
+                    },
+                    {
+                        "type": "paragraph",
+                        "text": " akan sering digunakan di berbagai bentuk, seperti: "
+                    },
+                    {
+                        "type": "paragraph",
+                        "text": "pengurangan fungsi polinomial, pecahan fungsi polinomial, serta perpangkatan fungsi polinomial"
+                    }
+                ]
+            },
+            {
+                "type": "example",
+                "title": "Contoh 3",
+                "instruction": "Hitunglah setiap limit berikut",
+                "equation": "\\[ \\lim\\limits_{t \\to -\\infty} \\frac{}{} \\]",
+                "accordion_text": "Pembahasan",
+                "children": [
+                    {
+                        "type": "stack",
+                        "direction": "column",
+                        "gap": {"xs":2, "sm":4, "md":6},
+                        "props": { "mt": 3 },
+                        "children": [
+                            {
+                                "type": "stack",
+                                "children": [
+                                    {
+                                        "type": "math",
+                                        "text": "Substitusi"
+                                    },
+                                    {
+                                        "type": "math",
+                                        "justify": "center",
+                                        "text": "\\[ \\lim\\limits_{t \\to -\\infty} \\biggl( \\frac{1}{12}t^{5}+999t^{3}-101t^{2}+7 \\biggl) = \\infty+\\infty-\\infty \\]"
+                                    },
+                                    {
+                                        "type": "math",
+                                        "text": "Faktorisasi"
+                                    },
+                                    {
+                                        "type": "math",
+                                        "justify": "center",
+                                        "text": "\\[ \\lim\\limits_{t \\to -\\infty} \\biggl( \\frac{1}{12}t^{5}+999t^{3}-101t^{2}+7 \\biggl) = \\lim\\limits_{t \\to -\\infty} t^{5} \\biggl( \\frac{1}{12}+\\frac{999}{t^{2}}-\\frac{101}{t^{3}}+\\frac{7}{t^{5}} \\biggl) \\]"
+                                    },
+                                    {
+                                        "type": "math",
+                                        "text": "Substitusi"
+                                    },
+                                    {
+                                        "type": "math",
+                                        "justify": "center",
+                                        "text": "\\[ \\lim\\limits_{t \\to -\\infty} t^{5} \\biggl( \\frac{1}{12}+\\frac{999}{t^{2}}-\\frac{101}{t^{3}}+\\frac{7}{t^{5}} \\biggl) = (-\\infty)^{5} \\biggl( \\frac{1}{12}+0-0+0 \\biggl) = -\\infty \\]"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "type": "paragraph",
+                "text": "Berikut ini adalah beberapa fungsi khusus dalam matematika yang memiliki ",
+                "children": [
+                    { 
+                        "type":"paragraph", 
+                        "text": "asimtot vertikal",
+                        "props": { "fontWeight": 600, "className": "highlight" }
+                    },
+                    {
+                        "type": "paragraph",
+                        "text": "."
+                    }
+                ]
+            },
+            {
+                "type": "example",
+                "title": "Contoh 5",
+                "instruction": "Hitunglah setiap limit berikut",
+                "equation": "\\[ \\lim\\limits_{x \\to \\frac{\\pi}{2}^{-}} \\tan(x) \\qquad\\qquad \\lim\\limits_{x \\to \\frac{\\pi}{2}^{+}} \\tan(x) \\qquad\\qquad \\lim\\limits_{x \\to \\frac{\\pi}{2}} \\tan(x) \\]",
+                "accordion_text": "Pembahasan",
+                "children": [
+                    {
+                        "type": "stack",
+                        "direction": "column",
+                        "gap": 3,
+                        "props": { "mt": 3 },
+                        "children": [
+                            {
+                                "type": "stack",
+                                "children": [
+                                    { 
+                                        "type": "table", 
+                                        "data": [
+                                            [
+                                                {"type":"math", "text":"\\( x^{-} \\)", "justify": "center"},
+                                                {"type":"math", "text":"\\( \\tan(x) \\)", "justify": "center"},
+                                                {"type":"math", "text":"\\( x^{+} \\)", "justify": "center"},
+                                                {"type":"math", "text":"\\( \\tan(x) \\)", "justify": "center"}
+                                            ], 
+                                            [
+                                                {"type":"math", "text":"\\( \\frac{\\pi}{3} \\)", "justify": "center"},
+                                                {"type":"math", "text":"\\( \\sqrt{3} \\)", "justify": "center"},
+                                                {"type":"math", "text":"\\( \\frac{2\\pi}{3} \\)", "justify": "center"},
+                                                {"type":"math", "text":"\\( -\\sqrt{3} \\)", "justify": "center"}
+                                            ],
+                                            [
+                                                {"type":"math", "text":"\\( \\frac{3\\pi}{8} \\)", "justify": "center"},
+                                                {"type":"math", "text":"\\( \\sqrt{2}+1 \\)", "justify": "center"},
+                                                {"type":"math", "text":"\\( \\frac{5\\pi}{8} \\)", "justify": "center"},
+                                                {"type":"math", "text":"\\( -(\\sqrt{2}+1) \\)", "justify": "center"}
+                                            ],
+                                            [
+                                                {"type":"math", "text":"\\( \\frac{2\\pi}{5} \\)", "justify": "center"},
+                                                {"type":"math", "text":"\\( \\sqrt{5+2\\sqrt{5}} \\)", "justify": "center"},
+                                                {"type":"math", "text":"\\( \\frac{3\\pi}{5} \\)", "justify": "center"},
+                                                {"type":"math", "text":"\\( -\\sqrt{5+2\\sqrt{5}} \\)", "justify": "center"}
+                                            ],
+                                            [
+                                                {"type":"math", "text":"\\( \\frac{5\\pi}{12} \\)", "justify": "center"},
+                                                {"type":"math", "text":"\\( 2+\\sqrt{3} \\)", "justify": "center"},
+                                                {"type":"math", "text":"\\( \\frac{7\\pi}{12} \\)", "justify": "center"},
+                                                {"type":"math", "text":"\\( -(2+\\sqrt{3}) \\)", "justify": "center"}
+                                            ]
+                                        ] 
+                                    },
+                                    {
+                                        "type": "video",
+                                        "src": "/BRI/course/limit/TangentGraph.mp4"
+                                    },
+                                    {
+                                        "type": "paragraph",
+                                        "text": "maka dapat disimpulkan bahwa"
+                                    },
+                                    {
+                                        "type": "math",
+                                        "justify": "center",
+                                        "text": "\\[ \\lim\\limits_{x \\to \\frac{\\pi}{2}^{-}} \\tan(x) = \\infty \\quad\\qquad \\lim\\limits_{x \\to \\frac{\\pi}{2}^{+}} \\tan(x) = -\\infty \\]"
+                                    },
+                                    {
+                                        "type": "math",
+                                        "text": "sehingga"
+                                    },
+                                    {
+                                        "type": "paragraph",
+                                        "children": [
+                                            {
+                                                "type":"paragraph", 
+                                                "text":"\\( \\lim\\limits_{x \\to \\frac{\\pi}{2}} \\tan(x) \\) tidak ada"
+                                            }
+                                        ], 
+                                        "align": "center", 
+                                        "size": "1.2em"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "type": "example",
+                "title": "Contoh 6",
+                "instruction": "Hitunglah setiap limit berikut",
+                "equation": "\\[ \\lim\\limits_{x \\to 0^{-}} \\ln(x) \\qquad\\qquad \\lim\\limits_{x \\to 0^{+}} \\ln(x) \\qquad\\qquad \\lim\\limits_{x \\to 0} \\ln(x) \\]",
+                "accordion_text": "Pembahasan",
+                "children": [
+                    {
+                        "type": "stack",
+                        "direction": "column",
+                        "gap": 3,
+                        "props": { "mt": 3 },
+                        "children": [
+                            {
+                                "type": "stack",
+                                "children": [
+                                    {
+                                        "type": "paragraph",
+                                        "children": [
+                                            {
+                                                "type":"paragraph", 
+                                                "text":"Sejak domain dari \\( \\ln(x) \\) adalah \\( x \\gt 0 \\), maka kita tidak dapat menghitung limit kiri dari \\( \\ln(x) \\) di \\( x=0 \\)"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "paragraph",
+                                "align": "center",
+                                "children": [
+                                    {"type":"paragraph", "text":"\\( \\lim\\limits_{x \\to 0^{-}} \\ln(x) \\) tidak terdefinisi"}
+                                ]
+                            },
+                            { 
+                                "type": "table", 
+                                "data": [
+                                    [
+                                        {"type":"math", "text":"\\( x^{+} \\)", "justify": "center"},
+                                        {"type":"math", "text":"\\( \\ln(x) \\)", "justify": "center"}
+                                    ], 
+                                    [
+                                        {"type":"math", "text":"\\( 0.1 \\)", "justify": "center"},
+                                        {"type":"math", "text":"\\( -2.30259 \\)", "justify": "center"}
+                                    ],
+                                    [
+                                        {"type":"math", "text":"\\( 0.01 \\)", "justify": "center"},
+                                        {"type":"math", "text":"\\( -4.60517 \\)", "justify": "center"}
+                                    ],
+                                    [
+                                        {"type":"math", "text":"\\( 0.001 \\)", "justify": "center"},
+                                        {"type":"math", "text":"\\( -6.90776 \\)", "justify": "center"}
+                                    ],
+                                    [
+                                        {"type":"math", "text":"\\( 0.0001 \\)", "justify": "center"},
+                                        {"type":"math", "text":"\\( -9.21034 \\)", "justify": "center"}
+                                    ]
+                                ] 
+                            },
+                            {
+                                "type": "video",
+                                "src": "/BRI/course/limit/LogarithmGraph.mp4"
+                            },
+                            {
+                                "type": "paragraph",
+                                "text": "maka dapat disimpulkan bahwa"
+                            },
+                            {
+                                "type": "math",
+                                "justify": "center",
+                                "text": "\\[ \\lim\\limits_{x \\to 0^{+}} \\ln(x) = -\\infty \\]"
+                            },
+                            {
+                                "type": "math",
+                                "text": "sehingga"
+                            },
+                            {
+                                "type": "paragraph",
+                                "children": [
+                                    {
+                                        "type":"paragraph", 
+                                        "text":"\\( \\lim\\limits_{x \\to 0} \\ln(x) \\) tidak ada"
+                                    }
+                                ], 
+                                "align": "center", 
+                                "size": "1.2em"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "type": "stack",
+                "children": [
+                    { "type": "heading", "text": "Sifat Limit Tak Hingga" },
+                    {
+                        "type": "formula",
+                        "gap": 1,
+                        "children": [
+                            {
+                                "type": "math",
+                                "text": "Asumsikan \\( \\lim\\limits_{x \\to a}f(x) = L \\) dan \\( \\lim\\limits_{x \\to a}g(x) = \\infty \\), serta \\( a \\) dan \\( L \\in \\mathbb{R} \\)"
+                            },
+                            {
+                                "type": "list",
+                                "bullet": "1",
+                                "items": [
+                                    "\\[ \\lim\\limits_{x \\to a} [f(x) \\pm g(x)] = \\pm \\infty \\]",
+                                    "Jika \\( L \\gt 0 \\) maka \\( \\lim\\limits_{x \\to a} [f(x) \\space g(x)] = \\infty \\)",
+                                    "Jika \\( L \\lt 0 \\) maka \\( \\lim\\limits_{x \\to a} [f(x) \\space g(x)] = -\\infty \\)",
+                                    "\\[ \\lim\\limits_{x \\to a} \\frac{f(x)}{g(x)} = 0 \\]"
+                                ]
+                            },
+                            {
+                                "type": "paragraph",
+                                "text": "Note: ",
+                                "children": [
+                                    {
+                                        "type": "paragraph",
+                                        "text": "Sifat limit tak hingga [1:3]",
+                                        "props": { "fontWeight": 600, "className": "highlight" }
+                                    },
+                                    {
+                                        "type": "paragraph",
+                                        "text": " akan berubah tanda apabila \\( \\lim\\limits_{x \\to a}g(x) = -\\infty \\)."
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
             }
         ]
     }
