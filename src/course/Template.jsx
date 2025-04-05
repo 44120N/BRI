@@ -23,7 +23,7 @@ export default function Template({url}) {
         >
             <Stack gap={1} direction="column">
                 <Typography
-                    textTransform="uppercase"
+                    textTransform={blog.transform?.unit||"uppercase"}
                     variant="body2"
                     letterSpacing={-0.5}
                     color="#555"
@@ -31,7 +31,7 @@ export default function Template({url}) {
                     {blog.unit}
                 </Typography>
                 <Typography
-                    textTransform="capitalize"
+                    textTransform={blog.transform?.subunit||"capitalize"}
                     fontWeight={700}
                     variant="h5"
                 >

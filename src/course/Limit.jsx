@@ -545,3 +545,9 @@ export function LimitAtInf() {
         <Template url={"/BRI/course/limit/atinfinity"} />
     );
 }
+
+export function LimitAtInf2() {
+    return (
+        <Template url={"/BRI/course/limit/atinfinity2"} />
+    );
+}
