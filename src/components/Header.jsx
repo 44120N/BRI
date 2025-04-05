@@ -16,7 +16,10 @@ const Header = () => {
                 >
                     <Stack>
                         <Typography textAlign={'center'} fontWeight={800} color="#fff" fontSize={{xs:'.7em', sm:'.9em', md:'1em'}}>
-                            🎉 Dapatkan keuntungan lebih banyak dengan <Typography component={'b'} color='quaternary.main' fontWeight={800} fontSize={{xs:'.7em', sm:'.9em', md:'1em'}} sx={{textDecorationLine:"underline", textDecorationStyle:"dotted", textDecorationColor:"#ffff00"}}>Membership</Typography>!
+                            🎉 Dapatkan keuntungan lebih banyak dengan <Typography component={'b'} color='quaternary.main' 
+                            fontWeight={800} fontSize={{xs:'.7em', sm:'.9em', md:'1em'}} 
+                            sx={{textDecorationLine:"underline", textDecorationStyle:"dotted",
+                            textDecorationColor:"#ffff00"}}>Membership</Typography>!
                         </Typography>
                     </Stack>
                     <Stack>

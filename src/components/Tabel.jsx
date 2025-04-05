@@ -123,11 +123,13 @@ const StyledTableCell = styled(TableCell, {
         [`&.${tableCellClasses.head}`]: {
             backgroundColor: styles.headBackground,
             color: styles.headColor,
-            border: `2px solid ${styles.borderColor||"#000"}`,
+            border: `2px solid ${styles.borderColor || "#000"}`,
+            padding: "1em 0.25em",
         },
         [`&.${tableCellClasses.body}`]: {
             fontSize: 14,
-            border: `2px solid ${styles.borderColor||"#000"}`,
+            border: `2px solid ${styles.borderColor || "#000"}`,
+            padding: "1em 0.25em",
         },
     };
 });
@@ -152,6 +154,8 @@ export function CustomRawTable({
             <Stack
                 spacing={spacing}
                 sx={{
+                    // mx: { xs: 0, md: "auto" },
+                    mx: { xs: 7, sm: 10, md: 15 },
                     height: "fit-content",
                     justifyContent: "center",
                     alignItems: "center",
@@ -168,11 +172,14 @@ export function CustomRawTable({
                                 !Array.isArray(col)
                         )
                     ) ? (
-                        <TableContainer component={Paper} sx={{ ...sx?.table }}>
-                            <Table
-                                sx={{ minWidth: 700 }}
-                                aria-label="customized table"
-                            >
+                        <TableContainer
+                            component={Paper}
+                            sx={{
+                                maxWidth: sx?.maxWidth || "80%",
+                                ...sx?.table,
+                            }}
+                        >
+                            <Table aria-label="customized table">
                                 <TableHead>
                                     <StyledTableRow variant={variant}>
                                         {content[0].map((col, index) => (
@@ -181,14 +188,13 @@ export function CustomRawTable({
                                                 align="center"
                                                 colSpan={col.colspan || 1}
                                                 rowSpan={col.rowspan || 1}
-                                                variant={variant} // ✅ must be passed!
+                                                variant={variant}
                                             >
                                                 {col.content}
                                             </StyledTableCell>
                                         ))}
                                     </StyledTableRow>
                                 </TableHead>
-
                                 <TableBody>
                                     {content.slice(1).map((row, rowIndex) => (
                                         <StyledTableRow
@@ -219,10 +225,7 @@ export function CustomRawTable({
                           )
                       ) ? (
                         <TableContainer component={Paper} sx={{ ...sx?.table }}>
-                            <Table
-                                sx={{ minWidth: 700 }}
-                                aria-label="customized table"
-                            >
+                            <Table aria-label="customized table">
                                 <TableHead>
                                     <TableRow>
                                         {content[0].map((cell, index) => (
