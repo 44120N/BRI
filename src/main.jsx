@@ -12,11 +12,10 @@ import {
 import Home from "./pages/Home.jsx";
 import Testing from "./pages/BoilerPlate.jsx";
 import CourseList from "./pages/CourseList.jsx";
+import BlogEditor from "./pages/BlogEditor.jsx";
 import { LimitSyllabus, LimitIntro, LimitApproach, LimitProperty, LimitEvaluation, LimitInf, LimitAtInf, LimitAtInf2 } from "./course/Limit.jsx";
 import pagesData from "./data/pages.json";
 import PageNotFound from "./404.jsx";
-import BlogEditor from "./pages/BlogEditor.jsx"; // Import the BlogEditor component
-
 
 const getInitialRoute = (course) => {
     const courseData = pagesData.find((c) => c.name === course);
@@ -39,75 +38,35 @@ const getInitialRoute = (course) => {
 };
 
 const router = createBrowserRouter([
-  {
-    path: "/BRI",
-    element: <App />,
-    children: [
-      {
-        path: "",
-        element: <Home />,
-      },
-      {
-        path: "course",
-        element: <CourseList />,
-      },
-      {
-        path: "editor",
-        element: <BlogEditor />,
-      },
-      {
-        path: "course/*",
+    {
+        path: "/BRI/",
+        element: <App />,
+        children: [
+            { path: "", element: <Home /> },
+            { path: "test", element: <Testing /> },
+            { path: "course", element: <CourseList /> },
+            { path: "editor", element: <BlogEditor /> },
+            { path: "course/limit", element: <LimitSyllabus /> },
+        ],
+    },
+    {
+        path: "/BRI/course/limit",
         element: <CourseLayout />,
         children: [
-          {
-            path: "limit",
-            children: [
-              {
-                path: "",
-                element: <Navigate to={getInitialRoute("limit")} replace />,
-              },
-              {
-                path: "syllabus",
-                element: <LimitSyllabus />,
-              },
-              {
-                path: "intro",
-                element: <LimitIntro />,
-              },
-              {
-                path: "approach",
-                element: <LimitApproach />,
-              },
-              {
-                path: "property",
-                element: <LimitProperty />,
-              },
-              {
-                path: "evaluation", 
-                element: <LimitEvaluation />,
-              },
-              {
-                path: "infinity",
-                element: <LimitInf />,
-              },
-              {
-                path: "atinfinity",
-                element: <LimitAtInf />,
-              },
-              {
-                path: "atinfinity2",
-                element: <LimitAtInf2 />,
-              },
-            ],
-          },
+            // { path: "", element: <Navigate to={getInitialRoute("limit")} replace /> },
+            { path: "intro", element: <LimitIntro /> },
+            { path: "approach", element: <LimitApproach /> },
+            { path: "property", element: <LimitProperty /> },
+            { path: "evaluation", element: <LimitEvaluation /> },
+            { path: "infinity", element: <LimitInf /> },
+            { path: "atinfinity", element: <LimitAtInf /> },
+            { path: "atinfinity2", element: <LimitAtInf2 /> },
         ],
-      },
-      {
-        path: "*",
+    },
+    {
+        path: "/BRI/*",
         element: <PageNotFound />,
-      },
-    ],
-  },
+    },
 ]);
 
 createRoot(document.getElementById("root")).render(
