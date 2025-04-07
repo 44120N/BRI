@@ -187,17 +187,18 @@ export default function CourseList() {
                         >
                             <Stack mb={4} direction="row" alignItems="center" gap={2}>
                                 {/* Search Input */}
-                                <CustomInput
-                                    type="text"
-                                    required={true}
-                                    name="search"
-                                    value={search}
-                                    setValue={setSearch}
-                                    fullWidth={true}
-                                    color="secondary"
-                                    startIcon={<SearchIcon />}
-                                    placeholder="Cari Kursus Online"
-                                />
+                                <Stack flexGrow={1}>
+                                    <CustomInput
+                                        type="text"
+                                        required={true}
+                                        name="search"
+                                        value={search}
+                                        color="#000"
+                                        setValue={setSearch}
+                                        startIcon={<SearchIcon />}
+                                        placeholder="Cari Kursus Online"
+                                    />
+                                </Stack>
 
                                 {/* Filter Button on Mobile */}
                                 {isMobile && (

@@ -13,6 +13,7 @@ import Home from "./pages/Home.jsx";
 import Testing from "./pages/BoilerPlate.jsx";
 import CourseList from "./pages/CourseList.jsx";
 import BlogEditor from "./pages/BlogEditor.jsx";
+import BlogEditorForm from "./pages/BlogEditorForm.jsx";
 import { LimitSyllabus, LimitIntro, LimitApproach, LimitProperty, LimitEvaluation, LimitInf, LimitAtInf, LimitAtInf2 } from "./course/Limit.jsx";
 import pagesData from "./data/pages.json";
 import PageNotFound from "./404.jsx";

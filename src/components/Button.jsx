@@ -1,6 +1,6 @@
 import { Button as MuiButton } from '@mui/material';
 
-const Button = ({ children, onClick, sx, color, bgcolor, bdcolor, startIcon, disabled }) => {
+const Button = ({ children, onClick, sx, color, bgcolor, bdcolor, startIcon, disabled, type }) => {
     return (
         <MuiButton
             onClick={onClick}
@@ -39,6 +39,7 @@ const Button = ({ children, onClick, sx, color, bgcolor, bdcolor, startIcon, dis
             }}
             startIcon={startIcon}
             disabled={disabled}
+            type={type}
         >
             {children}
         </MuiButton>

@@ -1,5 +1,5 @@
 import React from "react";
-import { TextField, Box, InputAdornment } from "@mui/material";
+import { TextField, Box, InputAdornment, useTheme } from "@mui/material";
 
 export default function CustomInput({
     type = "text",
@@ -11,83 +11,89 @@ export default function CustomInput({
     multiline = false,
     rows = 1,
     helperText = "",
-    fullWidth = false,
-    color = "primary",
+    fullWidth = true,
+    color = "#000",              // used for manual color
+    palette = "primary",         // used for theme-based color (e.g. 'primary', 'secondary')
     startIcon = null,
-    placeholder="",
+    placeholder = "",
     onKeyDown,
+    useThemeColor = false        // NEW: toggle between manual or theme color
 }) {
+    const theme = useTheme();
+    const borderColor = useThemeColor ? theme.palette[palette].main : color;
+    const boxShadowColor = useThemeColor ? theme.palette[palette].dark : "#000";
+
     const handleChange = (event) => {
         setValue(event.target.value);
     };
 
     return (
-        <Box
-            sx={{
-                position: "relative",
-                width: "100%",
-                border: `2px solid black`,
-                borderRadius: "8px",
-                boxShadow: `4px 4px 0px black`,
-                backgroundColor: "white",
-                transition: "all 0.2s ease",
-                "&:hover": {
-                    transform: "translate(2px, 2px)",
-                    boxShadow: "2px 2px 0px black",
-                },
-            }}
-        >
-            <TextField
-                type={type}
-                required={required}
-                name={name}
-                label={label}
-                placeholder={placeholder}
-                variant="standard"
-                value={value}
-                onChange={handleChange}
-                onKeyDown={onKeyDown}
-                multiline={multiline}
-                maxRows={rows}
-                helperText={helperText}
-                fullWidth={fullWidth}
-                color={color}
-                slotProps={{
-                    input: {
-                        startAdornment: startIcon && (
-                            <InputAdornment position="start">{startIcon}</InputAdornment>
-                        ),
-                    },
-                }}
+        <Box component={'div'} position={'relative'} sx={{
+            transition: "all 0.2s ease",
+            "&:hover": {
+                transform: "translate(2px, 2px)",
+            },
+        }}>
+            <Box
+                className={'content'}
                 sx={{
-                    input: {
-                        fontSize: {xs:".8rem", md:"1rem"},
-                        fontWeight: "bold",
-                        color: "black",
-                        padding: "10px",
-                    },
-                    label: {
-                        fontSize: {xs:".8rem", md:"1rem"},
-                        fontWeight: "bold",
-                        color: "black",
-                    },
-                    "& .MuiInput-underline:before": {
-                        borderBottom: "2px solid black",
-                    },
-                    "& .MuiInput-underline:hover:not(.Mui-disabled):before": {
-                        borderBottom: "2px solid black",
-                    },
-                    "& .MuiInput-underline:after": {
-                        borderBottom: "3px solid black",
-                    },
-                    "& .MuiFormHelperText-root": {
-                        fontSize: "0.8rem",
-                        color: "black",
-                        fontWeight: "bold",
-                    },
-                    backgroundColor: "white",
+                    width: "100%",
+                    border: `2px solid`,
+                    borderColor: borderColor,
+                    boxShadow: `8px 8px 0 ${boxShadowColor}`,
+                    backgroundColor: "#fff",
                 }}
-            />
+            >
+                <TextField
+                    type={type}
+                    required={required}
+                    name={name}
+                    label={label}
+                    placeholder={placeholder}
+                    variant="standard"
+                    value={value}
+                    onChange={handleChange}
+                    onKeyDown={onKeyDown}
+                    multiline={multiline}
+                    maxRows={rows}
+                    helperText={helperText}
+                    fullWidth={fullWidth}
+                    color={useThemeColor ? palette : undefined}
+                    slotProps={{
+                        input: {
+                            startAdornment: startIcon && (
+                                <InputAdornment position="start">{startIcon}</InputAdornment>
+                            ),
+                        },
+                    }}
+                    sx={{
+                        input: {
+                            fontSize: { xs: ".8rem", md: "1rem" },
+                            fontWeight: "bold",
+                            py: 2,
+                            px: 3,
+                        },
+                        label: {
+                            fontSize: { xs: ".8rem", md: "1rem" },
+                            fontWeight: "bold",
+                        },
+                        "& .MuiInput-underline:before": {
+                            borderBottom: "none",
+                        },
+                        "& .MuiInput-underline:hover:not(.Mui-disabled):before": {
+                            borderBottom: "none",
+                        },
+                        "& .MuiInput-underline:after": {
+                            borderBottom: "none",
+                        },
+                        "& .MuiFormHelperText-root": {
+                            fontSize: "0.8rem",
+                            fontWeight: "bold",
+                        },
+                        backgroundColor: "white",
+                    }}
+                />
+            </Box>
         </Box>
     );
 }

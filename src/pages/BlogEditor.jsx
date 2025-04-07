@@ -1,8 +1,10 @@
 
 import React, { useState, useEffect } from 'react';
-import { Stack, Typography, IconButton, Select, MenuItem } from '@mui/material';
+import { Stack, Typography, IconButton, Select, MenuItem, Button } from '@mui/material';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import RenderContent from '../course/RenderContent';
+import CustomInput from '../form/CustomInput';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 const CONTENT_TYPES = {
     stack: "Layout Stack",

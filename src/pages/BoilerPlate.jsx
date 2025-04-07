@@ -630,3 +630,114 @@ export default function Testing() {
         </>
     );
 }
+
+// import React from "react";
+// import { TextField, InputAdornment, Box } from "@mui/material";
+
+// const addThousandSeparator = (value) => {
+//     const parts = value.toString().split('.');
+//     parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+//     return parts.join('.');
+// };
+
+// export default function CustomInputNumber({
+//     value,
+//     setValue,
+//     label,
+//     name,
+//     prefix,
+//     unit,
+//     decimal = false,
+//     type = "text",
+//     multiline = false,
+//     rows,
+//     required = false,
+//     helperText,
+//     color = "primary.main",
+//     fullWidth = true,
+//     ...rest
+// }) {
+//     const handleChange = (event) => {
+//         let input_val = event.target.value;
+//         if (decimal) {
+//             input_val = input_val.replace(/[^\d.,]/g, '').replace(/[,]/g, '').replace(/\.(?=.*\.)/g, '');
+//             input_val = addThousandSeparator(input_val);
+//         } else {
+//             input_val = input_val.replace(/[^\d]/g, '');
+//             input_val = addThousandSeparator(input_val);
+//         }
+//         setValue(input_val);
+//     };
+
+//     return (
+//         <Box component={'div'} position={'relative'} sx={{
+//             transition: "all 0.2s ease",
+//             "&:hover": {
+//                 transform: "translate(2px, 2px)",
+//             },
+//             // "&:hover .content":{
+//             //     top:4,
+//             //     left:4
+//             // },
+//         }}>
+//             {/* <Box
+//                 className={'pattern-shadow'}
+//                 sx={{
+//                     position:"absolute",
+//                     top:8,
+//                     width: "100%",
+//                     height: "100%",
+//                     // background: `repeating-linear-gradient( -45deg, #444cf7, #444cf7 5px, transparent 5px, transparent 9.6px )`,
+//                 }}
+//                 backgroundColor={color}
+//             /> */}
+//             <Box
+//                 className={'content'}
+//                 // sx={{
+//                 //     position: "relative",
+//                 //     left:8,
+//                 //     width: "100%",
+//                 //     border: `2px solid`,
+//                 //     borderColor: color,
+//                 //     boxShadow: `repeating-linear-gradient( 45deg, #444cf7, #444cf7 5px, transparent 5px, transparent 10px )`,
+//                 //     backgroundColor: "#fff",
+//                 // }}
+//                 sx={{
+//                     width: "100%",
+//                     border: `2px solid`,
+//                     borderColor: color,
+//                     boxShadow: `8px 8px 0 #000`,
+//                     backgroundColor: "#fff",
+//                 }}
+//             >
+//                 <TextField
+//                     type={type}
+//                     required={required}
+//                     className="input"
+//                     name={name}
+//                     label={label}
+//                     variant="outlined"
+//                     value={value}
+//                     onChange={handleChange}
+//                     multiline={multiline}
+//                     maxRows={rows}
+//                     helperText={helperText}
+//                     color={color}
+//                     fullWidth={fullWidth}
+//                     slotProps={{
+//                         input: {
+//                             startAdornment: prefix && (
+//                                 <InputAdornment position="start">{prefix}</InputAdornment>
+//                             ),
+//                             endAdornment: unit && (
+//                                 <InputAdornment position="end">{unit}</InputAdornment>
+//                             ),
+//                         }
+//                     }}
+//                     {...rest}
+//                 />
+//             </Box>
+//         </Box>
+//     );
+// }
+
