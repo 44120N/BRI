@@ -2358,7 +2358,7 @@
                 "type": "example",
                 "title": "Contoh 1",
                 "instruction": "Hitunglah setiap limit berikut",
-                "equation": "\\[ \\lim\\limits_{x \\to \\infty} (\\sqrt{9x^{2}+5x+5}-\\sqrt{9x^{2}-7x-4})  \\]",
+                "equation": "\\[ \\lim\\limits_{x \\to \\infty} \\Bigl(\\sqrt{9x^{2}+5x+5}-\\sqrt{9x^{2}-7x-4}\\Bigl)  \\]",
                 "accordion_text": "Pembahasan",
                 "children": [
                     {
@@ -2434,6 +2434,95 @@
                                     "Jika \\( a \\) < \\( p \\): \\( \\lim\\limits_{x \\to \\infty} (\\sqrt[^n]{p_{1}(x)}-\\sqrt[^m]{p_2(x)}) = -\\infty \\)",
                                     "Jika \\( a \\) = \\( p \\): \\( \\lim\\limits_{x \\to \\infty} (\\sqrt[^n]{p_{1}(x)}-\\sqrt[^m]{p_2(x)}) = \\frac{b-q}{n\\sqrt[^n]{a^{n-1}}} \\)",
                                     "Jika \\( a \\) > \\( p \\): \\( \\lim\\limits_{x \\to \\infty} (\\sqrt[^n]{p_{1}(x)}-\\sqrt[^m]{p_2(x)}) = \\infty \\)"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "type": "example",
+                "title": "Contoh 2",
+                "instruction": "Hitunglah setiap limit berikut",
+                "equation": "\\[ \\lim\\limits_{x \\to \\infty} \\Bigl(\\sqrt{4x^{2}-3x-1}-\\sqrt{9x^{2}-x+7}+x-2\\Bigl) \\]",
+                "accordion_text": "Pembahasan",
+                "children": [
+                    {
+                        "type": "stack",
+                        "direction": "column",
+                        "gap": {"xs":2, "sm":4, "md":6},
+                        "props": { "mt": 3 },
+                        "children": [
+                            {
+                                "type": "stack",
+                                "children": [
+                                    {
+                                        "type": "math",
+                                        "text": "Substitusi"
+                                    },
+                                    {
+                                        "type": "math",
+                                        "justify": "center",
+                                        "text": "\\[ \\lim\\limits_{x \\to \\infty} \\Bigl(\\sqrt{4x^{2}-3x-1}-\\sqrt{9x^{2}-x+7}+x-2\\Bigl) = \\infty-\\infty+\\infty-2 \\]"
+                                    },
+                                    {
+                                        "type": "math",
+                                        "text": "Pecah"
+                                    },
+                                    {
+                                        "type": "math",
+                                        "justify": "center",
+                                        "text": "\\[ \\begin{aligned} \\lim\\limits_{x \\to \\infty} \\Bigl(\\sqrt{4x^{2}-3x-1}-\\sqrt{9x^{2}-x+7}+{\\color{blue}x}-2\\Bigl) &= \\lim\\limits_{x \\to \\infty} \\Bigl(\\sqrt{4x^{2}-3x-1}{\\color{blue}-2x+3x}-\\sqrt{9x^{2}-x+7}-2\\Bigl) \\\\ &= \\lim\\limits_{x \\to \\infty} \\Bigl(\\sqrt{4x^{2}-3x-1}-{\\color{blue}\\sqrt{4x^{2}}}+{\\color{blue}\\sqrt{9x^{2}}}-\\sqrt{9x^{2}-x+7}-2\\Bigl) \\\\ &= \\lim\\limits_{x \\to \\infty} \\Bigl(\\sqrt{4x^{2}-3x-1}-\\sqrt{4x^{2}}\\Bigl)+\\lim\\limits_{x \\to \\infty} \\Bigl(\\sqrt{9x^{2}}-\\sqrt{9x^{2}-x+7}\\Bigl) - \\lim\\limits_{x \\to \\infty} 2 \\end{aligned} \\]"
+                                    },
+                                    {
+                                        "type": "math",
+                                        "text": "Pengurangan Polinomial"
+                                    },
+                                    {
+                                        "type": "math",
+                                        "justify": "center",
+                                        "text": "\\[ \\begin{aligned} &\\lim\\limits_{x \\to \\infty} \\Bigl(\\sqrt{4x^{2}-3x-1}-\\sqrt{4x^{2}}\\Bigl)+\\lim\\limits_{x \\to \\infty} \\Bigl(\\sqrt{9x^{2}}-\\sqrt{9x^{2}-x+7}\\Bigl) - \\lim\\limits_{x \\to \\infty} 2 \\\\ &= \\frac{-3-0}{2\\sqrt{4}}+\\frac{2-(-1)}{2\\sqrt{9}}-2 \\\\ &= -\\frac{3}{4} + \\frac{1}{2}-2 \\\\ &= \\frac{5}{4} \\end{aligned} \\]"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "type": "example",
+                "title": "Contoh 3",
+                "instruction": "Hitunglah setiap limit berikut",
+                "equation": "\\[ \\lim\\limits_{x \\to \\infty} \\Bigl(\\sqrt[^3]{8x^{3}-12x^{2}-3x-1}-\\sqrt[^3]{8x^{3}+6x^{2}-x+7}\\Bigl) \\]",
+                "accordion_text": "Pembahasan",
+                "children": [
+                    {
+                        "type": "stack",
+                        "direction": "column",
+                        "gap": {"xs":2, "sm":4, "md":6},
+                        "props": { "mt": 3 },
+                        "children": [
+                            {
+                                "type": "stack",
+                                "children": [
+                                    {
+                                        "type": "math",
+                                        "text": "Substitusi"
+                                    },
+                                    {
+                                        "type": "math",
+                                        "justify": "center",
+                                        "text": "\\[ \\lim\\limits_{x \\to \\infty} \\Bigl(\\sqrt[^3]{8x^{3}-12x^{2}-3x-1}-\\sqrt[^3]{8x^{3}+6x^{2}-x+7}\\Bigl) = \\infty - \\infty \\]"
+                                    },
+                                    {
+                                        "type": "math",
+                                        "text": "Pengurangan Polinomial"
+                                    },
+                                    {
+                                        "type": "math",
+                                        "justify": "center",
+                                        "text": "\\[ \\lim\\limits_{x \\to \\infty} \\Bigl(\\sqrt[^3]{8x^{3}-12x^{2}-3x-1}-\\sqrt[^3]{8x^{3}+6x^{2}-x+7}\\Bigl) = \\frac{-12-6}{3\\sqrt[^3]{8}} = \\frac{-18}{6} = -3 \\]"
+                                    }
                                 ]
                             }
                         ]
