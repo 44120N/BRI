@@ -7,8 +7,15 @@
         "time": "5 min",
         "content": [
             {
-                "type": "markdown",
-                "text": "Bayangkan seorang pembalap Formula 1 melaju di lintasan. Jika kita menghitung kecepatannya setiap detik, semakin kecil interval waktunya, semakin akurat hasilnya. Tapi bagaimana kalau kita ingin tahu kecepatannya **tepat pada satu momen?**"
+                "type": "paragraph",
+                "text": "Bayangkan seorang pembalap Formula 1 melaju di lintasan. Jika kita menghitung kecepatannya setiap detik, semakin kecil interval waktunya, semakin akurat hasilnya. Tapi bagaimana kalau kita ingin tahu kecepatannya",
+                "children": [
+                    {
+                        "type": "paragraph",
+                        "text": " tepat pada satu momen?",
+                        "props": { "fontWeight": 600, "className": "highlight" }
+                    }
+                ]
             },
             {
                 "type": "paragraph",
