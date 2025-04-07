@@ -6,6 +6,11 @@ import { resolve } from 'path'
 export default defineConfig({
   base: "/BRI/",
   plugins: [react()],
+  server: {
+    host: true,
+    strictPort: true,
+    allowedHosts: "all",
+  },
   build: {
     rollupOptions: {
       input: {
