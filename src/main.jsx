@@ -45,6 +45,7 @@ const router = createBrowserRouter([
             { path: "", element: <Home /> },
             { path: "test", element: <Testing /> },
             { path: "course", element: <CourseList /> },
+            { path: "editor-form", element: <BlogEditorForm /> },
             { path: "editor", element: <BlogEditor /> },
             { path: "course/limit", element: <LimitSyllabus /> },
         ],
