@@ -1,203 +1,157 @@
-
 import React, { useState } from 'react';
-import { Stack, TextField, Button, Typography, IconButton, Select, MenuItem } from '@mui/material';
-import AddIcon from '@mui/icons-material/Add';
-import DeleteIcon from '@mui/icons-material/Delete';
-import EditIcon from '@mui/icons-material/Edit';
+import { Stack, Button, Select, MenuItem, Typography, Grid } from '@mui/material';
+import CustomInput from '../form/CustomInput';
+import ContentEditor from '../components/ContentEditor';
+import BlogPreview from '../components/BlogPreview';
 
 const CONTENT_TYPES = {
-  paragraph: "Paragraph",
-  formula: "Formula",
-  math: "Math Expression",
-  heading: "Heading",
-  stack: "Stack",
-  image: "Image",
-  video: "Video",
-  list: "List",
-  example: "Example",
-  table: "Table"
+    stack: "Layout Stack",
+    paragraph: "Paragraph",
+    math: "Math Expression",
+    heading: "Heading",
+    image: "Image",
+    video: "Video",
+    list: "List",
+    table: "Table"
 };
 
 export default function BlogEditor() {
-  const [blog, setBlog] = useState({
-    name: '',
-    url: '',
-    unit: '',
-    subunit: '',
-    time: '',
-    content: []
-  });
-
-  const [preview, setPreview] = useState(null);
-
-  const addContent = (type) => {
-    const newContent = {
-      type,
-      text: '',
-      props: {}
-    };
-    setBlog(prev => ({
-      ...prev,
-      content: [...prev.content, newContent]
-    }));
-  };
-
-  const updateContent = (index, field, value) => {
-    setBlog(prev => {
-      const newContent = [...prev.content];
-      newContent[index] = {
-        ...newContent[index],
-        [field]: value
-      };
-      return { ...prev, content: newContent };
+    const [blog, setBlog] = useState({
+        name: '',
+        url: '',
+        unit: '',
+        subunit: '',
+        time: '',
+        content: []
     });
-  };
+    const [preview, setPreview] = useState(false);
+    const [generatedJson, setGeneratedJson] = useState('');
 
-  const removeContent = (index) => {
-    setBlog(prev => ({
-      ...prev,
-      content: prev.content.filter((_, i) => i !== index)
-    }));
-  };
+    const addContent = (type) => {
+        setBlog(prev => ({
+            ...prev,
+            content: [...prev.content, { type }]
+        }));
+    };
 
-  const handleSubmit = () => {
-    // Convert to JSON and show preview
-    setPreview(JSON.stringify(blog, null, 2));
-  };
+    const addNestedContent = (parentIndex) => {
+        setBlog(prev => {
+            const newContent = [...prev.content];
+            if (!newContent[parentIndex].children) {
+                newContent[parentIndex].children = [];
+            }
+            newContent[parentIndex].children.push({ type: 'paragraph' });
+            return { ...prev, content: newContent };
+        });
+    };
 
-  const renderContentEditor = (content, index) => {
+    const removeContent = (index, parentIndex = null) => {
+        setBlog(prev => {
+            if (parentIndex !== null) {
+                const newContent = [...prev.content];
+                newContent[parentIndex].children = newContent[parentIndex].children.filter((_, i) => i !== index);
+                return { ...prev, content: newContent };
+            }
+            return {
+                ...prev,
+                content: prev.content.filter((_, i) => i !== index)
+            };
+        });
+    };
+
+    const updateContent = (updateFn) => {
+        setBlog(prev => ({
+            ...prev,
+            content: updateFn(prev.content)
+        }));
+    };
+
+    const generateJson = () => {
+        setGeneratedJson(JSON.stringify(blog, null, 2));
+    };
+
     return (
-      <Stack 
-        key={index} 
-        spacing={2} 
-        sx={{ 
-          border: '1px solid #ccc',
-          padding: 2,
-          borderRadius: 1,
-          marginY: 2 
-        }}
-      >
-        <Stack direction="row" justifyContent="space-between" alignItems="center">
-          <Typography variant="h6">{CONTENT_TYPES[content.type]}</Typography>
-          <IconButton onClick={() => removeContent(index)} color="error">
-            <DeleteIcon />
-          </IconButton>
+        <Stack spacing={3} sx={{ maxWidth: 1200, margin: 'auto', padding: 3 }}>
+            <Typography variant="h4">Blog Editor</Typography>
+
+            <Grid container spacing={3}>
+                <Grid item xs={12} md={6}>
+                    <Stack spacing={2}>
+                        <CustomInput
+                            label="Name"
+                            value={blog.name}
+                            setValue={(value) => setBlog(prev => ({ ...prev, name: value }))}
+                        />
+                        <CustomInput
+                            label="URL"
+                            value={blog.url}
+                            setValue={(value) => setBlog(prev => ({ ...prev, url: value }))}
+                        />
+                        <CustomInput
+                            label="Unit"
+                            value={blog.unit}
+                            setValue={(value) => setBlog(prev => ({ ...prev, unit: value }))}
+                        />
+                        <CustomInput
+                            label="Subunit"
+                            value={blog.subunit}
+                            setValue={(value) => setBlog(prev => ({ ...prev, subunit: value }))}
+                        />
+                        <CustomInput
+                            label="Time"
+                            value={blog.time}
+                            setValue={(value) => setBlog(prev => ({ ...prev, time: value }))}
+                        />
+                    </Stack>
+                </Grid>
+
+                <Grid item xs={12}>
+                    <Stack direction="row" spacing={2} alignItems="center">
+                        <Typography variant="h6">Content</Typography>
+                        <Select
+                            value=""
+                            displayEmpty
+                            onChange={(e) => addContent(e.target.value)}
+                            sx={{ minWidth: 200 }}
+                        >
+                            <MenuItem value="" disabled>Add Content</MenuItem>
+                            {Object.entries(CONTENT_TYPES).map(([value, label]) => (
+                                <MenuItem key={value} value={value}>{label}</MenuItem>
+                            ))}
+                        </Select>
+                    </Stack>
+
+                    <ContentEditor 
+                        content={blog.content}
+                        updateContent={updateContent}
+                        removeContent={removeContent}
+                        addNestedContent={addNestedContent}
+                    />
+                </Grid>
+            </Grid>
+
+            <Stack direction="row" spacing={2}>
+                <Button variant="contained" onClick={() => setPreview(!preview)}>
+                    {preview ? 'Hide Preview' : 'Show Preview'}
+                </Button>
+                <Button variant="contained" onClick={generateJson}>
+                    Generate JSON
+                </Button>
+            </Stack>
+
+            {preview && (
+                <BlogPreview blog={blog} />
+            )}
+
+            {generatedJson && (
+                <CustomInput
+                    label="Generated JSON"
+                    value={generatedJson}
+                    setValue={() => {}}
+                    multiline
+                    rows={10}
+                />
+            )}
         </Stack>
-
-        {content.type === 'paragraph' && (
-          <>
-            <TextField
-              label="Text"
-              multiline
-              value={content.text || ''}
-              onChange={(e) => updateContent(index, 'text', e.target.value)}
-            />
-            <TextField
-              label="Align"
-              value={content.align || ''}
-              onChange={(e) => updateContent(index, 'align', e.target.value)}
-            />
-          </>
-        )}
-
-        {content.type === 'math' && (
-          <TextField
-            label="LaTeX Expression"
-            value={content.text || ''}
-            onChange={(e) => updateContent(index, 'text', e.target.value)}
-          />
-        )}
-
-        {content.type === 'heading' && (
-          <TextField
-            label="Heading Text"
-            value={content.text || ''}
-            onChange={(e) => updateContent(index, 'text', e.target.value)}
-          />
-        )}
-
-        {(content.type === 'image' || content.type === 'video') && (
-          <>
-            <TextField
-              label="Source URL"
-              value={content.src || ''}
-              onChange={(e) => updateContent(index, 'src', e.target.value)}
-            />
-            <TextField
-              label="Alt Text"
-              value={content.alt || ''}
-              onChange={(e) => updateContent(index, 'alt', e.target.value)}
-            />
-          </>
-        )}
-      </Stack>
     );
-  };
-
-  return (
-    <Stack spacing={3} sx={{ maxWidth: 800, margin: 'auto', padding: 3 }}>
-      <Typography variant="h4">Blog Editor</Typography>
-      
-      <TextField
-        label="Name"
-        value={blog.name}
-        onChange={(e) => setBlog(prev => ({ ...prev, name: e.target.value }))}
-      />
-      
-      <TextField
-        label="URL"
-        value={blog.url}
-        onChange={(e) => setBlog(prev => ({ ...prev, url: e.target.value }))}
-      />
-      
-      <TextField
-        label="Unit"
-        value={blog.unit}
-        onChange={(e) => setBlog(prev => ({ ...prev, unit: e.target.value }))}
-      />
-      
-      <TextField
-        label="Subunit"
-        value={blog.subunit}
-        onChange={(e) => setBlog(prev => ({ ...prev, subunit: e.target.value }))}
-      />
-      
-      <TextField
-        label="Time"
-        value={blog.time}
-        onChange={(e) => setBlog(prev => ({ ...prev, time: e.target.value }))}
-      />
-
-      <Stack direction="row" spacing={2} alignItems="center">
-        <Typography variant="h6">Content</Typography>
-        <Select
-          value=""
-          displayEmpty
-          onChange={(e) => addContent(e.target.value)}
-          sx={{ minWidth: 200 }}
-        >
-          <MenuItem value="" disabled>Add Content</MenuItem>
-          {Object.entries(CONTENT_TYPES).map(([value, label]) => (
-            <MenuItem key={value} value={value}>{label}</MenuItem>
-          ))}
-        </Select>
-      </Stack>
-
-      {blog.content.map((content, index) => renderContentEditor(content, index))}
-
-      <Button variant="contained" onClick={handleSubmit}>
-        Generate JSON
-      </Button>
-
-      {preview && (
-        <TextField
-          label="Generated JSON"
-          multiline
-          rows={10}
-          value={preview}
-          InputProps={{ readOnly: true }}
-        />
-      )}
-    </Stack>
-  );
 }
