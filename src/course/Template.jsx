@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import { Stack, Typography } from "@mui/material";
 import RenderContent from "./RenderContent";
 import blogData from "../data/blogs.json";
+import Loading from "../components/Loading";
 
-export default function Template({url}) {
+export default function Template({ url }) {
     const [blog, setBlog] = useState(null);
 
     useEffect(() => {
@@ -12,7 +13,7 @@ export default function Template({url}) {
         setBlog(foundBlog || null);
     }, []);
 
-    if (!blog) return <Typography>Loading...</Typography>;
+    if (!blog) return <Loading />;
 
     return (
         <Stack
@@ -23,7 +24,7 @@ export default function Template({url}) {
         >
             <Stack gap={1} direction="column">
                 <Typography
-                    textTransform={blog.transform?.unit||"uppercase"}
+                    textTransform={blog.transform?.unit || "uppercase"}
                     variant="body2"
                     letterSpacing={-0.5}
                     color="#555"
@@ -31,7 +32,7 @@ export default function Template({url}) {
                     {blog.unit}
                 </Typography>
                 <Typography
-                    textTransform={blog.transform?.subunit||"capitalize"}
+                    textTransform={blog.transform?.subunit || "capitalize"}
                     fontWeight={700}
                     variant="h5"
                 >

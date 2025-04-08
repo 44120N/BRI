@@ -1,4 +1,4 @@
-import { Box, Divider, Stack, Typography, Container } from "@mui/material";
+import { Box, Divider, Stack, Typography, Container, CircularProgress} from "@mui/material";
 import { MathJax } from "better-react-mathjax";
 import { CustomRawTable } from "../components/Tabel";
 import Accordion from "../components/Accordion";
@@ -626,6 +626,7 @@ export default function Testing() {
                         </Stack>
                     </Problem>
                 </Stack>
+                <CircularProgress color="primary" />
             </Stack>
         </>
     );
@@ -740,4 +741,3 @@ export default function Testing() {
 //         </Box>
 //     );
 // }
-
