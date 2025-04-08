@@ -111,7 +111,9 @@ export default function BlogEditor() {
                             value={item.text || ''}
                             setValue={(value) => updateContent(index, 'text', value)}
                             multiline
-                            rows={3}
+                            rows={6}
+                            useThemeColor
+                            palette="primary"
                         />
                     </Stack>
                 ))}
