@@ -12,12 +12,14 @@ export default function CustomInput({
     rows = 1,
     helperText = "",
     fullWidth = true,
-    color = "#000",              // used for manual color
-    palette = "primary",         // used for theme-based color (e.g. 'primary', 'secondary')
+    color = "#000",
+    palette = "primary",
     startIcon = null,
     placeholder = "",
     onKeyDown,
-    useThemeColor = false        // NEW: toggle between manual or theme color
+    useThemeColor = false,
+    disabled = false,
+    readonly=false
 }) {
     const theme = useTheme();
     const borderColor = useThemeColor ? theme.palette[palette].main : color;
@@ -59,23 +61,29 @@ export default function CustomInput({
                     helperText={helperText}
                     fullWidth={fullWidth}
                     color={useThemeColor ? palette : undefined}
+                    disabled={disabled}
                     slotProps={{
                         input: {
                             startAdornment: startIcon && (
                                 <InputAdornment position="start">{startIcon}</InputAdornment>
                             ),
+                            readOnly:readonly,
                         },
                     }}
                     sx={{
                         input: {
                             fontSize: { xs: ".8rem", md: "1rem" },
-                            fontWeight: "bold",
                             py: 2,
                             px: 3,
                         },
                         label: {
                             fontSize: { xs: ".8rem", md: "1rem" },
                             fontWeight: "bold",
+                        },
+                        '& .MuiInputBase-root textarea': {
+                            fontSize: { xs: ".8rem", md: "1rem" },
+                            py: 2,
+                            px: 3,
                         },
                         "& .MuiInput-underline:before": {
                             borderBottom: "none",
