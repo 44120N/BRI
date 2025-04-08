@@ -14,6 +14,9 @@ import LinkIcon from '@mui/icons-material/Link';
 import VideoFileIcon from '@mui/icons-material/VideoFile';
 import FormatIndentIncreaseIcon from '@mui/icons-material/FormatIndentIncrease';
 import FormatIndentDecreaseIcon from '@mui/icons-material/FormatIndentDecrease';
+import FormatListNumberedIcon from '@mui/icons-material/FormatListNumbered';
+import CircleIcon from '@mui/icons-material/Circle';
+import TextFieldsIcon from '@mui/icons-material/TextFields';
 import Paper from '@mui/material/Paper';
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
@@ -118,6 +121,29 @@ export default function Editor({ onFormatChange }) {
         </ToggleButton>
         <ToggleButton value="right" aria-label="right aligned">
           <Tooltip title="Align Right"><FormatAlignRightIcon /></Tooltip>
+        </ToggleButton>
+      </StyledToggleButtonGroup>
+
+      <StyledToggleButtonGroup
+        size="small"
+        value={formats}
+        onChange={handleFormat}
+        aria-label="list type"
+      >
+        <ToggleButton value="bullet" aria-label="bullet list">
+          <Tooltip title="Bullet List">
+            <CircleIcon sx={{ fontSize: 'small' }} />
+          </Tooltip>
+        </ToggleButton>
+        <ToggleButton value="number" aria-label="numbered list">
+          <Tooltip title="Numbered List">
+            <FormatListNumberedIcon />
+          </Tooltip>
+        </ToggleButton>
+        <ToggleButton value="alpha" aria-label="alphabetical list">
+          <Tooltip title="Alphabetical List">
+            <TextFieldsIcon />
+          </Tooltip>
         </ToggleButton>
       </StyledToggleButtonGroup>
 
