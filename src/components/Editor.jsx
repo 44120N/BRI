@@ -1,6 +1,6 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import { styled } from '@mui/material/styles';
-import { Stack, IconButton, Tooltip, Menu, MenuItem } from '@mui/material';
+import { Stack, IconButton, Tooltip, Menu, MenuItem, Divider } from '@mui/material';
 import FormatAlignLeftIcon from '@mui/icons-material/FormatAlignLeft';
 import FormatAlignCenterIcon from '@mui/icons-material/FormatAlignCenter';
 import FormatAlignRightIcon from '@mui/icons-material/FormatAlignRight';
@@ -20,6 +20,7 @@ import FormatAlignJustifyIcon from '@mui/icons-material/FormatAlignJustify';
 import HorizontalRuleIcon from '@mui/icons-material/HorizontalRule';
 import FormatIndentIncreaseIcon from '@mui/icons-material/FormatIndentIncrease';
 import FormatIndentDecreaseIcon from '@mui/icons-material/FormatIndentDecrease';
+import TextFieldsIcon from '@mui/icons-material/TextFields';
 import Paper from '@mui/material/Paper';
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
@@ -53,21 +54,21 @@ const FONTS = [
 ];
 
 export default function Editor({ onFormatChange }) {
-  const [formats, setFormats] = React.useState([]);
-  const [linkDialogOpen, setLinkDialogOpen] = React.useState(false);
-  const [imageDialogOpen, setImageDialogOpen] = React.useState(false);
-  const [codeDialogOpen, setCodeDialogOpen] = React.useState(false);
-  const [linkUrl, setLinkUrl] = React.useState('');
-  const [imageUrl, setImageUrl] = React.useState('');
-  const [code, setCode] = React.useState('');
-  const [videoDialogOpen, setVideoDialogOpen] = React.useState(false);
-  const [videoUrl, setVideoUrl] = React.useState('');
-  const [colorAnchor, setColorAnchor] = React.useState(null);
-  const [highlightAnchor, setHighlightAnchor] = React.useState(null);
-  const [fontAnchor, setFontAnchor] = React.useState(null);
-  const [fontFamilyAnchor, setFontFamilyAnchor] = React.useState(null); // Added state for font family
-  const [textStyleAnchor, setTextStyleAnchor] = React.useState(null);
-  const [listAnchor, setListAnchor] = React.useState(null);
+  const [formats, setFormats] = useState([]);
+  const [linkDialogOpen, setLinkDialogOpen] = useState(false);
+  const [imageDialogOpen, setImageDialogOpen] = useState(false);
+  const [codeDialogOpen, setCodeDialogOpen] = useState(false);
+  const [linkUrl, setLinkUrl] = useState('');
+  const [imageUrl, setImageUrl] = useState('');
+  const [code, setCode] = useState('');
+  const [videoDialogOpen, setVideoDialogOpen] = useState(false);
+  const [videoUrl, setVideoUrl] = useState('');
+  const [colorAnchor, setColorAnchor] = useState(null);
+  const [highlightAnchor, setHighlightAnchor] = useState(null);
+  const [fontAnchor, setFontAnchor] = useState(null);
+  const [fontFamilyAnchor, setFontFamilyAnchor] = useState(null); // Added state for font family
+  const [textStyleAnchor, setTextStyleAnchor] = useState(null);
+  const [listAnchor, setListAnchor] = useState(null);
 
   const handleFormat = (event, newFormats) => {
     setFormats(newFormats);
@@ -132,7 +133,7 @@ export default function Editor({ onFormatChange }) {
         </ToggleButton>
       </StyledToggleButtonGroup>
 
-      <Divider flexItem orientation="vertical" sx={{ mx: 0.5, my: 1 }} />
+      <Divider flexItem orientation="vertical" sx={{ mx: 0.5, my: 1, borderColor: "#555" }} />
 
       {/* Alignment */}
       <StyledToggleButtonGroup
@@ -156,7 +157,7 @@ export default function Editor({ onFormatChange }) {
         </ToggleButton>
       </StyledToggleButtonGroup>
 
-      <Divider flexItem orientation="vertical" sx={{ mx: 0.5, my: 1 }} />
+      <Divider flexItem orientation="vertical" sx={{ mx: 0.5, my: 1, borderColor: "#555" }} />
 
       {/* Indentation */}
       <StyledToggleButtonGroup
@@ -173,7 +174,7 @@ export default function Editor({ onFormatChange }) {
         </ToggleButton>
       </StyledToggleButtonGroup>
 
-      <Divider flexItem orientation="vertical" sx={{ mx: 0.5, my: 1 }} />
+      <Divider flexItem orientation="vertical" sx={{ mx: 0.5, my: 1, borderColor: "#555" }} />
 
       {/* Formatting Options */}
       <Stack direction="row" spacing={1} sx={{ ml: 1 }}>
@@ -189,7 +190,7 @@ export default function Editor({ onFormatChange }) {
         </IconButton>
         <IconButton onClick={(e) => setFontAnchor(e.currentTarget)}>
           <Tooltip title="Font Size">
-            <TextFormatIcon />
+            <TextFieldsIcon />
           </Tooltip>
         </IconButton>
         <IconButton onClick={(e) => setFontFamilyAnchor(e.currentTarget)}>
