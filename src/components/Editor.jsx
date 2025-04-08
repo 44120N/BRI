@@ -373,33 +373,25 @@ export default function Editor({ onFormatChange }) {
                 ))}
             </Menu>
 
-            <Menu
-                anchorEl={alignAnchor}
-                open={Boolean(alignAnchor)}
-                onClose={() => setAlignAnchor(null)}
-            >
-                {[
+            <Dropdown
+                label="Alignment"
+                icon={align === 'left' ? <FormatAlignLeftIcon /> : 
+                      align === 'center' ? <FormatAlignCenterIcon /> :
+                      align === 'right' ? <FormatAlignRightIcon /> :
+                      <FormatAlignJustifyIcon />}
+                items={[
                     { label: 'Left', value: 'left', icon: <FormatAlignLeftIcon /> },
                     { label: 'Center', value: 'center', icon: <FormatAlignCenterIcon /> },
                     { label: 'Right', value: 'right', icon: <FormatAlignRightIcon /> },
-                    { label: 'Justify', value: 'justify', icon: <FormatAlignJustifyIcon /> },
-                ].map(({ label, value, icon }) => (
-                    <MenuItem
-                        key={value}
-                        selected={align === value}
-                        onClick={() => {
-                            setAlign(value);
-                            handleFormat(null, { align: value });
-                            setAlignAnchor(null);
-                        }}
-                    >
-                        <Stack direction="row" spacing={1} alignItems="center">
-                            {icon}
-                            {label}
-                        </Stack>
-                    </MenuItem>
-                ))}
-            </Menu>
+                    { label: 'Justify', value: 'justify', icon: <FormatAlignJustifyIcon /> }
+                ]}
+                anchorEl={alignAnchor}
+                setAnchorEl={setAlignAnchor}
+                onItemClick={(item) => {
+                    setAlign(item.value);
+                    handleFormat(null, { align: item.value });
+                }}
+            />
 
             <Dialog open={linkDialogOpen} onClose={() => setLinkDialogOpen(false)}>
                 <DialogTitle>Insert Link</DialogTitle>
