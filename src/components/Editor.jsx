@@ -65,6 +65,8 @@ export default function Editor({ onFormatChange }) {
     const [code, setCode] = useState('');
     const [videoDialogOpen, setVideoDialogOpen] = useState(false);
     const [videoUrl, setVideoUrl] = useState('');
+
+    const [alignAnchor, setAlignAnchor] = useState(null);
     const [colorAnchor, setColorAnchor] = useState(null);
     const [highlightAnchor, setHighlightAnchor] = useState(null);
     const [fontAnchor, setFontAnchor] = useState(null);
@@ -114,7 +116,7 @@ export default function Editor({ onFormatChange }) {
                 backgroundColor: 'white',
             }}
         >
-            <Stack direction="row" spacing={1} sx={{ ml: 1 }}>
+            <Stack direction="row" spacing={1}>
                 <IconButton onClick={(e) => setColorAnchor(e.currentTarget)}>
                 <Tooltip title="Text Color">
                     <FormatColorTextIcon />
@@ -193,7 +195,7 @@ export default function Editor({ onFormatChange }) {
 
             <Divider flexItem orientation="vertical" sx={{ mx: 0.5, my: 1, borderColor: "#555" }} />
 
-            <Stack>
+            <Stack direction="row" spacing={1}>
                 <IconButton onClick={() => handleFormat(null, { divider: true })}>
                     <Tooltip title="Add Divider">
                         <HorizontalRuleIcon />
@@ -208,7 +210,7 @@ export default function Editor({ onFormatChange }) {
 
             <Divider flexItem orientation="vertical" sx={{ mx: 0.5, my: 1, borderColor: "#555" }} />
 
-            <Stack>
+            <Stack direction="row" spacing={1}>
                 <IconButton onClick={() => setLinkDialogOpen(true)}>
                     <Tooltip title="Insert Link"><LinkIcon /></Tooltip>
                 </IconButton>
