@@ -55,6 +55,8 @@ const FONTS = [
 
 export default function Editor({ onFormatChange }) {
     const [formats, setFormats] = useState([]);
+    const [align, setAlign] = useState('left');
+    const [textStyle, setTextStyle] = useState('normal');
     const [linkDialogOpen, setLinkDialogOpen] = useState(false);
     const [imageDialogOpen, setImageDialogOpen] = useState(false);
     const [codeDialogOpen, setCodeDialogOpen] = useState(false);
@@ -159,26 +161,19 @@ export default function Editor({ onFormatChange }) {
 
             <Divider flexItem orientation="vertical" sx={{ mx: 0.5, my: 1, borderColor: "#555" }} />
 
-            <StyledToggleButtonGroup
-                size="small"
-                exclusive
-                value={formats}
-                onChange={handleFormat}
-                aria-label="text alignment"
-            >
-                <ToggleButton value="left" aria-label="left aligned">
-                    <Tooltip title="Align Left"><FormatAlignLeftIcon /></Tooltip>
-                </ToggleButton>
-                <ToggleButton value="center" aria-label="centered">
-                    <Tooltip title="Center"><FormatAlignCenterIcon /></Tooltip>
-                </ToggleButton>
-                <ToggleButton value="right" aria-label="right aligned">
-                    <Tooltip title="Align Right"><FormatAlignRightIcon /></Tooltip>
-                </ToggleButton>
-                <ToggleButton value="justify" aria-label="justified">
-                    <Tooltip title="Justify"><FormatAlignJustifyIcon /></Tooltip>
-                </ToggleButton>
-            </StyledToggleButtonGroup>
+            <IconButton onClick={(e) => setTextStyleAnchor(e.currentTarget)}>
+                <Tooltip title="Text Style">
+                    <TextFormatIcon />
+                </Tooltip>
+            </IconButton>
+            <IconButton onClick={(e) => setAlignAnchor(e.currentTarget)}>
+                <Tooltip title="Alignment">
+                    {align === 'left' && <FormatAlignLeftIcon />}
+                    {align === 'center' && <FormatAlignCenterIcon />}
+                    {align === 'right' && <FormatAlignRightIcon />}
+                    {align === 'justify' && <FormatAlignJustifyIcon />}
+                </Tooltip>
+            </IconButton>
 
             <Divider flexItem orientation="vertical" sx={{ mx: 0.5, my: 1, borderColor: "#555" }} />
 
@@ -351,60 +346,57 @@ export default function Editor({ onFormatChange }) {
                 open={Boolean(textStyleAnchor)}
                 onClose={() => setTextStyleAnchor(null)}
             >
-                <MenuItem onClick={() => {
-                handleFormat(null, { typography: 'header', size: '32px', weight: 700 });
-                setTextStyleAnchor(null);
-                }}>
-                Header
-                </MenuItem>
-                <MenuItem onClick={() => {
-                handleFormat(null, { typography: 'title1', size: '28px', weight: 600 });
-                setTextStyleAnchor(null);
-                }}>
-                Title 1
-                </MenuItem>
-                <MenuItem onClick={() => {
-                handleFormat(null, { typography: 'title2', size: '24px', weight: 600 });
-                setTextStyleAnchor(null);
-                }}>
-                Title 2
-                </MenuItem>
-                <MenuItem onClick={() => {
-                handleFormat(null, { typography: 'title3', size: '20px', weight: 500 });
-                setTextStyleAnchor(null);
-                }}>
-                Title 3
-                </MenuItem>
-                <MenuItem onClick={() => {
-                handleFormat(null, { typography: 'title4', size: '18px', weight: 500 });
-                setTextStyleAnchor(null);
-                }}>
-                Title 4
-                </MenuItem>
-                <MenuItem onClick={() => {
-                handleFormat(null, { typography: 'title5', size: '16px', weight: 500 });
-                setTextStyleAnchor(null);
-                }}>
-                Title 5
-                </MenuItem>
-                <MenuItem onClick={() => {
-                handleFormat(null, { typography: 'subtitle', size: '14px', weight: 400, color: '#666' });
-                setTextStyleAnchor(null);
-                }}>
-                Subtitle
-                </MenuItem>
-                <MenuItem onClick={() => {
-                handleFormat(null, { typography: 'paragraph', size: '16px', weight: 400, marginBottom: '16px' });
-                setTextStyleAnchor(null);
-                }}>
-                Paragraph
-                </MenuItem>
-                <MenuItem onClick={() => {
-                handleFormat(null, { typography: 'normal', size: '16px', weight: 400, marginBottom: '0' });
-                setTextStyleAnchor(null);
-                }}>
-                Normal
-                </MenuItem>
+                {[
+                    { label: 'Normal', value: 'normal', style: { size: '16px', weight: 400, marginBottom: '0' } },
+                    { label: 'Header', value: 'header', style: { size: '32px', weight: 700 } },
+                    { label: 'Title 1', value: 'title1', style: { size: '28px', weight: 600 } },
+                    { label: 'Title 2', value: 'title2', style: { size: '24px', weight: 600 } },
+                    { label: 'Title 3', value: 'title3', style: { size: '20px', weight: 500 } },
+                    { label: 'Title 4', value: 'title4', style: { size: '18px', weight: 500 } },
+                    { label: 'Title 5', value: 'title5', style: { size: '16px', weight: 500 } },
+                    { label: 'Subtitle', value: 'subtitle', style: { size: '14px', weight: 400, color: '#666' } },
+                    { label: 'Paragraph', value: 'paragraph', style: { size: '16px', weight: 400, marginBottom: '16px' } },
+                ].map(({ label, value, style }) => (
+                    <MenuItem
+                        key={value}
+                        selected={textStyle === value}
+                        onClick={() => {
+                            setTextStyle(value);
+                            handleFormat(null, { typography: value, ...style });
+                            setTextStyleAnchor(null);
+                        }}
+                    >
+                        {label}
+                    </MenuItem>
+                ))}
+            </Menu>
+
+            <Menu
+                anchorEl={alignAnchor}
+                open={Boolean(alignAnchor)}
+                onClose={() => setAlignAnchor(null)}
+            >
+                {[
+                    { label: 'Left', value: 'left', icon: <FormatAlignLeftIcon /> },
+                    { label: 'Center', value: 'center', icon: <FormatAlignCenterIcon /> },
+                    { label: 'Right', value: 'right', icon: <FormatAlignRightIcon /> },
+                    { label: 'Justify', value: 'justify', icon: <FormatAlignJustifyIcon /> },
+                ].map(({ label, value, icon }) => (
+                    <MenuItem
+                        key={value}
+                        selected={align === value}
+                        onClick={() => {
+                            setAlign(value);
+                            handleFormat(null, { align: value });
+                            setAlignAnchor(null);
+                        }}
+                    >
+                        <Stack direction="row" spacing={1} alignItems="center">
+                            {icon}
+                            {label}
+                        </Stack>
+                    </MenuItem>
+                ))}
             </Menu>
 
             <Dialog open={linkDialogOpen} onClose={() => setLinkDialogOpen(false)}>
