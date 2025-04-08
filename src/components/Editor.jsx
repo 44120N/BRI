@@ -375,6 +375,7 @@ export default function Editor({ onFormatChange }) {
 
             <Dropdown
                 label="Alignment"
+                value={align}
                 icon={align === 'left' ? <FormatAlignLeftIcon /> : 
                       align === 'center' ? <FormatAlignCenterIcon /> :
                       align === 'right' ? <FormatAlignRightIcon /> :
@@ -385,9 +386,7 @@ export default function Editor({ onFormatChange }) {
                     { label: 'Right', value: 'right', icon: <FormatAlignRightIcon /> },
                     { label: 'Justify', value: 'justify', icon: <FormatAlignJustifyIcon /> }
                 ]}
-                anchorEl={alignAnchor}
-                setAnchorEl={setAlignAnchor}
-                onItemClick={(item) => {
+                onChange={(item) => {
                     setAlign(item.value);
                     handleFormat(null, { align: item.value });
                 }}

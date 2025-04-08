@@ -1,16 +1,16 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Menu, MenuItem, IconButton, Tooltip, Stack } from '@mui/material';
 
 export default function Dropdown({
     label,
     icon,
     items = [],
-    anchorEl,
-    setAnchorEl,
-    onItemClick,
+    value,
+    onChange,
     renderItem,
 }) {
+    const [anchorEl, setAnchorEl] = useState(null);
     const handleClose = () => setAnchorEl(null);
 
     return (
@@ -29,8 +29,9 @@ export default function Dropdown({
                 {items.map((item, index) => (
                     <MenuItem
                         key={index}
+                        selected={item.value === value}
                         onClick={() => {
-                            onItemClick(item);
+                            onChange(item);
                             handleClose();
                         }}
                     >
