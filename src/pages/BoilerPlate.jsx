@@ -7,6 +7,7 @@ import Carousel from "../components/Carousel";
 import Tiles from "../components/Tiles";
 import Dropdown from "../components/Dropdown";
 import Problem from "../components/Problem";
+import Editor from "../components/Editor";
 
 import SchoolIcon from "@mui/icons-material/School";
 import EventIcon from "@mui/icons-material/Event";
@@ -627,6 +628,7 @@ export default function Testing() {
                     </Problem>
                 </Stack>
                 <CircularProgress color="primary" />
+                <Editor/>
             </Stack>
         </>
     );
@@ -703,13 +705,6 @@ export default function Testing() {
 //                 //     boxShadow: `repeating-linear-gradient( 45deg, #444cf7, #444cf7 5px, transparent 5px, transparent 10px )`,
 //                 //     backgroundColor: "#fff",
 //                 // }}
-//                 sx={{
-//                     width: "100%",
-//                     border: `2px solid`,
-//                     borderColor: color,
-//                     boxShadow: `8px 8px 0 #000`,
-//                     backgroundColor: "#fff",
-//                 }}
 //             >
 //                 <TextField
 //                     type={type}
