@@ -244,7 +244,7 @@ export default function Testing() {
                             color="black_blue"
                             fontSize={{ xs: ".7em", sm: "1em" }}
                         >
-                            Lorem ipsum dolor sit amet consectetur adipisicing
+                            &nbsp; &nbsp; Lorem ipsum dolor sit amet consectetur adipisicing
                             elit. Cumque corrupti voluptate laboriosam iusto
                             saepe laborum et, iure dolores quibusdam ad est non
                             fuga quasi quas, blanditiis, culpa sunt asperiores
