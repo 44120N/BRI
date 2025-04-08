@@ -1,7 +1,7 @@
 
 import * as React from 'react';
 import { styled } from '@mui/material/styles';
-import { Stack, IconButton, Tooltip } from '@mui/material';
+import { Stack, IconButton, Tooltip, Menu, MenuItem } from '@mui/material';
 import FormatAlignLeftIcon from '@mui/icons-material/FormatAlignLeft';
 import FormatAlignCenterIcon from '@mui/icons-material/FormatAlignCenter';
 import FormatAlignRightIcon from '@mui/icons-material/FormatAlignRight';
@@ -11,12 +11,13 @@ import FormatUnderlinedIcon from '@mui/icons-material/FormatUnderlined';
 import StrikethroughSIcon from '@mui/icons-material/StrikethroughS';
 import HighlightIcon from '@mui/icons-material/Highlight';
 import LinkIcon from '@mui/icons-material/Link';
-import VideoFileIcon from '@mui/icons-material/VideoFile';
+import ImageIcon from '@mui/icons-material/Image';
+import CodeIcon from '@mui/icons-material/Code';
+import FormatColorTextIcon from '@mui/icons-material/FormatColorText';
+import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
+import TextFormatIcon from '@mui/icons-material/TextFormat';
 import FormatIndentIncreaseIcon from '@mui/icons-material/FormatIndentIncrease';
 import FormatIndentDecreaseIcon from '@mui/icons-material/FormatIndentDecrease';
-import FormatListNumberedIcon from '@mui/icons-material/FormatListNumbered';
-import CircleIcon from '@mui/icons-material/Circle';
-import TextFieldsIcon from '@mui/icons-material/TextFields';
 import Paper from '@mui/material/Paper';
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
@@ -25,7 +26,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
 import DialogActions from '@mui/material/DialogActions';
 import Button from '@mui/material/Button';
-import TextField from '@mui/material/TextField';
+import CustomInput from '../form/CustomInput';
 
 const StyledToggleButtonGroup = styled(ToggleButtonGroup)(({ theme }) => ({
   '& .MuiToggleButtonGroup-grouped': {
@@ -39,12 +40,28 @@ const StyledToggleButtonGroup = styled(ToggleButtonGroup)(({ theme }) => ({
   },
 }));
 
+const COLORS = [
+  '#000000', '#FF0000', '#00FF00', '#0000FF', '#FFFF00', '#FF00FF', '#00FFFF',
+  '#808080', '#800000', '#008000', '#000080', '#808000', '#800080', '#008080'
+];
+
+const FONTS = [
+  'Arial', 'Times New Roman', 'Courier New', 'Georgia', 'Verdana', 
+  'Helvetica', 'Tahoma', 'Trebuchet MS', 'Impact', 'Comic Sans MS'
+];
+
 export default function Editor({ onFormatChange }) {
   const [formats, setFormats] = React.useState([]);
   const [linkDialogOpen, setLinkDialogOpen] = React.useState(false);
-  const [videoDialogOpen, setVideoDialogOpen] = React.useState(false);
+  const [imageDialogOpen, setImageDialogOpen] = React.useState(false);
+  const [codeDialogOpen, setCodeDialogOpen] = React.useState(false);
   const [linkUrl, setLinkUrl] = React.useState('');
-  const [videoUrl, setVideoUrl] = React.useState('');
+  const [imageUrl, setImageUrl] = React.useState('');
+  const [code, setCode] = React.useState('');
+  const [colorAnchor, setColorAnchor] = React.useState(null);
+  const [highlightAnchor, setHighlightAnchor] = React.useState(null);
+  const [fontAnchor, setFontAnchor] = React.useState(null);
+  const [listAnchor, setListAnchor] = React.useState(null);
 
   const handleFormat = (event, newFormats) => {
     setFormats(newFormats);
@@ -55,17 +72,22 @@ export default function Editor({ onFormatChange }) {
 
   const handleLinkSubmit = () => {
     if (linkUrl) {
-      // Handle link insertion
       setLinkDialogOpen(false);
       setLinkUrl('');
     }
   };
 
-  const handleVideoSubmit = () => {
-    if (videoUrl) {
-      // Handle video insertion
-      setVideoDialogOpen(false);
-      setVideoUrl('');
+  const handleImageSubmit = () => {
+    if (imageUrl) {
+      setImageDialogOpen(false);
+      setImageUrl('');
+    }
+  };
+
+  const handleCodeSubmit = () => {
+    if (code) {
+      setCodeDialogOpen(false);
+      setCode('');
     }
   };
 
@@ -101,9 +123,6 @@ export default function Editor({ onFormatChange }) {
         <ToggleButton value="strikethrough" aria-label="strikethrough">
           <Tooltip title="Strikethrough"><StrikethroughSIcon /></Tooltip>
         </ToggleButton>
-        <ToggleButton value="highlight" aria-label="highlight">
-          <Tooltip title="Highlight"><HighlightIcon /></Tooltip>
-        </ToggleButton>
       </StyledToggleButtonGroup>
 
       <StyledToggleButtonGroup
@@ -128,29 +147,6 @@ export default function Editor({ onFormatChange }) {
         size="small"
         value={formats}
         onChange={handleFormat}
-        aria-label="list type"
-      >
-        <ToggleButton value="bullet" aria-label="bullet list">
-          <Tooltip title="Bullet List">
-            <CircleIcon sx={{ fontSize: 'small' }} />
-          </Tooltip>
-        </ToggleButton>
-        <ToggleButton value="number" aria-label="numbered list">
-          <Tooltip title="Numbered List">
-            <FormatListNumberedIcon />
-          </Tooltip>
-        </ToggleButton>
-        <ToggleButton value="alpha" aria-label="alphabetical list">
-          <Tooltip title="Alphabetical List">
-            <TextFieldsIcon />
-          </Tooltip>
-        </ToggleButton>
-      </StyledToggleButtonGroup>
-
-      <StyledToggleButtonGroup
-        size="small"
-        value={formats}
-        onChange={handleFormat}
         aria-label="text indentation"
       >
         <ToggleButton value="indent" aria-label="increase indent">
@@ -162,25 +158,140 @@ export default function Editor({ onFormatChange }) {
       </StyledToggleButtonGroup>
 
       <Stack direction="row" spacing={1} sx={{ ml: 1 }}>
+        <IconButton onClick={(e) => setColorAnchor(e.currentTarget)}>
+          <Tooltip title="Text Color">
+            <FormatColorTextIcon />
+          </Tooltip>
+        </IconButton>
+        <IconButton onClick={(e) => setHighlightAnchor(e.currentTarget)}>
+          <Tooltip title="Highlight Color">
+            <HighlightIcon />
+          </Tooltip>
+        </IconButton>
+        <IconButton onClick={(e) => setFontAnchor(e.currentTarget)}>
+          <Tooltip title="Font Family">
+            <TextFormatIcon />
+          </Tooltip>
+        </IconButton>
+        <IconButton onClick={(e) => setListAnchor(e.currentTarget)}>
+          <Tooltip title="List Type">
+            <FormatListBulletedIcon />
+          </Tooltip>
+        </IconButton>
         <IconButton onClick={() => setLinkDialogOpen(true)}>
           <Tooltip title="Insert Link"><LinkIcon /></Tooltip>
         </IconButton>
-        <IconButton onClick={() => setVideoDialogOpen(true)}>
-          <Tooltip title="Insert Video"><VideoFileIcon /></Tooltip>
+        <IconButton onClick={() => setImageDialogOpen(true)}>
+          <Tooltip title="Insert Image"><ImageIcon /></Tooltip>
+        </IconButton>
+        <IconButton onClick={() => setCodeDialogOpen(true)}>
+          <Tooltip title="Insert Code"><CodeIcon /></Tooltip>
         </IconButton>
       </Stack>
+
+      <Menu
+        anchorEl={colorAnchor}
+        open={Boolean(colorAnchor)}
+        onClose={() => setColorAnchor(null)}
+      >
+        <Stack direction="row" flexWrap="wrap" sx={{ width: 200, p: 1 }}>
+          {COLORS.map((color) => (
+            <div
+              key={color}
+              onClick={() => {
+                handleFormat(null, { color });
+                setColorAnchor(null);
+              }}
+              style={{
+                width: 24,
+                height: 24,
+                backgroundColor: color,
+                margin: 4,
+                cursor: 'pointer',
+                border: '1px solid #ccc',
+              }}
+            />
+          ))}
+        </Stack>
+      </Menu>
+
+      <Menu
+        anchorEl={highlightAnchor}
+        open={Boolean(highlightAnchor)}
+        onClose={() => setHighlightAnchor(null)}
+      >
+        <Stack direction="row" flexWrap="wrap" sx={{ width: 200, p: 1 }}>
+          {COLORS.map((color) => (
+            <div
+              key={color}
+              onClick={() => {
+                handleFormat(null, { highlight: color });
+                setHighlightAnchor(null);
+              }}
+              style={{
+                width: 24,
+                height: 24,
+                backgroundColor: color,
+                margin: 4,
+                cursor: 'pointer',
+                border: '1px solid #ccc',
+              }}
+            />
+          ))}
+        </Stack>
+      </Menu>
+
+      <Menu
+        anchorEl={fontAnchor}
+        open={Boolean(fontAnchor)}
+        onClose={() => setFontAnchor(null)}
+      >
+        {FONTS.map((font) => (
+          <MenuItem
+            key={font}
+            onClick={() => {
+              handleFormat(null, { fontFamily: font });
+              setFontAnchor(null);
+            }}
+            style={{ fontFamily: font }}
+          >
+            {font}
+          </MenuItem>
+        ))}
+      </Menu>
+
+      <Menu
+        anchorEl={listAnchor}
+        open={Boolean(listAnchor)}
+        onClose={() => setListAnchor(null)}
+      >
+        <MenuItem onClick={() => {
+          handleFormat(null, { list: 'bullet' });
+          setListAnchor(null);
+        }}>
+          Bullet List
+        </MenuItem>
+        <MenuItem onClick={() => {
+          handleFormat(null, { list: 'number' });
+          setListAnchor(null);
+        }}>
+          Numbered List
+        </MenuItem>
+        <MenuItem onClick={() => {
+          handleFormat(null, { list: 'alpha' });
+          setListAnchor(null);
+        }}>
+          Alphabetical List
+        </MenuItem>
+      </Menu>
 
       <Dialog open={linkDialogOpen} onClose={() => setLinkDialogOpen(false)}>
         <DialogTitle>Insert Link</DialogTitle>
         <DialogContent>
-          <TextField
-            autoFocus
-            margin="dense"
+          <CustomInput
             label="URL"
-            type="url"
-            fullWidth
             value={linkUrl}
-            onChange={(e) => setLinkUrl(e.target.value)}
+            setValue={setLinkUrl}
           />
         </DialogContent>
         <DialogActions>
@@ -189,22 +300,35 @@ export default function Editor({ onFormatChange }) {
         </DialogActions>
       </Dialog>
 
-      <Dialog open={videoDialogOpen} onClose={() => setVideoDialogOpen(false)}>
-        <DialogTitle>Insert Video</DialogTitle>
+      <Dialog open={imageDialogOpen} onClose={() => setImageDialogOpen(false)}>
+        <DialogTitle>Insert Image</DialogTitle>
         <DialogContent>
-          <TextField
-            autoFocus
-            margin="dense"
-            label="Video URL (.mp4)"
-            type="url"
-            fullWidth
-            value={videoUrl}
-            onChange={(e) => setVideoUrl(e.target.value)}
+          <CustomInput
+            label="Image URL"
+            value={imageUrl}
+            setValue={setImageUrl}
           />
         </DialogContent>
         <DialogActions>
-          <Button onClick={() => setVideoDialogOpen(false)}>Cancel</Button>
-          <Button onClick={handleVideoSubmit}>Insert</Button>
+          <Button onClick={() => setImageDialogOpen(false)}>Cancel</Button>
+          <Button onClick={handleImageSubmit}>Insert</Button>
+        </DialogActions>
+      </Dialog>
+
+      <Dialog open={codeDialogOpen} onClose={() => setCodeDialogOpen(false)}>
+        <DialogTitle>Insert Code</DialogTitle>
+        <DialogContent>
+          <CustomInput
+            label="Code"
+            value={code}
+            setValue={setCode}
+            multiline
+            rows={4}
+          />
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={() => setCodeDialogOpen(false)}>Cancel</Button>
+          <Button onClick={handleCodeSubmit}>Insert</Button>
         </DialogActions>
       </Dialog>
     </Paper>
