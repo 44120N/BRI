@@ -13,14 +13,37 @@ const RenderContent = ({ data }) => {
         switch (item.type) {
             case "paragraph":
                 return (
-                    <Typography key={index} textAlign={`${item?.align} !important`} fontSize={item?.size} {...(item.props || {})}>
+                    <Typography 
+                        key={index} 
+                        textAlign={`${item?.align} !important`} 
+                        fontSize={item?.size}
+                        sx={{
+                            textIndent: item?.indent ? `${item.indent}px` : 'inherit',
+                            textDecoration: item?.strikethrough ? 'line-through' : 'none',
+                            backgroundColor: item?.highlight ? 'yellow' : 'transparent',
+                            '& a': {
+                                color: 'primary.main',
+                                textDecoration: 'underline',
+                                '&:hover': {
+                                    opacity: 0.8,
+                                },
+                            },
+                        }}
+                        {...(item.props || {})}
+                    >
                         {item.text}
                         {item.children &&
                             item.children.map((child, childIndex) => (
                                 <Typography
                                     key={childIndex}
-                                    component={"span"}
+                                    component={child.url ? "a" : "span"}
+                                    href={child.url}
+                                    target={child.url ? "_blank" : undefined}
                                     fontSize="inherit"
+                                    sx={{
+                                        textDecoration: child?.strikethrough ? 'line-through' : 'inherit',
+                                        backgroundColor: child?.highlight ? 'yellow' : 'transparent',
+                                    }}
                                     {...(child.props || {})}
                                 >
                                     <MathJax inline>{child.text}</MathJax>
