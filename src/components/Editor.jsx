@@ -17,6 +17,8 @@ import VideocamIcon from '@mui/icons-material/Videocam';
 import FormatColorTextIcon from '@mui/icons-material/FormatColorText';
 import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
 import TextFormatIcon from '@mui/icons-material/TextFormat';
+import FormatAlignJustifyIcon from '@mui/icons-material/FormatAlignJustify';
+import HorizontalRuleIcon from '@mui/icons-material/HorizontalRule';
 import FormatIndentIncreaseIcon from '@mui/icons-material/FormatIndentIncrease';
 import FormatIndentDecreaseIcon from '@mui/icons-material/FormatIndentDecrease';
 import Paper from '@mui/material/Paper';
@@ -64,6 +66,7 @@ export default function Editor({ onFormatChange }) {
   const [colorAnchor, setColorAnchor] = React.useState(null);
   const [highlightAnchor, setHighlightAnchor] = React.useState(null);
   const [fontAnchor, setFontAnchor] = React.useState(null);
+  const [textStyleAnchor, setTextStyleAnchor] = React.useState(null);
   const [listAnchor, setListAnchor] = React.useState(null);
 
   const handleFormat = (event, newFormats) => {
@@ -148,6 +151,9 @@ export default function Editor({ onFormatChange }) {
         <ToggleButton value="right" aria-label="right aligned">
           <Tooltip title="Align Right"><FormatAlignRightIcon /></Tooltip>
         </ToggleButton>
+        <ToggleButton value="justify" aria-label="justified">
+          <Tooltip title="Justify"><FormatAlignJustifyIcon /></Tooltip>
+        </ToggleButton>
       </StyledToggleButtonGroup>
 
       <Divider flexItem orientation="vertical" sx={{ mx: 0.5, my: 1 }} />
@@ -181,9 +187,14 @@ export default function Editor({ onFormatChange }) {
             <HighlightIcon />
           </Tooltip>
         </IconButton>
-        <IconButton onClick={(e) => setFontAnchor(e.currentTarget)}>
-          <Tooltip title="Font Family">
+        <IconButton onClick={(e) => setTextStyleAnchor(e.currentTarget)}>
+          <Tooltip title="Text Style">
             <TextFormatIcon />
+          </Tooltip>
+        </IconButton>
+        <IconButton onClick={() => handleFormat(null, { divider: true })}>
+          <Tooltip title="Add Divider">
+            <HorizontalRuleIcon />
           </Tooltip>
         </IconButton>
         <IconButton onClick={(e) => setListAnchor(e.currentTarget)}>
@@ -282,22 +293,101 @@ export default function Editor({ onFormatChange }) {
         onClose={() => setListAnchor(null)}
       >
         <MenuItem onClick={() => {
-          handleFormat(null, { list: 'bullet' });
+          handleFormat(null, { list: '•' });
           setListAnchor(null);
         }}>
-          Bullet List
+          • Bullet
         </MenuItem>
         <MenuItem onClick={() => {
-          handleFormat(null, { list: 'number' });
+          handleFormat(null, { list: '○' });
           setListAnchor(null);
         }}>
-          Numbered List
+          ○ Circle
         </MenuItem>
         <MenuItem onClick={() => {
-          handleFormat(null, { list: 'alpha' });
+          handleFormat(null, { list: '▪' });
           setListAnchor(null);
         }}>
-          Alphabetical List
+          ▪ Square
+        </MenuItem>
+        <MenuItem onClick={() => {
+          handleFormat(null, { list: '▸' });
+          setListAnchor(null);
+        }}>
+          ▸ Triangle
+        </MenuItem>
+        <MenuItem onClick={() => {
+          handleFormat(null, { list: '1' });
+          setListAnchor(null);
+        }}>
+          1. Numbered
+        </MenuItem>
+        <MenuItem onClick={() => {
+          handleFormat(null, { list: 'a' });
+          setListAnchor(null);
+        }}>
+          a. Alphabetical
+        </MenuItem>
+      </Menu>
+
+      <Menu
+        anchorEl={textStyleAnchor}
+        open={Boolean(textStyleAnchor)}
+        onClose={() => setTextStyleAnchor(null)}
+      >
+        <MenuItem onClick={() => {
+          handleFormat(null, { typography: 'header', size: '32px', weight: 700 });
+          setTextStyleAnchor(null);
+        }}>
+          Header
+        </MenuItem>
+        <MenuItem onClick={() => {
+          handleFormat(null, { typography: 'title1', size: '28px', weight: 600 });
+          setTextStyleAnchor(null);
+        }}>
+          Title 1
+        </MenuItem>
+        <MenuItem onClick={() => {
+          handleFormat(null, { typography: 'title2', size: '24px', weight: 600 });
+          setTextStyleAnchor(null);
+        }}>
+          Title 2
+        </MenuItem>
+        <MenuItem onClick={() => {
+          handleFormat(null, { typography: 'title3', size: '20px', weight: 500 });
+          setTextStyleAnchor(null);
+        }}>
+          Title 3
+        </MenuItem>
+        <MenuItem onClick={() => {
+          handleFormat(null, { typography: 'title4', size: '18px', weight: 500 });
+          setTextStyleAnchor(null);
+        }}>
+          Title 4
+        </MenuItem>
+        <MenuItem onClick={() => {
+          handleFormat(null, { typography: 'title5', size: '16px', weight: 500 });
+          setTextStyleAnchor(null);
+        }}>
+          Title 5
+        </MenuItem>
+        <MenuItem onClick={() => {
+          handleFormat(null, { typography: 'subtitle', size: '14px', weight: 400, color: '#666' });
+          setTextStyleAnchor(null);
+        }}>
+          Subtitle
+        </MenuItem>
+        <MenuItem onClick={() => {
+          handleFormat(null, { typography: 'paragraph', size: '16px', weight: 400, marginBottom: '16px' });
+          setTextStyleAnchor(null);
+        }}>
+          Paragraph
+        </MenuItem>
+        <MenuItem onClick={() => {
+          handleFormat(null, { typography: 'normal', size: '16px', weight: 400, marginBottom: '0' });
+          setTextStyleAnchor(null);
+        }}>
+          Normal
         </MenuItem>
       </Menu>
 
