@@ -1,4 +1,3 @@
-
 import * as React from 'react';
 import { styled } from '@mui/material/styles';
 import { Stack, IconButton, Tooltip, Menu, MenuItem } from '@mui/material';
@@ -66,6 +65,7 @@ export default function Editor({ onFormatChange }) {
   const [colorAnchor, setColorAnchor] = React.useState(null);
   const [highlightAnchor, setHighlightAnchor] = React.useState(null);
   const [fontAnchor, setFontAnchor] = React.useState(null);
+  const [fontFamilyAnchor, setFontFamilyAnchor] = React.useState(null); // Added state for font family
   const [textStyleAnchor, setTextStyleAnchor] = React.useState(null);
   const [listAnchor, setListAnchor] = React.useState(null);
 
@@ -187,8 +187,13 @@ export default function Editor({ onFormatChange }) {
             <HighlightIcon />
           </Tooltip>
         </IconButton>
-        <IconButton onClick={(e) => setTextStyleAnchor(e.currentTarget)}>
-          <Tooltip title="Text Style">
+        <IconButton onClick={(e) => setFontAnchor(e.currentTarget)}>
+          <Tooltip title="Font Size">
+            <TextFormatIcon />
+          </Tooltip>
+        </IconButton>
+        <IconButton onClick={(e) => setFontFamilyAnchor(e.currentTarget)}>
+          <Tooltip title="Font Family">
             <TextFormatIcon />
           </Tooltip>
         </IconButton>
@@ -273,12 +278,28 @@ export default function Editor({ onFormatChange }) {
         open={Boolean(fontAnchor)}
         onClose={() => setFontAnchor(null)}
       >
+        <MenuItem onClick={() => { handleFormat(null, { size: '10px' }); setFontAnchor(null); }}>10px</MenuItem>
+        <MenuItem onClick={() => { handleFormat(null, { size: '12px' }); setFontAnchor(null); }}>12px</MenuItem>
+        <MenuItem onClick={() => { handleFormat(null, { size: '14px' }); setFontAnchor(null); }}>14px</MenuItem>
+        <MenuItem onClick={() => { handleFormat(null, { size: '16px' }); setFontAnchor(null); }}>16px</MenuItem>
+        <MenuItem onClick={() => { handleFormat(null, { size: '18px' }); setFontAnchor(null); }}>18px</MenuItem>
+        <MenuItem onClick={() => { handleFormat(null, { size: '20px' }); setFontAnchor(null); }}>20px</MenuItem>
+        <MenuItem onClick={() => { handleFormat(null, { size: '24px' }); setFontAnchor(null); }}>24px</MenuItem>
+        <MenuItem onClick={() => { handleFormat(null, { size: '32px' }); setFontAnchor(null); }}>32px</MenuItem>
+      </Menu>
+
+
+      <Menu
+        anchorEl={fontFamilyAnchor}
+        open={Boolean(fontFamilyAnchor)}
+        onClose={() => setFontFamilyAnchor(null)}
+      >
         {FONTS.map((font) => (
           <MenuItem
             key={font}
             onClick={() => {
               handleFormat(null, { fontFamily: font });
-              setFontAnchor(null);
+              setFontFamilyAnchor(null);
             }}
             style={{ fontFamily: font }}
           >
