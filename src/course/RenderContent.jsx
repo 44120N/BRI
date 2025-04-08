@@ -4,6 +4,8 @@ import { MathJax } from "better-react-mathjax";
 import Problem from "../components/Problem";
 import { CustomRawTable } from "../components/Tabel";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import FormatListNumberedIcon from '@mui/icons-material/FormatListNumbered';
+import CircleIcon from '@mui/icons-material/Circle';
 
 // Function to render JSON content dynamically
 const RenderContent = ({ data }) => {
@@ -81,7 +83,7 @@ const RenderContent = ({ data }) => {
                         <img src={item.src} alt={item.alt} style={{maxWidth:'80%'}} {...(item.props || {})} />
                     </Stack>
                 );
-            
+
             case "video":
                 return (
                     <Stack key={index} direction="row" justifyContent="center" my={3}>
@@ -119,12 +121,12 @@ const RenderContent = ({ data }) => {
                                 {item.items.map((listItem, listIndex) => (
                                     <Grid2 xs={3} sm={3} key={listIndex}>
                                         <Stack direction="row" alignItems="center" gap={1}>
-                                            {item.bullet === "1" ? (
-                                                <Typography color={item.color||"primary.main"} fontWeight={600}>{listIndex + 1}.</Typography>
-                                            ) : item.bullet === "a" ? (
+                                            {item.bullet === "number" ? (
+                                                <FormatListNumberedIcon sx={{ color: item.color||"primary.main", fontSize: "1.2em" }} />
+                                            ) : item.bullet === "alpha" ? (
                                                 <Typography color={item.color||"primary.main"} fontWeight={600}>{String.fromCharCode(97 + listIndex)}.</Typography>
-                                            ) : item.bullet === "A" ? (
-                                                <Typography color={item.color||"primary.main"} fontWeight={600}>{String.fromCharCode(65 + listIndex)}.</Typography>
+                                            ) : item.bullet === "bullet" ? (
+                                                <CircleIcon sx={{ color: item.color||"primary.main", fontSize: "0.8em" }} />
                                             ) : (
                                                 <CheckCircleIcon sx={{ color: item.color||"primary.main", fontSize: "1.2em" }} />
                                             )}
@@ -143,7 +145,7 @@ const RenderContent = ({ data }) => {
                             </Grid2>
                         </Stack>
                     );
-                
+
             case "example":
                 return(
                     <Problem
@@ -172,7 +174,7 @@ const RenderContent = ({ data }) => {
                         {...(item.props || {})}
                     />
                 )
-            
+
             default:
                 console.warn("Unhandled content type:", item);
                 return <Typography key={index}>Unknown content</Typography>;
