@@ -1,0 +1,61 @@
+:root {
+    --parallax_bg-x: 0;
+    --parallax_bg-y: 0;
+    --parallax_clouds-x: 0;
+    --parallax_clouds-y: 0;
+    --parallax_mist-x: 0;
+    --parallax_mist-y: 0;
+    --parallax_mountain-x: 0;
+    --parallax_mountain-y: 0;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+.parallax__bg,
+.parallax__clouds,
+.parallax__mountain,
+.parallax__mist {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 120vw;
+    height: 120vh;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    will-change: transform;
+}
+
+.parallax__bg {
+    background-image: url("cs_1.png");
+    transform: translate(
+        calc(-50% + var(--parallax_bg-x) * 25px),
+        calc(-50% + var(--parallax_bg-y) * 25px)
+    );
+}
+
+.parallax__mountain {
+    background-image: url("cs_4.png");
+    transform: translate(
+        calc(-50% + var(--parallax_clouds-x) * 50px),
+        calc(-50% + var(--parallax_clouds-y) * 50px)
+    );
+}
+
+.parallax__clouds {
+    background-image: url("cs_2.png");
+    transform: translate(
+        calc(-50% + var(--parallax_mist-x) * 150px),
+        calc(-50% + var(--parallax_mist-y) * 150px)
+    );
+}
+
+.parallax__mist {
+    background-image: url("cs_3.png");
+    transform: translate(
+        calc(-50% + var(--parallax_mountain-x) * 1px),
+        calc(-50% + var(--parallax_mountain-y) * 100px)
+    );
+}

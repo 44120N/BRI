@@ -14,9 +14,19 @@ import Testing from "./pages/BoilerPlate.jsx";
 import CourseList from "./pages/CourseList.jsx";
 import BlogEditor from "./pages/BlogEditor.jsx";
 import BlogEditorForm from "./pages/BlogEditorForm.jsx";
-import { LimitSyllabus, LimitIntro, LimitApproach, LimitProperty, LimitEvaluation, LimitInf, LimitAtInf, LimitAtInf2 } from "./course/Limit.jsx";
+import {
+    LimitSyllabus,
+    LimitIntro,
+    LimitApproach,
+    LimitProperty,
+    LimitEvaluation,
+    LimitInf,
+    LimitAtInf,
+    LimitAtInf2,
+} from "./course/Limit.jsx";
 import pagesData from "./data/pages.json";
 import PageNotFound from "./404.jsx";
+import ComingSoon from "./ComingSoon.jsx";
 
 const getInitialRoute = (course) => {
     const courseData = pagesData.find((c) => c.name === course);
@@ -50,6 +60,14 @@ const router = createBrowserRouter([
             { path: "editor", element: <BlogEditor /> },
             { path: "course/limit", element: <LimitSyllabus /> },
         ],
+    },
+    {
+        path: "/BRI/webinar",
+        element: <ComingSoon />,
+    },
+    {
+        path: "/BRI/alur",
+        element: <ComingSoon />,
     },
     {
         path: "/BRI/course/limit",
