@@ -13,6 +13,7 @@ import HighlightIcon from '@mui/icons-material/Highlight';
 import LinkIcon from '@mui/icons-material/Link';
 import ImageIcon from '@mui/icons-material/Image';
 import CodeIcon from '@mui/icons-material/Code';
+import VideocamIcon from '@mui/icons-material/Videocam';
 import FormatColorTextIcon from '@mui/icons-material/FormatColorText';
 import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
 import TextFormatIcon from '@mui/icons-material/TextFormat';
@@ -58,6 +59,8 @@ export default function Editor({ onFormatChange }) {
   const [linkUrl, setLinkUrl] = React.useState('');
   const [imageUrl, setImageUrl] = React.useState('');
   const [code, setCode] = React.useState('');
+  const [videoDialogOpen, setVideoDialogOpen] = React.useState(false);
+  const [videoUrl, setVideoUrl] = React.useState('');
   const [colorAnchor, setColorAnchor] = React.useState(null);
   const [highlightAnchor, setHighlightAnchor] = React.useState(null);
   const [fontAnchor, setFontAnchor] = React.useState(null);
@@ -105,6 +108,7 @@ export default function Editor({ onFormatChange }) {
         backgroundColor: 'white',
       }}
     >
+      {/* Text Formatting */}
       <StyledToggleButtonGroup
         size="small"
         value={formats}
@@ -125,6 +129,9 @@ export default function Editor({ onFormatChange }) {
         </ToggleButton>
       </StyledToggleButtonGroup>
 
+      <Divider flexItem orientation="vertical" sx={{ mx: 0.5, my: 1 }} />
+
+      {/* Alignment */}
       <StyledToggleButtonGroup
         size="small"
         exclusive
@@ -143,6 +150,9 @@ export default function Editor({ onFormatChange }) {
         </ToggleButton>
       </StyledToggleButtonGroup>
 
+      <Divider flexItem orientation="vertical" sx={{ mx: 0.5, my: 1 }} />
+
+      {/* Indentation */}
       <StyledToggleButtonGroup
         size="small"
         value={formats}
@@ -157,6 +167,9 @@ export default function Editor({ onFormatChange }) {
         </ToggleButton>
       </StyledToggleButtonGroup>
 
+      <Divider flexItem orientation="vertical" sx={{ mx: 0.5, my: 1 }} />
+
+      {/* Formatting Options */}
       <Stack direction="row" spacing={1} sx={{ ml: 1 }}>
         <IconButton onClick={(e) => setColorAnchor(e.currentTarget)}>
           <Tooltip title="Text Color">
@@ -186,6 +199,9 @@ export default function Editor({ onFormatChange }) {
         </IconButton>
         <IconButton onClick={() => setCodeDialogOpen(true)}>
           <Tooltip title="Insert Code"><CodeIcon /></Tooltip>
+        </IconButton>
+        <IconButton onClick={() => setVideoDialogOpen(true)}>
+          <Tooltip title="Insert Video"><VideocamIcon /></Tooltip>
         </IconButton>
       </Stack>
 
@@ -329,6 +345,26 @@ export default function Editor({ onFormatChange }) {
         <DialogActions>
           <Button onClick={() => setCodeDialogOpen(false)}>Cancel</Button>
           <Button onClick={handleCodeSubmit}>Insert</Button>
+        </DialogActions>
+      </Dialog>
+
+      <Dialog open={videoDialogOpen} onClose={() => setVideoDialogOpen(false)}>
+        <DialogTitle>Insert Video</DialogTitle>
+        <DialogContent>
+          <CustomInput
+            label="Video URL (.mp4)"
+            value={videoUrl}
+            setValue={setVideoUrl}
+          />
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={() => setVideoDialogOpen(false)}>Cancel</Button>
+          <Button onClick={() => {
+            if (videoUrl) {
+              setVideoDialogOpen(false);
+              setVideoUrl('');
+            }
+          }}>Insert</Button>
         </DialogActions>
       </Dialog>
     </Paper>
