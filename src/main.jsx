@@ -30,7 +30,7 @@ import ComingSoon from "./ComingSoon.jsx";
 
 const getInitialRoute = (course) => {
     const courseData = pagesData.find((c) => c.name === course);
-    if (!courseData) return `/BRI/course/${course}`;
+    if (!courseData) return `/course/${course}`;
 
     const savedProgress = parseInt(
         localStorage.getItem(`progress_${course}`),
@@ -62,15 +62,15 @@ const router = createBrowserRouter([
         ],
     },
     {
-        path: "/BRI/webinar",
+        path: "/webinar",
         element: <ComingSoon />,
     },
     {
-        path: "/BRI/alur",
+        path: "/alur",
         element: <ComingSoon />,
     },
     {
-        path: "/BRI/course/limit",
+        path: "/course/limit",
         element: <CourseLayout />,
         children: [
             // { path: "", element: <Navigate to={getInitialRoute("limit")} replace /> },
@@ -84,7 +84,7 @@ const router = createBrowserRouter([
         ],
     },
     {
-        path: "/BRI/*",
+        path: "/*",
         element: <PageNotFound />,
     },
 ]);
