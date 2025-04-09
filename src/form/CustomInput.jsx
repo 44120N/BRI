@@ -75,6 +75,11 @@ export default function CustomInput({
                             fontSize: { xs: ".8rem", md: "1rem" },
                             py: 2,
                             px: 3,
+                            '::placeholder': {
+                                color: '#888',
+                                fontWeight: 600,
+                                opacity: 1,
+                            },
                         },
                         label: {
                             fontSize: { xs: ".8rem", md: "1rem" },

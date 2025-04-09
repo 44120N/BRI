@@ -121,10 +121,10 @@ const RenderContent = ({ data }) => {
                                 {item.items.map((listItem, listIndex) => (
                                     <Grid2 xs={3} sm={3} key={listIndex}>
                                         <Stack direction="row" alignItems="center" gap={1}>
-                                            {item.bullet === "number" ? (
-                                                <FormatListNumberedIcon sx={{ color: item.color||"primary.main", fontSize: "1.2em" }} />
-                                            ) : item.bullet === "alpha" ? (
-                                                <Typography color={item.color||"primary.main"} fontWeight={600}>{String.fromCharCode(97 + listIndex)}.</Typography>
+                                            {item.bullet === "1" ? (
+                                                <Typography sx={{ color: item.color||"primary.main", fontSize: "1.2em" }}>{listIndex+1}.&nbsp;</Typography>
+                                            ) : item.bullet === "a" ? (
+                                                <Typography color={item.color||"primary.main"} fontWeight={600}>{String.fromCharCode(97 + listIndex)}.&nbsp;</Typography>
                                             ) : item.bullet === "bullet" ? (
                                                 <CircleIcon sx={{ color: item.color||"primary.main", fontSize: "0.8em" }} />
                                             ) : (

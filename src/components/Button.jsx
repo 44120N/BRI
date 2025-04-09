@@ -6,6 +6,7 @@ const Button = ({ children, onClick, sx, color, bgcolor, bdcolor, startIcon, dis
             onClick={onClick}
             variant="contained"
             disableElevation
+            // color={bgcolor}
             sx={{
                 minWidth: 0,
                 display: 'flex',

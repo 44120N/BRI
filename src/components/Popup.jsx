@@ -1,6 +1,4 @@
-//TODO: CHECK AXIOS API LINK
 import * as React from 'react';
-import { useState } from 'react';
 
 import { Dialog, DialogTitle, DialogContent, DialogActions, IconButton } from "@mui/material";
 import CloseIcon from '@mui/icons-material/Close';

@@ -93,7 +93,7 @@ export default function Theme(props) {
                 styleOverrides: {
                     root: ({ theme }) =>
                         theme.unstable_sx({
-                            fontFamily: "Inter, DM Sans, sans-serif",
+                            fontFamily: "Apercu, Inter, DM Sans, sans-serif",
                             textAlign: {
                                 xs: "justify",
                                 sm: "justify",
