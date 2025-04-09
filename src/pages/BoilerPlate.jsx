@@ -86,28 +86,28 @@ const tableData2 = [
 export default function Testing() {
     const slides = [
         {
-            bg: "/BRI/galaxy1.jpg",
+            bg: "/galaxy1.jpg",
             title: "Title 1",
             desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque corrupti voluptate laboriosam iusto saepe laborum et, iure dolores quibusdam ad est non fuga quasi quas, blanditiis, culpa sunt asperiores magni.",
             titleColor: "primary",
             color: "#fff",
         },
         {
-            bg: "/BRI/cave2.jpg",
+            bg: "/cave2.jpg",
             title: "Title 2",
             desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque corrupti voluptate laboriosam iusto saepe laborum et, iure dolores quibusdam ad est non fuga quasi quas, blanditiis, culpa sunt asperiores magni.",
             titleColor: "secondary",
             color: "#fff",
         },
         {
-            bg: "/BRI/home3.jpg",
+            bg: "/home3.jpg",
             title: "Title 3",
             desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque corrupti voluptate laboriosam iusto saepe laborum et, iure dolores quibusdam ad est non fuga quasi quas, blanditiis, culpa sunt asperiores magni.",
             titleColor: "tertiary",
             color: "#fff",
         },
         {
-            bg: "/BRI/ocean4.jpg",
+            bg: "/ocean4.jpg",
             title: "Title 4",
             desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque corrupti voluptate laboriosam iusto saepe laborum et, iure dolores quibusdam ad est non fuga quasi quas, blanditiis, culpa sunt asperiores magni.",
             titleColor: "quaternary",
@@ -430,7 +430,7 @@ export default function Testing() {
                                     alignItems={"center"}
                                 >
                                     <Tiles
-                                        bg={"/BRI/galaxy1.jpg"}
+                                        bg={"/galaxy1.jpg"}
                                         bgcolor={"primary.main"}
                                         bdcolor={"#000"}
                                     >
@@ -453,7 +453,7 @@ export default function Testing() {
                                     alignItems={"center"}
                                 >
                                     <Tiles
-                                        bg={"/BRI/cave2.jpg"}
+                                        bg={"/cave2.jpg"}
                                         bgcolor={"secondary.main"}
                                         bdcolor={"#000"}
                                     >
@@ -478,7 +478,7 @@ export default function Testing() {
                                     alignItems={"center"}
                                 >
                                     <Tiles
-                                        bg={"/BRI/home3.jpg"}
+                                        bg={"/home3.jpg"}
                                         bgcolor={"tertiary.main"}
                                         bdcolor={"#000"}
                                     >
@@ -501,7 +501,7 @@ export default function Testing() {
                                     alignItems={"center"}
                                 >
                                     <Tiles
-                                        bg={"/BRI/ocean4.jpg"}
+                                        bg={"/ocean4.jpg"}
                                         bgcolor={"quaternary.main"}
                                         bdcolor={"#000"}
                                     >

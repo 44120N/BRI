@@ -1,17 +1,17 @@
 [
     {
         "id": 1,
-        "image": "/BRI/course/limit/limit.png",
+        "image": "/course/limit/limit.png",
         "title": "Limit Function",
         "desc": "Konsep dasar dalam kalkulus dan analisis hasil fungsi di dekat input tertentu.",
         "subject": "MTK",
         "level": "Beginner",
         "Free": true,
-        "href": "/BRI/course/limit"
+        "href": "/course/limit"
     },
     {
         "id": 2,
-        "image": "/BRI/cave2.jpg",
+        "image": "/cave2.jpg",
         "title": "Calculus 1",
         "desc": "An introductory course that teaches fundamental concepts and techniques of calculus.",
         "subject": "MTK",
@@ -20,7 +20,7 @@
     },
     {
         "id": 3,
-        "image": "/BRI/home3.jpg",
+        "image": "/home3.jpg",
         "title": "Learn Python 3",
         "desc": "Learn the basics of Python 3.12, one of the most versatile and in-demand programming languages today.",
         "subject": "INF",
@@ -29,7 +29,7 @@
     },
     {
         "id": 4,
-        "image": "/BRI/ocean4.jpg",
+        "image": "/ocean4.jpg",
         "title": "Calculus 2",
         "desc": "A math course that covers integral and differential calculus, sequences and series, and parametric equations.",
         "subject": "MTK",
@@ -38,7 +38,7 @@
     },
     {
         "id": 5,
-        "image": "/BRI/galaxy1.jpg",
+        "image": "/galaxy1.jpg",
         "title": "Learn Python 2",
         "desc": "Learn the basics of the world's fastest-growing programming language.",
         "subject": "INF",
@@ -47,7 +47,7 @@
     },
     {
         "id": 6,
-        "image": "/BRI/cave2.jpg",
+        "image": "/cave2.jpg",
         "title": "Calculus 1",
         "desc": "An introductory course that teaches fundamental concepts and techniques of calculus.",
         "subject": "MTK",
@@ -56,7 +56,7 @@
     },
     {
         "id": 7,
-        "image": "/BRI/home3.jpg",
+        "image": "/home3.jpg",
         "title": "Learn Python 3",
         "desc": "Learn the basics of Python 3.12, one of the most versatile and in-demand programming languages today.",
         "subject": "INF",
@@ -65,7 +65,7 @@
     },
     {
         "id": 8,
-        "image": "/BRI/ocean4.jpg",
+        "image": "/ocean4.jpg",
         "title": "Calculus 2",
         "desc": "A math course that covers integral and differential calculus, sequences and series, and parametric equations.",
         "subject": "MTK",

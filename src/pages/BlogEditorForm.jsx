@@ -25,7 +25,7 @@ export default function BlogEditorForm() {
             subunit: subunit,
             time: time+' '+timeUnit
         });
-        navigate(`/BRI/editor?${params.toString()}`);
+        navigate(`/editor?${params.toString()}`);
     };
 
     return (

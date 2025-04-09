@@ -22,22 +22,22 @@ const courses = courses_data.slice(0, 4);
 export default function Home() {
     const slides = [
         {
-            bg: "/BRI/galaxy1.jpg",
+            bg: "/galaxy1.jpg",
             titleColor: "primary",
             color: "#fff",
         },
         {
-            bg: "/BRI/cave2.jpg",
+            bg: "/cave2.jpg",
             titleColor: "secondary",
             color: "#fff",
         },
         {
-            bg: "/BRI/home3.jpg",
+            bg: "/home3.jpg",
             titleColor: "tertiary",
             color: "#fff",
         },
         {
-            bg: "/BRI/ocean4.jpg",
+            bg: "/ocean4.jpg",
             titleColor: "quaternary",
             color: "#fff",
         },
@@ -47,7 +47,7 @@ export default function Home() {
     const nav = useNavigate();
     const handleKeyPress = (event) => {
         if (event.key === "Enter") {
-            nav(`/BRI/course?search=${encodeURIComponent(search)}`);
+            nav(`/course?search=${encodeURIComponent(search)}`);
         }
     };
     return (
@@ -91,7 +91,7 @@ export default function Home() {
                             >
                                 Alur Pembelajaran
                             </Typography>
-                            <Link to={"/BRI/course"}>
+                            <Link to={"/course"}>
                                 <Typography color="primary" fontSize={"1em"}>
                                     Lihat Semua
                                 </Typography>
@@ -307,7 +307,7 @@ export default function Home() {
                 </Stack>
                 <Stack>
                     <Tiles
-                        bg={"/BRI/galaxy1.jpg"}
+                        bg={"/galaxy1.jpg"}
                         bgcolor={"primary.main"}
                         bdcolor={"#000"}
                         sx={{
@@ -344,7 +344,7 @@ export default function Home() {
             >
                 <Stack>
                     <Tiles
-                        bg={"/BRI/cave2.jpg"}
+                        bg={"/cave2.jpg"}
                         bgcolor={"secondary.main"}
                         bdcolor={"#000"}
                         sx={{

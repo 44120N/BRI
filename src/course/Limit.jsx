@@ -43,7 +43,7 @@ import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
 //                 </Stack>
 //             </Stack>
 //             <Stack direction={'row'} justifyContent={'center'} alignItems={'center'} my={3}>
-//                 <img src="/BRI/course/limit/limit.png" alt="limit_graph" style={{maxWidth:'80vw'}} />
+//                 <img src="/course/limit/limit.png" alt="limit_graph" style={{maxWidth:'80vw'}} />
 //             </Stack>
 //             <Typography>
 //                 Jadi, apa sebenarnya arti definisi ini?
@@ -291,7 +291,7 @@ export function LimitSyllabus() {
                         </Stack>
                     </Stack>
                     <Stack>
-                        <Link to={"/BRI/course/limit/intro"}>
+                        <Link to={"/course/limit/intro"}>
                             <Button bdcolor={"#000"} sx={{ width: "5em" }}>
                                 {" "}
                                 Mulai
@@ -512,42 +512,42 @@ export function LimitSyllabus() {
 
 export function LimitIntro() {
     return (
-        <Template url={"/BRI/course/limit/intro"} />
+        <Template url={"/course/limit/intro"} />
     );
 }
 
 export function LimitApproach() {
     return (
-        <Template url={"/BRI/course/limit/approach"} />
+        <Template url={"/course/limit/approach"} />
     );
 }
 
 export function LimitProperty() {
     return (
-        <Template url={"/BRI/course/limit/property"} />
+        <Template url={"/course/limit/property"} />
     );
 }
 
 export function LimitEvaluation() {
     return (
-        <Template url={"/BRI/course/limit/evaluation"} />
+        <Template url={"/course/limit/evaluation"} />
     );
 }
 
 export function LimitInf() {
     return (
-        <Template url={"/BRI/course/limit/infinity"} />
+        <Template url={"/course/limit/infinity"} />
     );
 }
 
 export function LimitAtInf() {
     return (
-        <Template url={"/BRI/course/limit/atinfinity"} />
+        <Template url={"/course/limit/atinfinity"} />
     );
 }
 
 export function LimitAtInf2() {
     return (
-        <Template url={"/BRI/course/limit/atinfinity2"} />
+        <Template url={"/course/limit/atinfinity2"} />
     );
 }

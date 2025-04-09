@@ -2,20 +2,20 @@
     {
         "name": "limit",
         "url": [
-            "/BRI/course/limit/intro",
-            "/BRI/course/limit/approach",
-            "/BRI/course/limit/property",
-            "/BRI/course/limit/evaluation",
-            "/BRI/course/limit/infinity",
-            "/BRI/course/limit/atinfinity",
-            "/BRI/course/limit/atinfinity2"
+            "/course/limit/intro",
+            "/course/limit/approach",
+            "/course/limit/property",
+            "/course/limit/evaluation",
+            "/course/limit/infinity",
+            "/course/limit/atinfinity",
+            "/course/limit/atinfinity2"
         ]
     },
     {
         "name": "algebra",
         "url": [
-            "/BRI/course/equations",
-            "/BRI/course/matrices"
+            "/course/equations",
+            "/course/matrices"
         ]
     }
 ]

@@ -23,8 +23,8 @@ const NavButtons = ({ menuItems, sx }) => (
 
 export default function Navbar({course}) {
     const menuItems = [
-        { label: "Home", href: "/BRI/" },
-        { label: "Silabus", href: `/BRI/course/${course}` },
+        { label: "Home", href: "/" },
+        { label: "Silabus", href: `/course/${course}` },
     ];
     const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -45,7 +45,7 @@ export default function Navbar({course}) {
                         {/* Logo */}
                         <IconButton color="inherit" sx={{ p: "1vh 1.5vh", display: { xs: "none", sm: "block" }, }} >
                             <Icon sx={{ height: "5vh" }}>
-                                <img src="/BRI/putih.svg" style={{ maxHeight: "5vh" }} alt="Rumah Ilmiah" />
+                                <img src="/putih.svg" style={{ maxHeight: "5vh" }} alt="Rumah Ilmiah" />
                             </Icon>
                         </IconButton>
 
@@ -53,7 +53,7 @@ export default function Navbar({course}) {
                         <NavButtons menuItems={menuItems} sx={{ display: { xs: "none", sm: "block" } }} />
 
                         {/* Login Button */}
-                        <MuiButton color="inherit" variant="outlined" component={Link} sx={{ textTransform: "capitalize", p: "1vh 1.5vh" }} to="/BRI/login">
+                        <MuiButton color="inherit" variant="outlined" component={Link} sx={{ textTransform: "capitalize", p: "1vh 1.5vh" }} to="/login">
                             Masuk/Daftar Akun
                         </MuiButton>
                     </Stack>

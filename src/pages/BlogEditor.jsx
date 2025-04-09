@@ -35,7 +35,7 @@ export default function BlogEditor() {
         const missing = required.filter(param => !searchParams.get(param));
         
         if (missing.length > 0) {
-            navigate('/BRI/editor-form');
+            navigate('/editor-form');
             return;
         }
 

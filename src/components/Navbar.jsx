@@ -22,8 +22,8 @@ import BookIcon from "@mui/icons-material/MenuBook";
 import RateReviewIcon from "@mui/icons-material/RateReview";
 
 const menuItems = [
-    { label: "Home", href: "/BRI/" },
-    { label: "Blog", href: "/BRI/blog" },
+    { label: "Home", href: "/" },
+    { label: "Blog", href: "/blog" },
     {
         label: "Study",
         dropdown: [
@@ -31,20 +31,20 @@ const menuItems = [
                 label: "Kursus Online",
                 desc: "Belajar di mana saja, kapan saja",
                 icon: <SchoolIcon />,
-                link: "/BRI/course",
+                link: "/course",
             },
             {
                 label: "Webinar & Workshop",
                 desc: "Belajar melalui event premium",
                 icon: <EventIcon />,
                 badge: "Rekomendasi",
-                link: "/BRI/webinar",
+                link: "/webinar",
             },
             {
                 label: "Alur Pembelajaran",
                 desc: "Belajar secara terstruktur dengan silabus",
                 icon: <BookIcon />,
-                link: "/BRI/alur",
+                link: "/alur",
             },
         ],
     },
@@ -108,7 +108,7 @@ export default function Navbar() {
                     >
                         <Icon sx={{ height: "5vh" }}>
                             <img
-                                src="/BRI/putih.svg"
+                                src="/putih.svg"
                                 style={{ maxHeight: "5vh" }}
                                 alt="Rumah Ilmiah"
                             />
@@ -135,7 +135,7 @@ export default function Navbar() {
                         >
                             <Icon sx={{ height: "5vh" }}>
                                 <img
-                                    src="/BRI/putih.svg"
+                                    src="/putih.svg"
                                     style={{ maxHeight: "5vh" }}
                                     alt="Rumah Ilmiah"
                                 />
@@ -153,7 +153,7 @@ export default function Navbar() {
                             variant="outlined"
                             component={Link}
                             sx={{ textTransform: "capitalize", p: "1vh 1.5vh" }}
-                            to="/BRI/login"
+                            to="/login"
                         >
                             Masuk/Daftar Akun
                         </MuiButton>
@@ -186,7 +186,7 @@ export default function Navbar() {
                             }}
                             color="inherit"
                             component={Link}
-                            to="/BRI/"
+                            to="/"
                         >
                             <RateReviewIcon color="white" />
                             <Typography variant="caption">Blog</Typography>
@@ -201,7 +201,7 @@ export default function Navbar() {
                             }}
                             color="inherit"
                             component={Link}
-                            to="/BRI/course"
+                            to="/course"
                         >
                             <SchoolIcon color="white" />
                             <Typography variant="caption">Kursus</Typography>
@@ -216,7 +216,7 @@ export default function Navbar() {
                             }}
                             color="inherit"
                             component={Link}
-                            to="/BRI/"
+                            to="/"
                         >
                             <CottageIcon color="white" />
                             <Typography variant="caption">Home</Typography>
@@ -231,7 +231,7 @@ export default function Navbar() {
                             }}
                             color="inherit"
                             component={Link}
-                            to="/BRI/"
+                            to="/"
                         >
                             <EventIcon color="white" />
                             <Typography variant="caption">Webinar</Typography>
@@ -246,7 +246,7 @@ export default function Navbar() {
                             }}
                             color="inherit"
                             component={Link}
-                            to="/BRI/"
+                            to="/"
                         >
                             <BookIcon color="white" />
                             <Typography variant="caption">Silabus</Typography>
