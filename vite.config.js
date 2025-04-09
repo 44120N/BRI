@@ -4,13 +4,8 @@ import { resolve } from 'path'
 // https://vite.dev/config/
 
 export default defineConfig({
-  base: "/BRI/",
+  base: "/",
   plugins: [react()],
-  server: {
-    host: true,
-    strictPort: true,
-    allowedHosts: "all",
-  },
   build: {
     rollupOptions: {
       input: {

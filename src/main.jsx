@@ -50,7 +50,7 @@ const getInitialRoute = (course) => {
 
 const router = createBrowserRouter([
     {
-        path: "/BRI/",
+        path: "/",
         element: <App />,
         children: [
             { path: "", element: <Home /> },

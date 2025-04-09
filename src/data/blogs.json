@@ -1,7 +1,7 @@
 [
     {
         "name": "limit_intro",
-        "url": "/BRI/course/limit/intro",
+        "url": "/course/limit/intro",
         "unit": "Konsep Limit Fungsi",
         "subunit": "Introduksi Limit",
         "time": "5 min",
@@ -67,7 +67,7 @@
             },
             {
                 "type": "image",
-                "src": "/BRI/course/limit/limit.png",
+                "src": "/course/limit/limit.png",
                 "alt": "limit_graph"
             },
             {
@@ -147,7 +147,7 @@
     },
     {
         "name": "limit_approach",
-        "url": "/BRI/course/limit/approach",
+        "url": "/course/limit/approach",
         "unit": "Konsep Limit Fungsi",
         "subunit": "Pendekatan Limit",
         "time": "5 min",
@@ -418,7 +418,7 @@
     },
     {
         "name": "limit_property",
-        "url": "/BRI/course/limit/property",
+        "url": "/course/limit/property",
         "unit": "Konsep Limit Fungsi",
         "subunit": "Sifat Limit",
         "time": "10 min",
@@ -690,7 +690,7 @@
     },
     {
         "name": "limit_evaluation",
-        "url": "/BRI/course/limit/evaluation",
+        "url": "/course/limit/evaluation",
         "unit": "Komputasi Limit",
         "subunit": "Teknik Evaluasi Limit",
         "time": "10 min",
@@ -1192,7 +1192,7 @@
     },
     {
         "name": "limit_infinity",
-        "url": "/BRI/course/limit/infinity",
+        "url": "/course/limit/infinity",
         "unit": "Konsep Limit Tak Hingga",
         "subunit": "Limit Tak Hingga",
         "time": "10 min",
@@ -1319,7 +1319,7 @@
                                     },
                                     {
                                         "type": "video",
-                                        "src": "/BRI/course/limit/Graph1.mp4"
+                                        "src": "/course/limit/Graph1.mp4"
                                     },
                                     {
                                         "type": "paragraph",
@@ -1443,7 +1443,7 @@
                                     },
                                     {
                                         "type": "video",
-                                        "src": "/BRI/course/limit/Graph2.mp4"
+                                        "src": "/course/limit/Graph2.mp4"
                                     },
                                     {
                                         "type": "paragraph",
@@ -1521,7 +1521,7 @@
                                     },
                                     {
                                         "type": "video",
-                                        "src": "/BRI/course/limit/Graph3.mp4"
+                                        "src": "/course/limit/Graph3.mp4"
                                     },
                                     {
                                         "type": "paragraph",
@@ -1672,7 +1672,7 @@
                                     },
                                     {
                                         "type": "video",
-                                        "src": "/BRI/course/limit/Graph4.mp4"
+                                        "src": "/course/limit/Graph4.mp4"
                                     },
                                     {
                                         "type": "paragraph",
@@ -1763,7 +1763,7 @@
                                     },
                                     {
                                         "type": "video",
-                                        "src": "/BRI/course/limit/TangentGraph.mp4"
+                                        "src": "/course/limit/TangentGraph.mp4"
                                     },
                                     {
                                         "type": "paragraph",
@@ -1856,7 +1856,7 @@
                             },
                             {
                                 "type": "video",
-                                "src": "/BRI/course/limit/LogarithmGraph.mp4"
+                                "src": "/course/limit/LogarithmGraph.mp4"
                             },
                             {
                                 "type": "paragraph",
@@ -1931,7 +1931,7 @@
     },
     {
         "name": "limit_at_infinity",
-        "url": "/BRI/course/limit/atinfinity",
+        "url": "/course/limit/atinfinity",
         "unit": "Konsep Limit Tak Hingga",
         "subunit": "Limit di Tak Hingga (1)",
         "transform": {
@@ -2323,7 +2323,7 @@
     },
     {
         "name": "limit_at_infinity",
-        "url": "/BRI/course/limit/atinfinity2",
+        "url": "/course/limit/atinfinity2",
         "unit": "Konsep Limit Tak Hingga",
         "subunit": "Limit di Tak Hingga (2)",
         "transform": {
@@ -2534,7 +2534,7 @@
     },
     {
         "name": "limit_exp",
-        "url": "/BRI/course/limit/exp",
+        "url": "/course/limit/exp",
         "unit": "Konsep Limit Eksponen",
         "subunit": "Limit Fungsi Eksponen",
         "time": "10 min",
