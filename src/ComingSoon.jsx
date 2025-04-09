@@ -77,7 +77,7 @@ export default function ComingSoon() {
                 </Typography>
                 <Button
                     component={Link}
-                    to="/BRI/"
+                    to="/"
                     variant="contained"
                     color="primary"
                 >
@@ -128,7 +128,7 @@ export default function ComingSoon() {
                                 }}
                             >
                                 <Link
-                                    to="/BRI/"
+                                    to="/"
                                     style={{
                                         textDecoration: "none",
                                         height: "1.5rem",

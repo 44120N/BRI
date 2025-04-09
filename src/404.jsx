@@ -111,7 +111,7 @@ export default function PageNotFound() {
                     }}
                 >
                     <Link
-                        to="/BRI/"
+                        to="/"
                         style={{
                             textDecoration: "none",
                             color: "#b60801",
@@ -169,7 +169,7 @@ export default function PageNotFound() {
                         }}
                     >
                         <Link
-                            to="/BRI/"
+                            to="/"
                             style={{
                                 textDecoration: "none",
                                 color: "#b60801",
