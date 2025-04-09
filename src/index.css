@@ -2,14 +2,14 @@
 
 @font-face {
     font-family: 'Apercu';
-    src: url('/BRI/fonts/ApercuPro.ttf') format('truetype');
+    src: url('/fonts/ApercuPro.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Suisse';
-    src: url('/BRI/fonts/Suisse Int\'l Mono.ttf') format('truetype');
+    src: url('/fonts/Suisse Int\'l Mono.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
