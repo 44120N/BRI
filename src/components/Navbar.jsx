@@ -29,7 +29,7 @@ const menuItems = [
         dropdown: [
             {
                 label: "Kursus Online",
-                desc: "Belajar di mana saja, kapan saja",
+                desc: "Belajar konsepsual di mana saja, kapan saja",
                 icon: <SchoolIcon />,
                 link: "/course",
             },
@@ -38,13 +38,13 @@ const menuItems = [
                 desc: "Belajar melalui event premium",
                 icon: <EventIcon />,
                 badge: "Rekomendasi",
-                link: "/webinar",
+                link: "/comingsoon",
             },
             {
-                label: "Alur Pembelajaran",
-                desc: "Belajar secara terstruktur dengan silabus",
+                label: "Latihan Soal",
+                desc: "Belajar instan melalui latihan soal",
                 icon: <BookIcon />,
-                link: "/alur",
+                link: "/exercise",
             },
         ],
     },
@@ -216,7 +216,7 @@ export default function Navbar() {
                             }}
                             color="inherit"
                             component={Link}
-                            to="/"
+                            to="/comingsoon"
                         >
                             <CottageIcon color="white" />
                             <Typography variant="caption">Home</Typography>
@@ -251,6 +251,106 @@ export default function Navbar() {
                             <BookIcon color="white" />
                             <Typography variant="caption">Silabus</Typography>
                         </Button>
+                    </Stack>
+                </Toolbar>
+            </AppBar>
+        </>
+    );
+}
+
+const NavButtons2 = ({ menuItems, sx }) => (
+    <Stack direction="row" gap={2} sx={sx}>
+        {menuItems.map(({ label, href, dropdown }) =>
+            dropdown ? (
+                <Dropdown key={label} bgcolor="primary.main" color="#fff" bdcolor="#000" items={dropdown}>
+                    {label}
+                </Dropdown>
+            ) : (
+                <MuiButton key={label} color="inherit" component={Link} to={href} sx={{ textTransform: "capitalize", "&:hover": { color: "quaternary.main" } }}>
+                    {label}
+                </MuiButton>
+            )
+        )}
+    </Stack>
+);
+
+export function Navbar2({course}) {
+    const menuItems = [
+        { label: "Home", href: "/" },
+        { label: "Silabus", href: `/course/${course}` },
+    ];
+    const [mobileOpen, setMobileOpen] = useState(false);
+
+    return (
+        <>
+            {/* Mobile Drawer */}
+            <Drawer active={mobileOpen} setActive={setMobileOpen} title="Menu" bgcolor="primary.main" color="#fff" bdcolor="#000" list={menuItems}/>
+
+            {/* Top Navbar */}
+            <AppBar position="sticky" sx={{ bgcolor: "primary.main", boxShadow: "none", borderBottom: "3px solid", borderColor: "black_blue.main", color: "#fff" }}>
+                <Toolbar sx={{justifyContent:"space-between"}}>
+                    {/* Mobile Menu Button */}
+                    <MuiButton color="#fff" bgcolor="primary.main" bdcolor="#000" onClick={() => setMobileOpen(true)} sx={{ display: { xs: "flex", sm: "none" }, p: 1 }}>
+                        <MenuIcon />
+                    </MuiButton>
+
+                    <Stack sx={{ display: { xs: "block", sm: "flex" }, flexGrow: {xs:0, sm:1} }} direction="row" justifyContent="space-around" alignItems="center">
+                        {/* Logo */}
+                        <IconButton color="inherit" sx={{ p: "1vh 1.5vh", display: { xs: "none", sm: "block" }, }} >
+                            <Icon sx={{ height: "5vh" }}>
+                                <img src="/putih.svg" style={{ maxHeight: "5vh" }} alt="Rumah Ilmiah" />
+                            </Icon>
+                        </IconButton>
+
+                        {/* Desktop Navigation */}
+                        <NavButtons2 menuItems={menuItems} sx={{ display: { xs: "none", sm: "block" } }} />
+
+                        {/* Login Button */}
+                        <MuiButton color="inherit" variant="outlined" component={Link} sx={{ textTransform: "capitalize", p: "1vh 1.5vh" }} to="/login">
+                            Masuk/Daftar Akun
+                        </MuiButton>
+                    </Stack>
+                </Toolbar>
+            </AppBar>
+        </>
+    );
+}
+
+export function Navbar3({exercise}) {
+    const menuItems = [
+        { label: "Home", href: "/" },
+        { label: "exercise", href: `/exercise` },
+    ];
+    const [mobileOpen, setMobileOpen] = useState(false);
+
+    return (
+        <>
+            {/* Mobile Drawer */}
+            <Drawer active={mobileOpen} setActive={setMobileOpen} title="Menu" bgcolor="primary.main" color="#fff" bdcolor="#000" list={menuItems}/>
+
+            {/* Top Navbar */}
+            <AppBar position="sticky" sx={{ bgcolor: "primary.main", boxShadow: "none", borderBottom: "3px solid", borderColor: "black_blue.main", color: "#fff" }}>
+                <Toolbar sx={{justifyContent:"space-between"}}>
+                    {/* Mobile Menu Button */}
+                    <MuiButton color="#fff" bgcolor="primary.main" bdcolor="#000" onClick={() => setMobileOpen(true)} sx={{ display: { xs: "flex", sm: "none" }, p: 1 }}>
+                        <MenuIcon />
+                    </MuiButton>
+
+                    <Stack sx={{ display: { xs: "block", sm: "flex" }, flexGrow: {xs:0, sm:1} }} direction="row" justifyContent="space-around" alignItems="center">
+                        {/* Logo */}
+                        <IconButton color="inherit" sx={{ p: "1vh 1.5vh", display: { xs: "none", sm: "block" }, }} >
+                            <Icon sx={{ height: "5vh" }}>
+                                <img src="/putih.svg" style={{ maxHeight: "5vh" }} alt="Rumah Ilmiah" />
+                            </Icon>
+                        </IconButton>
+
+                        {/* Desktop Navigation */}
+                        <NavButtons2 menuItems={menuItems} sx={{ display: { xs: "none", sm: "block" } }} />
+
+                        {/* Login Button */}
+                        <MuiButton color="inherit" variant="outlined" component={Link} sx={{ textTransform: "capitalize", p: "1vh 1.5vh" }} to="/login">
+                            Masuk/Daftar Akun
+                        </MuiButton>
                     </Stack>
                 </Toolbar>
             </AppBar>

@@ -2,6 +2,7 @@ import { StrictMode, useEffect } from "react";
 import { createRoot } from "react-dom/client";
 import App from "./App.jsx";
 import CourseLayout from "./CourseLayout.jsx";
+import ExerciseLayout from "./ExerciseLayout.jsx";
 import "./index.css";
 
 import {
@@ -12,6 +13,7 @@ import {
 import Home from "./pages/Home.jsx";
 import Testing from "./pages/BoilerPlate.jsx";
 import CourseList from "./pages/CourseList.jsx";
+import ExerciseList from "./pages/ExerciseList.jsx";
 import BlogEditor from "./pages/BlogEditor.jsx";
 import BlogEditorForm from "./pages/BlogEditorForm.jsx";
 import {
@@ -24,6 +26,9 @@ import {
     LimitAtInf,
     LimitAtInf2,
 } from "./course/Limit.jsx";
+import { 
+    GasKinetics1 
+} from "./exercise/GasKinetics.jsx";
 import pagesData from "./data/pages.json";
 import PageNotFound from "./404.jsx";
 import ComingSoon from "./ComingSoon.jsx";
@@ -56,17 +61,14 @@ const router = createBrowserRouter([
             { path: "", element: <Home /> },
             { path: "test", element: <Testing /> },
             { path: "course", element: <CourseList /> },
+            { path: "exercise", element: <ExerciseList /> },
             { path: "editor-form", element: <BlogEditorForm /> },
             { path: "editor", element: <BlogEditor /> },
             { path: "course/limit", element: <LimitSyllabus /> },
         ],
     },
     {
-        path: "/webinar",
-        element: <ComingSoon />,
-    },
-    {
-        path: "/alur",
+        path: "/comingsoon",
         element: <ComingSoon />,
     },
     {
@@ -81,6 +83,15 @@ const router = createBrowserRouter([
             { path: "infinity", element: <LimitInf /> },
             { path: "atinfinity", element: <LimitAtInf /> },
             { path: "atinfinity2", element: <LimitAtInf2 /> },
+        ],
+    },
+    {
+        path: "/exercise/gas-kinetics",
+        element: <ExerciseLayout />,
+        children: [
+            { path: "1", element: <GasKinetics1 /> },
+            { path: "2", element: <GasKinetics1 /> },
+            { path: "3", element: <GasKinetics1 /> },
         ],
     },
     {

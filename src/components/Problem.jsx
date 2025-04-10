@@ -18,9 +18,11 @@ export default function Problem({ title, equation, children, instruction, note, 
                             <MathJax>{instruction}</MathJax>
                         </Typography>
                     )}
-                    <Typography fontSize={"1.2em"} textAlign={"center"} sx={{overflowX:"auto", overflowY: "hidden"}}>
-                        <MathJax>{equation}</MathJax>
-                    </Typography>
+                    {equation && (
+                        <Typography fontSize={"1.2em"} textAlign={"center"} sx={{overflowX:"auto", overflowY: "hidden"}}>
+                            <MathJax>{equation}</MathJax>
+                        </Typography>
+                    )}
                     {note && (
                         <Typography fontSize={"1em"} fontWeight={600}>
                             <MathJax>{note}</MathJax>

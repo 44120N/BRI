@@ -17,5 +17,13 @@
             "/course/equations",
             "/course/matrices"
         ]
+    },
+    {
+        "name": "gas-kinetics",
+        "url": [
+            "/exercise/gas-kinetics/1",
+            "/exercise/gas-kinetics/2",
+            "/exercise/gas-kinetics/3"
+        ]
     }
 ]

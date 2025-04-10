@@ -1,21 +1,22 @@
+import { Stack } from "@mui/material";
 import Theme from "./components/Theme";
-import { Navbar2 } from "./components/Navbar";
+import { Navbar3 } from "./components/Navbar";
 import { useEffect, useState } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import { MathJaxContext } from "better-react-mathjax";
-import PageNav from "./components/PageNav";
+import { PageNav2 } from "./components/PageNav";
 import pagesData from "./data/pages.json";
 import ScrollToTop from "./components/ScrollToTop";
 
-export default function CourseLayout() {
+export default function ExerciseLayout() {
     const location = useLocation();
-    const [course, setCourse] = useState(null);
+    const [exercise, setExercise] = useState(null);
 
     useEffect(() => {
-        const foundCourse = pagesData.find(course =>
-            course.url.some(pageUrl => location.pathname.startsWith(pageUrl))
+        const foundExercise = pagesData.find(exercise =>
+            exercise.url.some(pageUrl => location.pathname.startsWith(pageUrl))
         );
-        setCourse(foundCourse || null);
+        setExercise(foundExercise || null);
     }, [location.pathname]);
 
     useEffect(() => {
@@ -27,12 +28,12 @@ export default function CourseLayout() {
             <Stack sx={{minHeight: '100vh'}}>
                 <Theme>
                     <MathJaxContext>
-                        <Navbar2 course={course&&course.name} />
+                        <Navbar3 exercise={exercise&&exercise.name} />
                         <Stack flexGrow={1}>
                             <Outlet />
                         </Stack>
                         <ScrollToTop/>
-                        { course && course.url.length>1 && <PageNav pages={course.url} courseName={course.name} /> }
+                        { exercise && exercise.url.length>1 && <PageNav2 pages={exercise.url} exerciseName={exercise.name} /> }
                     </MathJaxContext>
                 </Theme>
             </Stack>

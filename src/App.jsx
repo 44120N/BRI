@@ -1,3 +1,4 @@
+import { Stack } from "@mui/material";
 import Theme from "./components/Theme";
 import Header from "./components/Header";
 import { Outlet } from "react-router-dom";
@@ -8,14 +9,18 @@ import ScrollToTop from "./components/ScrollToTop";
 export default function App() {
     return (
         <>
-            <Theme>
-                <MathJaxContext>
-                    <Header />
-                    <Outlet />
-                    <ScrollToTop/>
-                    <Footer />
-                </MathJaxContext>
-            </Theme>
+            <Stack sx={{minHeight: '100vh'}}>
+                <Theme>
+                    <MathJaxContext>
+                        <Header />
+                        <Stack flexGrow={1}>
+                            <Outlet />
+                        </Stack>
+                        <ScrollToTop/>
+                        <Footer />
+                    </MathJaxContext>
+                </Theme>
+            </Stack>
         </>
     );
 }
