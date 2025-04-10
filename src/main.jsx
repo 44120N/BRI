@@ -27,7 +27,9 @@ import {
     LimitAtInf2,
 } from "./course/Limit.jsx";
 import { 
-    GasKinetics1 
+    GasKinetics1,
+    GasKinetics2,
+    GasKinetics3,
 } from "./exercise/GasKinetics.jsx";
 import pagesData from "./data/pages.json";
 import PageNotFound from "./404.jsx";
@@ -90,8 +92,8 @@ const router = createBrowserRouter([
         element: <ExerciseLayout />,
         children: [
             { path: "1", element: <GasKinetics1 /> },
-            { path: "2", element: <GasKinetics1 /> },
-            { path: "3", element: <GasKinetics1 /> },
+            { path: "2", element: <GasKinetics2 /> },
+            { path: "3", element: <GasKinetics3 /> },
         ],
     },
     {
