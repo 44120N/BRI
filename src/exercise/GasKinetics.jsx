@@ -440,19 +440,90 @@ export function GasKinetics6() {
                     <Typography fontWeight={600} fontSize={'1.2em'}>Formula:</Typography>
                     <Typography>
                         <MathJax>
-                            {"\\[ \\frac{E_{k}}=\\frac{3}{2}PV \\]"}
+                            {"\\[ E_{k}=\\frac{3}{2}PV \\]"}
+                        </MathJax>
+                    </Typography>
+                    <Typography>
+                        <MathJax>
+                            {"\\[ PV=nRT \\]"}
                         </MathJax>
                     </Typography>
                 </Stack>
                 <Stack gap={3}>
+                    <Typography fontWeight={600} fontSize={'1.2em'}>Jawaban:</Typography>
+                    <Typography>
+                        <MathJax>
+                            {"\\[ (1), (2), (3) \\]"}
+                        </MathJax>
+                    </Typography>
+                </Stack>
+            </Problem>
+        </Stack>
+    )
+}
+
+export function GasKinetics7() {
+    return (
+        <Stack px={{xs:5, sm:8, md:10}} py={4} gap={3} sx={{ backgroundColor: '#fff' }}>
+            <Stack gap={1} direction={'column'}>
+                <Typography textTransform={'uppercase'} variant="body2" letterSpacing={-.5} color="#555">Kinematika Gas</Typography>
+                <Typography textTransform={'capitalize'} fontWeight={700} variant="h5">Latihan Soal</Typography>
+            </Stack>
+            <Typography color="#555">5 min</Typography>
+            <Problem
+                title={'Soal 1'}
+                equation={
+                    "Neon (\\(Ne\\)) adalah suatu gas monoatomik. \
+                    Energi dalam \\(2 \\space g\\) gas neon pada suhu \
+                    \\(50^{\\circ}C\\) jika massa molekul relatifnya \\(M_{r}=10 \\space \\frac{g}{mol}\\) adalah ..."
+                }
+                accordion_text="Pembahasan"
+            >
+                <Stack gap={1} mt={2}>
+                    <Typography fontWeight={600} fontSize={'1.2em'}>Diketahui:</Typography>
+                    <Typography>
+                        <MathJax>
+                            {"\\( m = 2 \\space g \\)"}
+                        </MathJax>
+                    </Typography>
+                    <Typography>
+                        <MathJax>
+                            {"\\( T = 50^{\\circ}C = 323 K \\)"}
+                        </MathJax>
+                    </Typography>
+                    <Typography>
+                        <MathJax>
+                            {"\\( M_{r} = 10 \\space \\frac{g}{mol} \\)"}
+                        </MathJax>
+                    </Typography>
+                </Stack>
+                <Stack>
+                    <Typography fontWeight={600} fontSize={'1.2em'}>Formula:</Typography>
+                    <Typography>
+                        <MathJax>
+                            {"\\[ M_{r}=\\frac{m}{n} \\]"}
+                        </MathJax>
+                    </Typography>
+                    <Typography>
+                        <MathJax>
+                            {"\\[ PV=nRT \\]"}
+                        </MathJax>
+                    </Typography>
+                    <Typography>
+                        <MathJax>
+                            {"\\[ E_{k}=\\frac{3}{2}PV \\]"}
+                        </MathJax>
+                    </Typography>
+                </Stack>
+                <Stack>
                     <Typography fontWeight={600} fontSize={'1.2em'}>Langkah Matematis:</Typography>
                     <Typography>
                         <MathJax>
                             {"\\[ \\begin{aligned} \
-                                \\frac{P_{0}V_{0}}{T_{0}}&=\\frac{P_{1}V_{1}}{T_{1}} \\\\[10pt] \
-                                \\frac{\\rho V_{0}}{27^{\\circ}C}&=\\frac{P (2V_{0})}{54^{\\circ}C} \\\\[10pt] \
-                                P &= \\frac{\\rho V_{0}}{27^{\\circ}C} \\space \\frac{54^{\\circ}C}{2V_{0}} \\\\[10pt] \
-                                P &= \\rho \
+                                n = \\frac{m}{M_{r}} &= \\frac{2 \\space g}{10 \\frac{g}{mol}} = 0,2 \\space mol \\\\[10pt] \
+                                PV = nRT &= (0,2 \\space mol) (0,082 \\space L \\frac{atm}{mol K}) (323 K) = 5.2972 L atm \\\\[10pt] \
+                                E_{k}=\\frac{3}{2}PV &= (0,2 \\space mol) (0,082 \\space L \\frac{atm}{mol K}) (323 K) \\\\[10pt] \
+                                v &= 200 \\space \\frac{m}{s} \
                             \\end{aligned} \\]"}
                         </MathJax>
                     </Typography>
