@@ -124,6 +124,7 @@ export default function Home() {
                                 <Stack
                                     justifyContent={"center"}
                                     alignItems={"center"}
+                                    maxWidth={300}
                                 >
                                     <CourseCard {...item} />
                                 </Stack>

@@ -5,7 +5,8 @@ import { useEffect, useState } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import { MathJaxContext } from "better-react-mathjax";
 import { PageNav2 } from "./components/PageNav";
-import pagesData from "./data/pages.json";
+import {routes} from "./main";
+import { findParentRoute } from "./Utility";
 import ScrollToTop from "./components/ScrollToTop";
 
 export default function ExerciseLayout() {
@@ -13,27 +14,27 @@ export default function ExerciseLayout() {
     const [exercise, setExercise] = useState(null);
 
     useEffect(() => {
-        const foundExercise = pagesData.find(exercise =>
-            exercise.url.some(pageUrl => location.pathname.startsWith(pageUrl))
-        );
-        setExercise(foundExercise || null);
+        const matched = findParentRoute(location.pathname, routes);
+        setExercise(matched);
+        console.log(matched);
     }, [location.pathname]);
-
-    useEffect(() => {
-        window.scrollTo(0, 0)
-    }, [])
+    
+    if (!exercise) return null; // prevent crash until loaded
+    
+    const slug = exercise.path.split('/').filter(Boolean).pop();
+    const url = (exercise.children || []).map(child => `${exercise.path}/${child.path}`);
 
     return (
         <>
             <Stack sx={{minHeight: '100vh'}}>
                 <Theme>
                     <MathJaxContext>
-                        <Navbar3 exercise={exercise&&exercise.name} />
+                        <Navbar3 exercise={slug} />
                         <Stack flexGrow={1}>
                             <Outlet />
                         </Stack>
                         <ScrollToTop/>
-                        { exercise && exercise.url.length>1 && <PageNav2 pages={exercise.url} exerciseName={exercise.name} /> }
+                        { url && url.length>1 && <PageNav2 pages={url} exerciseName={slug} /> }
                     </MathJaxContext>
                 </Theme>
             </Stack>

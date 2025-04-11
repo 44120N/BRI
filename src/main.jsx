@@ -27,31 +27,10 @@ import {
     LimitAtInf2,
 } from "./course/Limit.jsx";
 import * as GK from "./exercise/GasKinetics.jsx";
-import pagesData from "./data/pages.json";
 import PageNotFound from "./404.jsx";
 import ComingSoon from "./ComingSoon.jsx";
 
-const getInitialRoute = (course) => {
-    const courseData = pagesData.find((c) => c.name === course);
-    if (!courseData) return `/course/${course}`;
-
-    const savedProgress = parseInt(
-        localStorage.getItem(`progress_${course}`),
-        10
-    );
-
-    if (
-        isNaN(savedProgress) ||
-        savedProgress < 0 ||
-        savedProgress >= courseData.url.length
-    ) {
-        return courseData.url[0];
-    }
-
-    return courseData.url[savedProgress];
-};
-
-const router = createBrowserRouter([
+export const routes = [
     {
         path: "/",
         element: <App />,
@@ -99,7 +78,9 @@ const router = createBrowserRouter([
         path: "*",
         element: <PageNotFound />,
     },
-]);
+]
+
+const router = createBrowserRouter(routes);
 
 createRoot(document.getElementById("root")).render(
     <StrictMode>
