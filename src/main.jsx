@@ -76,6 +76,18 @@ export const routes = [
         ],
     },
     {
+        path: "/exercise/trigonometry",
+        element: <ExerciseLayout />,
+        children: [
+            { path: "1", element: <GK.GasKinetics1 /> },
+            { path: "2", element: <GK.GasKinetics2 /> },
+            { path: "3", element: <GK.GasKinetics3 /> },
+            { path: "4", element: <GK.GasKinetics4 /> },
+            { path: "5", element: <GK.GasKinetics5 /> },
+            { path: "6", element: <GK.GasKinetics6 /> },
+        ],
+    },
+    {
         path: "*",
         element: <PageNotFound />,
     },
