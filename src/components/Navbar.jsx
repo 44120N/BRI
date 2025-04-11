@@ -97,19 +97,20 @@ const BottomNavButtons = ({ menuItems }) => (
                         icon,
                     }))}
                 >
-                    <Button
+                    <Stack
                         sx={{
                             display: { xs: "flex", sm: "none" },
                             p: 1,
                             justifyContent: "center",
                             flexDirection: "column",
                             alignItems: "center",
+                            textTransform: "uppercase",
                         }}
                         color="inherit"
                     >
                         {icon}
                         <Typography variant="caption">{label}</Typography>
-                    </Button>
+                    </Stack>
                 </Dropdown>
             ) : (
                 <Button
@@ -366,17 +367,6 @@ export function Navbar3({ exercise }) {
 
     return (
         <>
-            {/* Mobile Drawer */}
-            <Drawer
-                active={mobileOpen}
-                setActive={setMobileOpen}
-                title="Menu"
-                bgcolor="primary.main"
-                color="#fff"
-                bdcolor="#000"
-                list={menuItems}
-            />
-
             {/* Top Navbar */}
             <AppBar
                 position="sticky"

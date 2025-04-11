@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
 import { Stack, Typography, useTheme } from "@mui/material";
 import Button from "./components/Button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./comingsoon.css";
 
 export default function ComingSoon() {
+    const navigate = useNavigate();
     useEffect(() => {
         const handleMouseMove = (e) => {
             // Normalize cursor position (-0.5 to 0.5)
@@ -76,25 +77,20 @@ export default function ComingSoon() {
                     This page is under development. Please check back later!
                 </Typography>
                 <Button
+                    onClick={() => navigate("/")}
                     sx={{
                         bgcolor: "#fef0da",
                         width: "fit-content",
+                        textDecoration: "none",
+                        height: "1.5rem",
+                        color: "#b60801",
+                        fontWeight: "900",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        display: "flex",
                     }}
                 >
-                    <Link
-                        to="/"
-                        style={{
-                            textDecoration: "none",
-                            height: "1.5rem",
-                            color: "#b60801",
-                            fontWeight: "900",
-                            alignItems: "center",
-                            justifyContent: "center",
-                            display: "flex",
-                        }}
-                    >
-                        Go Home &rArr;
-                    </Link>
+                    Go Home &rArr;
                 </Button>
             </Stack>
 
@@ -138,6 +134,7 @@ export default function ComingSoon() {
                                 sx={{
                                     bgcolor: "#fef0da",
                                     width: "fit-content",
+                                    p: 0,
                                 }}
                             >
                                 <Link
