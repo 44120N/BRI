@@ -44,7 +44,7 @@ body {
     );
 }
 
-.parallax__clouds {
+.parallax__cloud {
     background-image: url("/cs_2.png");
     transform: translate(
         calc(-50% + var(--parallax_mist-x) * 150px),

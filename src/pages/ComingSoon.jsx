@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { Stack, Typography, useTheme } from "@mui/material";
-import Button from "./components/Button";
+import Button from "../components/Button";
 import { Link, useNavigate } from "react-router-dom";
-import "./comingsoon.css";
+import "../css/comingsoon.css";
 
 export default function ComingSoon() {
     const navigate = useNavigate();
@@ -104,7 +104,7 @@ export default function ComingSoon() {
             >
                 <Stack className="parallax__bg"></Stack>
                 <Stack className="parallax__mountain"></Stack>
-                <Stack className="parallax__clouds"></Stack>
+                <Stack className="parallax__cloud"></Stack>
                 <Stack className="parallax__mist"></Stack>
                 <Stack
                     className="parallax__button"
@@ -131,26 +131,17 @@ export default function ComingSoon() {
                         </Typography>
                         <Stack sx={{ alignItems: "end" }}>
                             <Button
+                                onClick={() => navigate("/")}
                                 sx={{
                                     bgcolor: "#fef0da",
                                     width: "fit-content",
-                                    p: 0,
+                                    color: "#b60801",
+                                    textDecoration: "none",
+                                    height: "1.5rem",
+                                    fontWeight: "900",
                                 }}
                             >
-                                <Link
-                                    to="/"
-                                    style={{
-                                        textDecoration: "none",
-                                        height: "1.5rem",
-                                        color: "#b60801",
-                                        fontWeight: "900",
-                                        alignItems: "center",
-                                        justifyContent: "center",
-                                        display: "flex",
-                                    }}
-                                >
-                                    Go Home &rArr;
-                                </Link>
+                                Go Home &rArr;
                             </Button>
                         </Stack>
                     </Stack>
