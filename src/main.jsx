@@ -72,6 +72,7 @@ export const routes = [
             { path: "4", element: <GK.GasKinetics4 /> },
             { path: "5", element: <GK.GasKinetics5 /> },
             { path: "6", element: <GK.GasKinetics6 /> },
+            { path: "7", element: <GK.GasKinetics7 /> },
         ],
     },
     {
