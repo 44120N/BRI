@@ -1,9 +1,12 @@
 import { Stack, Typography, Button } from "@mui/material";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
-import "./404.css";
+import { useNavigate } from "react-router-dom";
+import "../css/404.css";
 
 export default function PageNotFound() {
+    const navigate = useNavigate();
+
     useEffect(() => {
         const handleMouseMove = (e) => {
             // Normalize cursor position (-0.5 to 0.5)
@@ -162,22 +165,15 @@ export default function PageNotFound() {
                     }}
                 >
                     <Button
+                        component={"a"}
+                        onClick={() => navigate("/")}
                         sx={{
                             height: "1.5rem",
                             bgcolor: "#fef0da",
                             width: "fit-content",
                         }}
                     >
-                        <Link
-                            to="/"
-                            style={{
-                                textDecoration: "none",
-                                color: "#b60801",
-                                fontWeight: "900",
-                            }}
-                        >
-                            Go Home &rArr;
-                        </Link>
+                        Go Home &rArr;
                     </Button>
                 </Stack>
             </Stack>

@@ -27,8 +27,8 @@ import {
     LimitAtInf2,
 } from "./course/Limit.jsx";
 import * as GK from "./exercise/GasKinetics.jsx";
-import PageNotFound from "./404.jsx";
-import ComingSoon from "./ComingSoon.jsx";
+import PageNotFound from "./pages/404.jsx";
+import ComingSoon from "./pages/ComingSoon.jsx";
 
 export const routes = [
     {
@@ -90,7 +90,7 @@ export const routes = [
         path: "*",
         element: <PageNotFound />,
     },
-]
+];
 
 const router = createBrowserRouter(routes);
 
