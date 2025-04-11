@@ -22,8 +22,8 @@ import BookIcon from "@mui/icons-material/MenuBook";
 import RateReviewIcon from "@mui/icons-material/RateReview";
 
 const menuItems = [
-    { label: "Home", href: "/" },
-    { label: "Blog", href: "/blog" },
+    { label: "Home", href: "/", icon: <CottageIcon /> },
+    { label: "Blog", href: "/blog", icon: <RateReviewIcon /> },
     {
         label: "Study",
         dropdown: [
@@ -47,6 +47,7 @@ const menuItems = [
                 link: "/exercise",
             },
         ],
+        icon: <SchoolIcon />,
     },
 ];
 
@@ -76,6 +77,57 @@ const NavButtons = ({ sx }) => (
                 >
                     {label}
                 </MuiButton>
+            )
+        )}
+    </Stack>
+);
+
+const BottomNavButtons = ({ menuItems }) => (
+    <Stack direction="row" gap={1}>
+        {menuItems.map(({ label, href, dropdown, icon }) =>
+            dropdown ? (
+                <Dropdown
+                    key={label}
+                    bgcolor="primary.main"
+                    color="#fff"
+                    bdcolor="#000"
+                    items={dropdown.map(({ label, link, icon }) => ({
+                        label,
+                        link,
+                        icon,
+                    }))}
+                >
+                    <Button
+                        sx={{
+                            display: { xs: "flex", sm: "none" },
+                            p: 1,
+                            justifyContent: "center",
+                            flexDirection: "column",
+                            alignItems: "center",
+                        }}
+                        color="inherit"
+                    >
+                        {icon}
+                        <Typography variant="caption">{label}</Typography>
+                    </Button>
+                </Dropdown>
+            ) : (
+                <Button
+                    key={label}
+                    sx={{
+                        display: { xs: "flex", sm: "none" },
+                        p: 1,
+                        justifyContent: "center",
+                        flexDirection: "column",
+                        alignItems: "center",
+                    }}
+                    color="inherit"
+                    component={Link}
+                    to={href}
+                >
+                    {icon}
+                    <Typography variant="caption">{label}</Typography>
+                </Button>
             )
         )}
     </Stack>
@@ -175,83 +227,7 @@ export default function Navbar() {
                 }}
             >
                 <Toolbar>
-                    <Stack direction="row" gap={1}>
-                        <Button
-                            sx={{
-                                display: { xs: "flex", sm: "none" },
-                                p: 1,
-                                justifyContent: "center",
-                                flexDirection: "column",
-                                alignItems: "center",
-                            }}
-                            color="inherit"
-                            component={Link}
-                            to="/"
-                        >
-                            <RateReviewIcon color="white" />
-                            <Typography variant="caption">Blog</Typography>
-                        </Button>
-                        <Button
-                            sx={{
-                                display: { xs: "flex", sm: "none" },
-                                p: 1,
-                                justifyContent: "center",
-                                flexDirection: "column",
-                                alignItems: "center",
-                            }}
-                            color="inherit"
-                            component={Link}
-                            to="/course"
-                        >
-                            <SchoolIcon color="white" />
-                            <Typography variant="caption">Kursus</Typography>
-                        </Button>
-                        <Button
-                            sx={{
-                                display: { xs: "flex", sm: "none" },
-                                p: 1,
-                                justifyContent: "center",
-                                flexDirection: "column",
-                                alignItems: "center",
-                            }}
-                            color="inherit"
-                            component={Link}
-                            to="/comingsoon"
-                        >
-                            <CottageIcon color="white" />
-                            <Typography variant="caption">Home</Typography>
-                        </Button>
-                        <Button
-                            sx={{
-                                display: { xs: "flex", sm: "none" },
-                                p: 1,
-                                justifyContent: "center",
-                                flexDirection: "column",
-                                alignItems: "center",
-                            }}
-                            color="inherit"
-                            component={Link}
-                            to="/"
-                        >
-                            <EventIcon color="white" />
-                            <Typography variant="caption">Webinar</Typography>
-                        </Button>
-                        <Button
-                            sx={{
-                                display: { xs: "flex", sm: "none" },
-                                p: 1,
-                                justifyContent: "center",
-                                flexDirection: "column",
-                                alignItems: "center",
-                            }}
-                            color="inherit"
-                            component={Link}
-                            to="/"
-                        >
-                            <BookIcon color="white" />
-                            <Typography variant="caption">Silabus</Typography>
-                        </Button>
-                    </Stack>
+                    <BottomNavButtons menuItems={menuItems} />
                 </Toolbar>
             </AppBar>
         </>
@@ -262,11 +238,26 @@ const NavButtons2 = ({ menuItems, sx }) => (
     <Stack direction="row" gap={2} sx={sx}>
         {menuItems.map(({ label, href, dropdown }) =>
             dropdown ? (
-                <Dropdown key={label} bgcolor="primary.main" color="#fff" bdcolor="#000" items={dropdown}>
+                <Dropdown
+                    key={label}
+                    bgcolor="primary.main"
+                    color="#fff"
+                    bdcolor="#000"
+                    items={dropdown}
+                >
                     {label}
                 </Dropdown>
             ) : (
-                <MuiButton key={label} color="inherit" component={Link} to={href} sx={{ textTransform: "capitalize", "&:hover": { color: "quaternary.main" } }}>
+                <MuiButton
+                    key={label}
+                    color="inherit"
+                    component={Link}
+                    to={href}
+                    sx={{
+                        textTransform: "capitalize",
+                        "&:hover": { color: "quaternary.main" },
+                    }}
+                >
                     {label}
                 </MuiButton>
             )
@@ -274,7 +265,7 @@ const NavButtons2 = ({ menuItems, sx }) => (
     </Stack>
 );
 
-export function Navbar2({course}) {
+export function Navbar2({ course }) {
     const menuItems = [
         { label: "Home", href: "/" },
         { label: "Silabus", href: `/course/${course}` },
@@ -284,29 +275,79 @@ export function Navbar2({course}) {
     return (
         <>
             {/* Mobile Drawer */}
-            <Drawer active={mobileOpen} setActive={setMobileOpen} title="Menu" bgcolor="primary.main" color="#fff" bdcolor="#000" list={menuItems}/>
+            <Drawer
+                active={mobileOpen}
+                setActive={setMobileOpen}
+                title="Menu"
+                bgcolor="primary.main"
+                color="#fff"
+                bdcolor="#000"
+                list={menuItems}
+            />
 
             {/* Top Navbar */}
-            <AppBar position="sticky" sx={{ bgcolor: "primary.main", boxShadow: "none", borderBottom: "3px solid", borderColor: "black_blue.main", color: "#fff" }}>
-                <Toolbar sx={{justifyContent:"space-between"}}>
+            <AppBar
+                position="sticky"
+                sx={{
+                    bgcolor: "primary.main",
+                    boxShadow: "none",
+                    borderBottom: "3px solid",
+                    borderColor: "black_blue.main",
+                    color: "#fff",
+                }}
+            >
+                <Toolbar sx={{ justifyContent: "space-between" }}>
                     {/* Mobile Menu Button */}
-                    <MuiButton color="#fff" bgcolor="primary.main" bdcolor="#000" onClick={() => setMobileOpen(true)} sx={{ display: { xs: "flex", sm: "none" }, p: 1 }}>
+                    <MuiButton
+                        color="#fff"
+                        bgcolor="primary.main"
+                        bdcolor="#000"
+                        onClick={() => setMobileOpen(true)}
+                        sx={{ display: { xs: "flex", sm: "none" }, p: 1 }}
+                    >
                         <MenuIcon />
                     </MuiButton>
 
-                    <Stack sx={{ display: { xs: "block", sm: "flex" }, flexGrow: {xs:0, sm:1} }} direction="row" justifyContent="space-around" alignItems="center">
+                    <Stack
+                        sx={{
+                            display: { xs: "block", sm: "flex" },
+                            flexGrow: { xs: 0, sm: 1 },
+                        }}
+                        direction="row"
+                        justifyContent="space-around"
+                        alignItems="center"
+                    >
                         {/* Logo */}
-                        <IconButton color="inherit" sx={{ p: "1vh 1.5vh", display: { xs: "none", sm: "block" }, }} >
+                        <IconButton
+                            color="inherit"
+                            sx={{
+                                p: "1vh 1.5vh",
+                                display: { xs: "none", sm: "block" },
+                            }}
+                        >
                             <Icon sx={{ height: "5vh" }}>
-                                <img src="/putih.svg" style={{ maxHeight: "5vh" }} alt="Rumah Ilmiah" />
+                                <img
+                                    src="/putih.svg"
+                                    style={{ maxHeight: "5vh" }}
+                                    alt="Rumah Ilmiah"
+                                />
                             </Icon>
                         </IconButton>
 
                         {/* Desktop Navigation */}
-                        <NavButtons2 menuItems={menuItems} sx={{ display: { xs: "none", sm: "block" } }} />
+                        <NavButtons2
+                            menuItems={menuItems}
+                            sx={{ display: { xs: "none", sm: "block" } }}
+                        />
 
                         {/* Login Button */}
-                        <MuiButton color="inherit" variant="outlined" component={Link} sx={{ textTransform: "capitalize", p: "1vh 1.5vh" }} to="/login">
+                        <MuiButton
+                            color="inherit"
+                            variant="outlined"
+                            component={Link}
+                            sx={{ textTransform: "capitalize", p: "1vh 1.5vh" }}
+                            to="/login"
+                        >
                             Masuk/Daftar Akun
                         </MuiButton>
                     </Stack>
@@ -316,7 +357,7 @@ export function Navbar2({course}) {
     );
 }
 
-export function Navbar3({exercise}) {
+export function Navbar3({ exercise }) {
     const menuItems = [
         { label: "Home", href: "/" },
         { label: "exercise", href: `/exercise` },
@@ -326,29 +367,79 @@ export function Navbar3({exercise}) {
     return (
         <>
             {/* Mobile Drawer */}
-            <Drawer active={mobileOpen} setActive={setMobileOpen} title="Menu" bgcolor="primary.main" color="#fff" bdcolor="#000" list={menuItems}/>
+            <Drawer
+                active={mobileOpen}
+                setActive={setMobileOpen}
+                title="Menu"
+                bgcolor="primary.main"
+                color="#fff"
+                bdcolor="#000"
+                list={menuItems}
+            />
 
             {/* Top Navbar */}
-            <AppBar position="sticky" sx={{ bgcolor: "primary.main", boxShadow: "none", borderBottom: "3px solid", borderColor: "black_blue.main", color: "#fff" }}>
-                <Toolbar sx={{justifyContent:"space-between"}}>
+            <AppBar
+                position="sticky"
+                sx={{
+                    bgcolor: "primary.main",
+                    boxShadow: "none",
+                    borderBottom: "3px solid",
+                    borderColor: "black_blue.main",
+                    color: "#fff",
+                }}
+            >
+                <Toolbar sx={{ justifyContent: "space-between" }}>
                     {/* Mobile Menu Button */}
-                    <MuiButton color="#fff" bgcolor="primary.main" bdcolor="#000" onClick={() => setMobileOpen(true)} sx={{ display: { xs: "flex", sm: "none" }, p: 1 }}>
+                    <MuiButton
+                        color="#fff"
+                        bgcolor="primary.main"
+                        bdcolor="#000"
+                        onClick={() => setMobileOpen(true)}
+                        sx={{ display: { xs: "flex", sm: "none" }, p: 1 }}
+                    >
                         <MenuIcon />
                     </MuiButton>
 
-                    <Stack sx={{ display: { xs: "block", sm: "flex" }, flexGrow: {xs:0, sm:1} }} direction="row" justifyContent="space-around" alignItems="center">
+                    <Stack
+                        sx={{
+                            display: { xs: "block", sm: "flex" },
+                            flexGrow: { xs: 0, sm: 1 },
+                        }}
+                        direction="row"
+                        justifyContent="space-around"
+                        alignItems="center"
+                    >
                         {/* Logo */}
-                        <IconButton color="inherit" sx={{ p: "1vh 1.5vh", display: { xs: "none", sm: "block" }, }} >
+                        <IconButton
+                            color="inherit"
+                            sx={{
+                                p: "1vh 1.5vh",
+                                display: { xs: "none", sm: "block" },
+                            }}
+                        >
                             <Icon sx={{ height: "5vh" }}>
-                                <img src="/putih.svg" style={{ maxHeight: "5vh" }} alt="Rumah Ilmiah" />
+                                <img
+                                    src="/putih.svg"
+                                    style={{ maxHeight: "5vh" }}
+                                    alt="Rumah Ilmiah"
+                                />
                             </Icon>
                         </IconButton>
 
                         {/* Desktop Navigation */}
-                        <NavButtons2 menuItems={menuItems} sx={{ display: { xs: "none", sm: "block" } }} />
+                        <NavButtons2
+                            menuItems={menuItems}
+                            sx={{ display: { xs: "none", sm: "block" } }}
+                        />
 
                         {/* Login Button */}
-                        <MuiButton color="inherit" variant="outlined" component={Link} sx={{ textTransform: "capitalize", p: "1vh 1.5vh" }} to="/login">
+                        <MuiButton
+                            color="inherit"
+                            variant="outlined"
+                            component={Link}
+                            sx={{ textTransform: "capitalize", p: "1vh 1.5vh" }}
+                            to="/login"
+                        >
                             Masuk/Daftar Akun
                         </MuiButton>
                     </Stack>

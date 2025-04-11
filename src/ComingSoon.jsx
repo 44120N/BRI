@@ -55,7 +55,7 @@ export default function ComingSoon() {
                     backgroundSize: "100px 100px",
                     backgroundColor: "#f6f4eb",
                     zIndex: 0,
-                    p:5,
+                    p: 5,
                 }}
                 justifyContent="center"
                 alignItems="start"
@@ -76,12 +76,25 @@ export default function ComingSoon() {
                     This page is under development. Please check back later!
                 </Typography>
                 <Button
-                    component={Link}
-                    to="/"
-                    variant="contained"
-                    color="primary"
+                    sx={{
+                        bgcolor: "#fef0da",
+                        width: "fit-content",
+                    }}
                 >
-                    Go Home &rArr;
+                    <Link
+                        to="/"
+                        style={{
+                            textDecoration: "none",
+                            height: "1.5rem",
+                            color: "#b60801",
+                            fontWeight: "900",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            display: "flex",
+                        }}
+                    >
+                        Go Home &rArr;
+                    </Link>
                 </Button>
             </Stack>
 
