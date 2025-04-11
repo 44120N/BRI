@@ -488,7 +488,7 @@ export function GasKinetics7() {
                     </Typography>
                     <Typography>
                         <MathJax>
-                            {"\\( T = 50^{\\circ}C = 323 K \\)"}
+                            {"\\( T = 50^{\\circ}C = 323 \\space K \\)"}
                         </MathJax>
                     </Typography>
                     <Typography>
@@ -521,9 +521,245 @@ export function GasKinetics7() {
                         <MathJax>
                             {"\\[ \\begin{aligned} \
                                 n = \\frac{m}{M_{r}} &= \\frac{2 \\space g}{10 \\frac{g}{mol}} = 0,2 \\space mol \\\\[10pt] \
-                                PV = nRT &= (0,2 \\space mol) (0,082 \\space L \\frac{atm}{mol K}) (323 K) = 5.2972 L atm \\\\[10pt] \
-                                E_{k}=\\frac{3}{2}PV &= (0,2 \\space mol) (0,082 \\space L \\frac{atm}{mol K}) (323 K) \\\\[10pt] \
-                                v &= 200 \\space \\frac{m}{s} \
+                                PV = nRT &= (0,2 \\space mol) \\biggl(0,082 \\space L \\space \\frac{atm}{mol \\space K}\\biggl) (323,15 \\space K) = 5,29966 \\space L \\space atm \\\\[10pt] \
+                                E_{k}=\\frac{3}{2}PV &= \\frac{3}{2}(5,29966 \\space L \\space atm) =  7,94949 \\space L \\space atm = 805,28 \\space J \\\\[10pt] \
+                            \\end{aligned} \\]"}
+                        </MathJax>
+                    </Typography>
+                </Stack>
+            </Problem>
+        </Stack>
+    )
+}
+
+export function GasKinetics8() {
+    return (
+        <Stack px={{xs:5, sm:8, md:10}} py={4} gap={3} sx={{ backgroundColor: '#fff' }}>
+            <Stack gap={1} direction={'column'}>
+                <Typography textTransform={'uppercase'} variant="body2" letterSpacing={-.5} color="#555">Kinematika Gas</Typography>
+                <Typography textTransform={'capitalize'} fontWeight={700} variant="h5">Latihan Soal</Typography>
+            </Stack>
+            <Typography color="#555">5 min</Typography>
+            <Problem
+                title={'Soal 8'}
+                equation={
+                    "Pada hukum Boyle \\(P \\cdot V = k\\), \\(k\\) mempunyai dimensi ..."
+                }
+                accordion_text="Pembahasan"
+            >
+                <Stack gap={1} mt={2}>
+                    <Typography fontWeight={600} fontSize={'1.2em'}>Diketahui:</Typography>
+                    <Typography>
+                        <MathJax>
+                            {"\\( k=PV \\)"}
+                        </MathJax>
+                    </Typography>
+                </Stack>
+                <Stack>
+                    <Typography fontWeight={600} fontSize={'1.2em'}>Formula:</Typography>
+                    <Typography>
+                        <MathJax>
+                            {"\\[ F=ma \\]"}
+                        </MathJax>
+                    </Typography>
+                    <Typography>
+                        <MathJax>
+                            {"\\[ P=\\frac{F}{A} \\]"}
+                        </MathJax>
+                    </Typography>
+                </Stack>
+                <Stack>
+                    <Typography fontWeight={600} fontSize={'1.2em'}>Langkah Matematis:</Typography>
+                    <Typography>
+                        <MathJax>
+                            {"\\[ \\begin{aligned} \
+                                k&=\\frac{F}{A} \\cdot V \\\\[10pt] \
+                                &=F \\cdot l \\\\[10pt] \
+                                &=W \\\\[10pt] \
+                                &=\\text{Usaha} \
+                            \\end{aligned} \\]"}
+                        </MathJax>
+                    </Typography>
+                </Stack>
+            </Problem>
+        </Stack>
+    )
+}
+
+export function GasKinetics9() {
+    const item = [
+        "Kecepatan rms rata-rata dari molekul menjadi dua kali",
+        "Suhu berubah menjadi \\(600 \\space K\\)",
+        "Momentum rata-rata dari molekul menjadi dua kali",
+        "Suhu berubah menjadi \\(300^{2} \\space K\\)",
+        "Kecepatan rata-rata molekul menjadi dua kali",
+    ]
+    return (
+        <Stack px={{xs:5, sm:8, md:10}} py={4} gap={3} sx={{ backgroundColor: '#fff' }}>
+            <Stack gap={1} direction={'column'}>
+                <Typography textTransform={'uppercase'} variant="body2" letterSpacing={-.5} color="#555">Kinematika Gas</Typography>
+                <Typography textTransform={'capitalize'} fontWeight={700} variant="h5">Latihan Soal</Typography>
+            </Stack>
+            <Typography color="#555">5 min</Typography>
+            <Problem
+                title={'Soal 9'}
+                equation={
+                    <>
+                        <Typography fontSize={'1em'}>
+                            <MathJax>
+                                {"Suatu gas ideal pada \\(300 \\space K\\) \
+                                dipanaskan dengan volume tetap, \
+                                sehingga energi kinetik rata-rata \
+                                dari molekul gas menjadi dua kali \
+                                lipat. Pernyataan berikut ini yang \
+                                tepat adalah ..."}
+                            </MathJax>
+                        </Typography>
+                        <Grid2 container spacing={.5} direction={'column'}>
+                            {item.map((listItem, listIndex) => (
+                                <Grid2 xs={3} sm={3} key={listIndex}>
+                                    <Stack direction="row" alignItems="center" gap={1}>
+                                        <Typography sx={{ color: item.color||"primary.main", fontSize: "1em" }}>{String.fromCharCode(97 + listIndex)}.&nbsp;</Typography>
+                                        <Typography 
+                                            variant="body1"
+                                            fontSize={{ xs: ".8em", sm: "1em" }}
+                                            color="black_blue"
+                                        >
+                                            <MathJax>
+                                                {listItem}
+                                            </MathJax>
+                                        </Typography>
+                                    </Stack>
+                                </Grid2>
+                            ))}
+                        </Grid2>
+                    </>
+                }
+                accordion_text="Pembahasan"
+            >
+                <Stack gap={1} mt={2}>
+                    <Typography fontWeight={600} fontSize={'1.2em'}>Diketahui:</Typography>
+                    <Typography>
+                        <MathJax>
+                            {"\\( T=300 \\space K \\)"}
+                        </MathJax>
+                    </Typography>
+                    <Typography>
+                        <MathJax>
+                            {"\\( E_{k1} = 2E_{k0} \\)"}
+                        </MathJax>
+                    </Typography>
+                </Stack>
+                <Stack>
+                    <Typography fontWeight={600} fontSize={'1.2em'}>Formula:</Typography>
+                    <Typography>
+                        <MathJax>
+                            {"\\[ P=mv \\]"}
+                        </MathJax>
+                    </Typography>
+                    <Typography>
+                        <MathJax>
+                            {"\\[ E_{k}=\\frac{3}{2}PV = \\frac{3}{2}nkT \\]"}
+                        </MathJax>
+                    </Typography>
+                    <Typography>
+                        <MathJax>
+                            {"\\[ v=\\sqrt{\\frac{3kT}{m}} \\]"}
+                        </MathJax>
+                    </Typography>
+                </Stack>
+                <Stack>
+                    <Typography fontWeight={600} fontSize={'1.2em'}>Langkah Matematis:</Typography>
+                    <Stack gap={3}>
+                        <Stack>
+                            <Typography>
+                                <MathJax>
+                                    {"\\[ \\begin{aligned} \
+                                        E_{k1}&=2E_{k0} \\\\[10pt] \
+                                        \\frac{3}{2}nkT &= 2 \\biggl(\\frac{3}{2}nk(300 \\space K)\\biggl) \\\\[10pt] \
+                                        T&=600 \\space K \\\\[10pt] \
+                                    \\end{aligned} \\]"}
+                                </MathJax>
+                            </Typography>
+                            <Typography textAlign={{xs:'center'}}>Pernyataan <Typography component={'span'} color="secondary" fontWeight={600}>b</Typography> benar, pernyataan <Typography component={'span'} color="tertiary" fontWeight={600}>d</Typography> salah </Typography>
+                        </Stack>
+                        <Stack>
+                            <Typography>
+                                <MathJax>
+                                    {"\\[ \\begin{aligned} \
+                                        \\frac{v_{0}}{v_{1}}&=\\sqrt{\\frac{T_{0}}{T_{1}}} \\\\[10pt] \
+                                        \\frac{v_{0}}{v_{1}}&=\\sqrt{\\frac{300}{600}} \\\\[10pt] \
+                                        v_{1}&=\\sqrt{2}v_{0} \\space K \\\\[10pt] \
+                                    \\end{aligned} \\]"}
+                                </MathJax>
+                            </Typography>
+                            <Typography textAlign={{xs:'center'}}>Pernyataan <Typography component={'span'} color="tertiary" fontWeight={600}>a</Typography>, <Typography component={'span'} color="tertiary" fontWeight={600}>c</Typography>, dan <Typography component={'span'} color="tertiary" fontWeight={600}>e</Typography>  salah </Typography>
+                        </Stack>
+                    </Stack>
+                </Stack>
+            </Problem>
+        </Stack>
+    )
+}
+
+export function GasKinetics10() {
+    return (
+        <Stack px={{xs:5, sm:8, md:10}} py={4} gap={3} sx={{ backgroundColor: '#fff' }}>
+            <Stack gap={1} direction={'column'}>
+                <Typography textTransform={'uppercase'} variant="body2" letterSpacing={-.5} color="#555">Kinematika Gas</Typography>
+                <Typography textTransform={'capitalize'} fontWeight={700} variant="h5">Latihan Soal</Typography>
+            </Stack>
+            <Typography color="#555">5 min</Typography>
+            <Problem
+                title={'Soal 10'}
+                equation={
+                    "Massa sebuah molekul nitrogen \
+                    adalah empat belas kali massa \
+                    sebuah molekul hidrogen. Dengan \
+                    demikian, molekul-molekul \
+                    nitrogen pada suhu \\(294 \\space K\\) \
+                    mempunyai laju rata-rata yang \
+                    sama dengan molekul-molekul \
+                    hidrogen pada suhu ..."
+                }
+                accordion_text="Pembahasan"
+            >
+                <Stack gap={1} mt={2}>
+                    <Typography fontWeight={600} fontSize={'1.2em'}>Diketahui:</Typography>
+                    <Typography>
+                        <MathJax>
+                            {"\\( m_{N} = 14m_{H} \\space g \\)"}
+                        </MathJax>
+                    </Typography>
+                    <Typography>
+                        <MathJax>
+                            {"\\( T_{N} = 294 \\space K \\)"}
+                        </MathJax>
+                    </Typography>
+                    <Typography>
+                        <MathJax>
+                            {"\\( v_{N} = v_{H} \\)"}
+                        </MathJax>
+                    </Typography>
+                </Stack>
+                <Stack>
+                    <Typography fontWeight={600} fontSize={'1.2em'}>Formula:</Typography>
+                    <Typography>
+                        <MathJax>
+                            {"\\[ v=\\sqrt{\\frac{3kT}{m}} \\]"}
+                        </MathJax>
+                    </Typography>
+                </Stack>
+                <Stack>
+                    <Typography fontWeight={600} fontSize={'1.2em'}>Langkah Matematis:</Typography>
+                    <Typography>
+                        <MathJax>
+                            {"\\[ \\begin{aligned} \
+                                v_{N} &= v_{H} \\\\[10pt] \
+                                \\sqrt{\\frac{3kT_{N}}{m_{N}}} &= \\sqrt{\\frac{3kT_{H}}{m_{H}}} \\\\[10pt] \
+                                \\frac{T_{N}}{m_{N}} &= \\frac{T_{H}}{m_{H}} \\\\[10pt] \
+                                \\frac{249 \\space K}{14m_{H}} &= \\frac{T_{H}}{m_{H}} \\\\[10pt] \
+                                T_{H} &= 10,5 \\space K \\\\[10pt] \
                             \\end{aligned} \\]"}
                         </MathJax>
                     </Typography>
