@@ -65,27 +65,6 @@ export function PageNav2({ pages, exerciseName }) {
         >
             {/* Main Navigation */}
             <Stack direction="row" justifyContent="space-around" alignItems="center" px={2}>
-                <Stack direction="row" gap={3}>
-                    <Button
-                    disabled={index === 0}
-                    sx={{ width: '4em', px: 2, py: 1 }}
-                    bgcolor="primary.main"
-                    bdcolor="#000"
-                    onClick={() => handleNavigation(index - 1)}
-                    >
-                    Back
-                    </Button>
-                    <Button
-                    disabled={index === pages.length - 1}
-                    sx={{ width: '4em', px: 2, py: 1 }}
-                    bgcolor="primary.main"
-                    bdcolor="#000"
-                    onClick={() => handleNavigation(index + 1)}
-                    >
-                    Next
-                    </Button>
-                </Stack>
-                <Typography color="#fff">{index + 1} / {pages.length}</Typography>
                 <Box sx={{ position: 'relative' }}>
                     <Button
                     sx={{ px: 2, py: 1 }}
@@ -114,64 +93,87 @@ export function PageNav2({ pages, exerciseName }) {
                         }}
                     >
                         <Box
-                        sx={{
-                            display: 'grid',
-                            gridTemplateColumns: `repeat(${columns}, 1fr)`,
-                            gap: 1,
-                        }}
+                            sx={{
+                                display: 'grid',
+                                gridTemplateColumns: `repeat(${columns}, 1fr)`,
+                                gap: 1,
+                            }}
                         >
-                        {gridPages.map((page, i) => {
-                            const pageIndex = gridPage * gridSize + i;
-                            return (
-                            <Box
-                                key={i}
-                                onClick={() => handleNavigation(pageIndex)}
-                                sx={{
-                                width: 42,
-                                height: 42,
-                                border: '2px solid black',
-                                borderRadius: 1,
-                                backgroundColor: pageIndex === index ? 'primary.main' : '#ccc',
-                                color: pageIndex === index ? '#fff' : '#000',
-                                fontWeight: 600,
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                cursor: 'pointer',
-                                transition: 'all 0.2s ease',
-                                '&:hover': {
-                                    backgroundColor: 'primary.dark',
-                                    color: '#fff',
-                                    transform: 'scale(1.1)',
-                                },
-                                }}
-                            >
-                                {pageIndex + 1}
-                            </Box>
-                            );
-                        })}
+                            {gridPages.map((page, i) => {
+                                const pageIndex = gridPage * gridSize + i;
+                                return (
+                                <Box
+                                    key={i}
+                                    onClick={() => handleNavigation(pageIndex)}
+                                    sx={{
+                                    width: 42,
+                                    height: 42,
+                                    border: '2px solid black',
+                                    borderRadius: 1,
+                                    backgroundColor: pageIndex === index ? 'primary.main' : '#ccc',
+                                    color: pageIndex === index ? '#fff' : '#000',
+                                    fontWeight: 600,
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    cursor: 'pointer',
+                                    transition: 'all 0.2s ease',
+                                    '&:hover': {
+                                        backgroundColor: 'primary.dark',
+                                        color: '#fff',
+                                        transform: 'scale(1.1)',
+                                    },
+                                    }}
+                                >
+                                    {pageIndex + 1}
+                                </Box>
+                                );
+                            })}
                         </Box>
         
                         {/* Pagination Dots */}
-                        <Box display="flex" justifyContent="center" mt={1} gap={1}>
-                        {[...Array(totalGrids)].map((_, i) => (
-                            <Box
-                            key={i}
-                            onClick={() => setGridPage(i)}
-                            sx={{
-                                width: 10,
-                                height: 10,
-                                borderRadius: '50%',
-                                backgroundColor: i === gridPage ? '#3949ab' : '#bbb',
-                                cursor: 'pointer',
-                                transition: 'all 0.2s',
-                            }}
-                            />
-                        ))}
-                        </Box>
+                        {pages.length>16 &&
+                            <Box display="flex" justifyContent="center" mt={1} gap={1}>
+                                {[...Array(totalGrids)].map((_, i) => (
+                                    <Box
+                                    key={i}
+                                    onClick={() => setGridPage(i)}
+                                    sx={{
+                                        width: 10,
+                                        height: 10,
+                                        borderRadius: '50%',
+                                        backgroundColor: i === gridPage ? '#3949ab' : '#bbb',
+                                        cursor: 'pointer',
+                                        transition: 'all 0.2s',
+                                    }}
+                                    />
+                                ))}
+                            </Box>
+                        }
                     </Box>
                     </Collapse>
                 </Box>
+                <Typography color="#fff">{index + 1} / {pages.length}</Typography>
+                <Stack direction="row" gap={3}>
+                    <Button
+                    disabled={index === 0}
+                    sx={{ width: '4em', px: 2, py: 1 }}
+                    bgcolor="primary.main"
+                    bdcolor="#000"
+                    onClick={() => handleNavigation(index - 1)}
+                    >
+                    Back
+                    </Button>
+                    <Button
+                    disabled={index === pages.length - 1}
+                    sx={{ width: '4em', px: 2, py: 1 }}
+                    bgcolor="primary.main"
+                    bdcolor="#000"
+                    onClick={() => handleNavigation(index + 1)}
+                    >
+                    Next
+                    </Button>
+                </Stack>
             </Stack>
         </Stack>
     );

@@ -26,11 +26,7 @@ import {
     LimitAtInf,
     LimitAtInf2,
 } from "./course/Limit.jsx";
-import { 
-    GasKinetics1,
-    GasKinetics2,
-    GasKinetics3,
-} from "./exercise/GasKinetics.jsx";
+import * as GK from "./exercise/GasKinetics.jsx";
 import pagesData from "./data/pages.json";
 import PageNotFound from "./404.jsx";
 import ComingSoon from "./ComingSoon.jsx";
@@ -91,9 +87,12 @@ const router = createBrowserRouter([
         path: "/exercise/gas-kinetics",
         element: <ExerciseLayout />,
         children: [
-            { path: "1", element: <GasKinetics1 /> },
-            { path: "2", element: <GasKinetics2 /> },
-            { path: "3", element: <GasKinetics3 /> },
+            { path: "1", element: <GK.GasKinetics1 /> },
+            { path: "2", element: <GK.GasKinetics2 /> },
+            { path: "3", element: <GK.GasKinetics3 /> },
+            { path: "4", element: <GK.GasKinetics4 /> },
+            { path: "5", element: <GK.GasKinetics5 /> },
+            { path: "6", element: <GK.GasKinetics6 /> },
         ],
     },
     {
